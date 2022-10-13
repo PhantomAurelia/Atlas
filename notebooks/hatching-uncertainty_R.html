@@ -42,6 +42,41 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "PhantomAurelia/Atlas");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -53,7 +88,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Computing and visualization of precipitation linear trends during the observed period (1980-2014)" href="linear-trends_R.html" />
-    <link rel="prev" title="Selecting reference regions used for every CORDEX domain" href="CORDEX-overlaps_Python.html" />
+    <link rel="prev" title="GeoTIFF file post-processing: Spatial operations" href="GeoTIFF-post-processing_R.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -179,6 +214,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="CORDEX-overlaps_Python.html">
    Selecting reference regions used for every CORDEX domain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="GeoTIFF-post-processing_R.html">
+   GeoTIFF file post-processing: Spatial operations
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -378,6 +418,23 @@ title="Open an issue"
 
       </li>
       
+      <li>
+        <a href="https://github.com/PhantomAurelia/Atlas/edit/jb-test/./notebooks/hatching-uncertainty_R.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
     </ul>
   </div>
 </div>
@@ -566,7 +623,7 @@ title="Print to PDF"
 <p>08/07/2021</p>
 <p><strong>M. Iturbide</strong> (Santander Meteorology Group. Institute of Physics of Cantabria, CSIC-UC, Santander, Spain).</p>
 <p>This notebook is an example of calculation and visualization of the AR6-WGI uncertainty methods (simple and advanced) for projected delta changes. Please refer to the AR6 WGI Cross-Chapter Box Atlas 1 for more information.</p>
-<p>Example data available at <a class="reference internal" href="auxiliary-material/auxiliary-material.html#auxiliary-material"><span class="std std-ref">auxiliary-material</span></a> is used. The base hatching R-functions are defined in <span class="xref myst">datasets-interactive-atlas/hatching-functions/hatching-functions.R</span>.</p>
+<p>Example data available at <span class="xref myst">auxiliary-material</span> is used. The base hatching R-functions are defined in <a class="reference download internal" download="" href="../_downloads/b8fec28adb28f63a63e6e0ec416b1546/hatching-functions.R"><code class="xref download docutils literal notranslate"><span class="pre">datasets-interactive-atlas/hatching-functions/hatching-functions.R</span></code></a>.</p>
 <p>Two main sections in this notebook provide two ways of creating hatched maps:</p>
 <ul class="simple">
 <li><p>(A) An <strong>easy one-step way</strong> to create maps including uncertainty information</p></li>
@@ -658,7 +715,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>The base <strong>hatching R-functions</strong> are defined in <span class="xref myst">datasets-interactive-atlas / hatching-functions / hatching-functions.R</span>. Additionally, a wrapper function applying the previous is also available in <span class="xref myst">datasets-interactive-atlas / hatching-functions / AR6-WGI-hatching.R</span>. To load the functions in the working environment use the <code class="docutils literal notranslate"><span class="pre">source</span></code> R base function as follows.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">source</span><span class="p">(</span><span class="s">&quot;../datasets-interactive-atlas/hatching-functions/hatching-functions.R&quot;</span><span class="p">)</span>
 <span class="nf">source</span><span class="p">(</span><span class="s">&quot;../datasets-interactive-atlas/hatching-functions/AR6-WGI-hatching.R&quot;</span><span class="p">)</span>
@@ -666,6 +723,11 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>The scripts are available for download:</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/b8fec28adb28f63a63e6e0ec416b1546/hatching-functions.R"><code class="xref download docutils literal notranslate"><span class="pre">hatching-functions.R</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/47ba7ef97df83c510bd24c4283b0c84c/AR6-WGI-hatching.R"><code class="xref download docutils literal notranslate"><span class="pre">AR6-WGI-hatching.R</span></code></a></p></li>
+</ul>
 </section>
 <section id="a-easy-one-step-way-to-create-maps-including-uncertainty-information">
 <h2>(A) Easy one-step way to create maps including uncertainty information<a class="headerlink" href="#a-easy-one-step-way-to-create-maps-including-uncertainty-information" title="Permalink to this headline">#</a></h2>
@@ -680,13 +742,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:03] Doing inventory ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:22] Doing inventory ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:03] Retrieving info for &#39;pr&#39; (0 vars remaining)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:26] Retrieving info for &#39;pr&#39; (0 vars remaining)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:03] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:26] Done.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of 1
@@ -733,28 +795,28 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:03] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:30] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:03] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:30] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:03] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:30] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:06] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:32] Done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:06] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:36] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:06] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:36] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:06] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:36] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:06] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:36] Done
 </pre></div>
 </div>
 </div>
@@ -777,7 +839,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/hatching-uncertainty_R_13_0.png" src="../_images/hatching-uncertainty_R_13_0.png" />
+<img alt="../_images/hatching-uncertainty_R_14_0.png" src="../_images/hatching-uncertainty_R_14_0.png" />
 </div>
 </div>
 <p>To plot the relative delta, it needs to be explicitly provided. In this case, it is available in this repository as auxiliary material. Add more graphical parameters until the desired output is obtained. E.g. we can manually set the range of the color bar.</p>
@@ -791,16 +853,16 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:06] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:40] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:06] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:40] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:06] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:40] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:06] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:40] Done
 </pre></div>
 </div>
 </div>
@@ -812,7 +874,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/hatching-uncertainty_R_16_0.png" src="../_images/hatching-uncertainty_R_16_0.png" />
+<img alt="../_images/hatching-uncertainty_R_17_0.png" src="../_images/hatching-uncertainty_R_17_0.png" />
 </div>
 </div>
 <p>We can change to the <code class="docutils literal notranslate"><span class="pre">advanced</span></code> method easily (<code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">advanced</span></code>). The advanced method is based on the presence/absence of signal with respect to the interannual variability of a reference period (here pre-industrial, 1850-1900). This method has two components:</p>
@@ -836,7 +898,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/hatching-uncertainty_R_19_0.png" src="../_images/hatching-uncertainty_R_19_0.png" />
+<img alt="../_images/hatching-uncertainty_R_20_0.png" src="../_images/hatching-uncertainty_R_20_0.png" />
 </div>
 </div>
 <p>To export the map you can use the following code:</p>
@@ -857,13 +919,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:10] Doing inventory ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:44] Doing inventory ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:10] Retrieving info for &#39;pr&#39; (0 vars remaining)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:48] Retrieving info for &#39;pr&#39; (0 vars remaining)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:10] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:48] Done.
 </pre></div>
 </div>
 </div>
@@ -877,28 +939,28 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:11] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:52] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:11] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:52] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:11] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:52] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:11] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:52] Done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:11] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:56] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:11] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:56] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:11] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:56] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:11] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:56] Done
 </pre></div>
 </div>
 </div>
@@ -921,34 +983,34 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:11] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:56] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:17] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:01] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:18] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:02] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:23] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:07] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:24] - Aggregating members...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:08] - Aggregating members...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:24] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:08] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:24] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:08] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:29] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:13] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:30] - Aggregating members...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:13] - Aggregating members...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:30] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:14] - Done.
 </pre></div>
 </div>
 </div>
@@ -962,7 +1024,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/hatching-uncertainty_R_29_0.png" src="../_images/hatching-uncertainty_R_29_0.png" />
+<img alt="../_images/hatching-uncertainty_R_30_0.png" src="../_images/hatching-uncertainty_R_30_0.png" />
 </div>
 </div>
 <p>And this would be the relative delta change for the ensemble mean.</p>
@@ -974,7 +1036,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/hatching-uncertainty_R_31_0.png" src="../_images/hatching-uncertainty_R_31_0.png" />
+<img alt="../_images/hatching-uncertainty_R_32_0.png" src="../_images/hatching-uncertainty_R_32_0.png" />
 </div>
 </div>
 </section>
@@ -989,13 +1051,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:38] - Aggregating members...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:22] - Aggregating members...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:39] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:22] - Done.
 </pre></div>
 </div>
-<img alt="../_images/hatching-uncertainty_R_34_2.png" src="../_images/hatching-uncertainty_R_34_2.png" />
+<img alt="../_images/hatching-uncertainty_R_35_2.png" src="../_images/hatching-uncertainty_R_35_2.png" />
 </div>
 </div>
 <p>This simple approach represents model agreement with two categories: 1 indicates high model agreement, where at least 80% of models agree on the sign of change; 0 indicates low model agreement, where fewer than 80% of models agree on sign of change. Note that model agreement is computed at a gridbox level and is not representative of regionally aggregated results over larger regions.</p>
@@ -1010,13 +1072,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:39] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:22] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:39] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:22] - Done.
 </pre></div>
 </div>
-<img alt="../_images/hatching-uncertainty_R_36_2.png" src="../_images/hatching-uncertainty_R_36_2.png" />
+<img alt="../_images/hatching-uncertainty_R_37_2.png" src="../_images/hatching-uncertainty_R_37_2.png" />
 </div>
 </div>
 <p>We can overlay the hatching on the relative delta to produce the final figure (the hatches are passed to argument <code class="docutils literal notranslate"><span class="pre">sp.layout</span></code>)</p>
@@ -1036,7 +1098,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/hatching-uncertainty_R_38_0.png" src="../_images/hatching-uncertainty_R_38_0.png" />
+<img alt="../_images/hatching-uncertainty_R_39_0.png" src="../_images/hatching-uncertainty_R_39_0.png" />
 </div>
 </div>
 </section>
@@ -1063,16 +1125,16 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:40] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:27] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:40] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:27] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:40] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:27] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:40] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:27] Done
 </pre></div>
 </div>
 </div>
@@ -1085,10 +1147,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:40] - Aggregating members...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:28] - Aggregating members...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:41] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:28] - Done.
 </pre></div>
 </div>
 </div>
@@ -1100,10 +1162,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:41] - Aggregating members...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:28] - Aggregating members...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:41] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:28] - Done.
 </pre></div>
 </div>
 </div>
@@ -1117,8 +1179,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/hatching-uncertainty_R_46_0.png" src="../_images/hatching-uncertainty_R_46_0.png" />
-<img alt="../_images/hatching-uncertainty_R_46_1.png" src="../_images/hatching-uncertainty_R_46_1.png" />
+<img alt="../_images/hatching-uncertainty_R_47_0.png" src="../_images/hatching-uncertainty_R_47_0.png" />
+<img alt="../_images/hatching-uncertainty_R_47_1.png" src="../_images/hatching-uncertainty_R_47_1.png" />
 </div>
 </div>
 <p>The additional step consists on combining this map (<code class="docutils literal notranslate"><span class="pre">advanced2.aux</span></code>) with the map we obtained by the simple hatching approach (<code class="docutils literal notranslate"><span class="pre">simple</span></code>). As a result, we get a three-valued map.</p>
@@ -1130,7 +1192,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/hatching-uncertainty_R_48_0.png" src="../_images/hatching-uncertainty_R_48_0.png" />
+<img alt="../_images/hatching-uncertainty_R_49_0.png" src="../_images/hatching-uncertainty_R_49_0.png" />
 </div>
 </div>
 <p>The different values arise from:</p>
@@ -1149,7 +1211,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/hatching-uncertainty_R_50_0.png" src="../_images/hatching-uncertainty_R_50_0.png" />
+<img alt="../_images/hatching-uncertainty_R_51_0.png" src="../_images/hatching-uncertainty_R_51_0.png" />
 </div>
 </div>
 <p>We can now create the hatches for the two components (<code class="docutils literal notranslate"><span class="pre">advanced1</span></code> and <code class="docutils literal notranslate"><span class="pre">advanced2</span></code>) of the advanced hatching method. For the second component, we opted for using crosses to obscure the map. To do this, we simply apply again the <code class="docutils literal notranslate"><span class="pre">map.hatching</span></code> function, but using different angles (<code class="docutils literal notranslate"><span class="pre">angle</span> <span class="pre">=</span> <span class="pre">&quot;45&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">angle</span> <span class="pre">=</span> <span class="pre">&quot;-45&quot;</span></code>) each time.</p>
@@ -1165,22 +1227,22 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:42] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:29] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:42] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:29] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:43] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:30] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:43] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:30] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:43] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:30] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:43] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:30] - Done.
 </pre></div>
 </div>
 </div>
@@ -1194,7 +1256,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/hatching-uncertainty_R_53_0.png" src="../_images/hatching-uncertainty_R_53_0.png" />
+<img alt="../_images/hatching-uncertainty_R_54_0.png" src="../_images/hatching-uncertainty_R_54_0.png" />
 </div>
 </div>
 <p>We can overlay the hatching on the relative delta to produce the final figure (the hatches are passed to argument <code class="docutils literal notranslate"><span class="pre">sp.layout</span></code>)</p>
@@ -1214,7 +1276,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/hatching-uncertainty_R_55_0.png" src="../_images/hatching-uncertainty_R_55_0.png" />
+<img alt="../_images/hatching-uncertainty_R_56_0.png" src="../_images/hatching-uncertainty_R_56_0.png" />
 </div>
 </div>
 <p>We could also add the hatching to the ensemble mean of the absolute deltas (instead of the relative ones) just replacing in the above code the first line by:</p>
@@ -1234,7 +1296,7 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Ubuntu 22.04.1 LTS
+Running under: Fedora Linux 36 (Workstation Edition)
 
 Matrix products: default
 BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
@@ -1315,11 +1377,11 @@ loaded via a namespace (and not attached):
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="CORDEX-overlaps_Python.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="GeoTIFF-post-processing_R.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Selecting reference regions used for every CORDEX domain</p>
+            <p class="prev-next-title">GeoTIFF file post-processing: Spatial operations</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="linear-trends_R.html" title="next page">

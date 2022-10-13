@@ -42,6 +42,41 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "PhantomAurelia/Atlas");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -181,6 +216,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="CORDEX-overlaps_Python.html">
    Selecting reference regions used for every CORDEX domain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="GeoTIFF-post-processing_R.html">
+   GeoTIFF file post-processing: Spatial operations
   </a>
  </li>
  <li class="toctree-l1">
@@ -376,6 +416,23 @@ title="Open an issue"
   <i class="fas fa-lightbulb"></i>
   </span>
 <span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/PhantomAurelia/Atlas/edit/jb-test/./notebooks/global-warming-levels_R.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
 </a>
 
       </li>
@@ -578,13 +635,15 @@ title="Print to PDF"
 <p>The function <a class="reference external" href="https://github.com/IPCC-WG1/Atlas/blob/devel/warming-levels/scripts/getGWL.R"><code class="docutils literal notranslate"><span class="pre">getGWL</span></code></a> performs the key task of GWL determination. It is an atomic function to compute the timing of a user-defined transient Global Warming Level, that uses as input a numeric vector of mean global annual temperature projections for a given GCM. This numeric vector must be named, using the corresponding years as names. Both pre-industrial baseline (default to 1850-1900) and transient period (usually up to year 2100) are concatenated in a single input vector.</p>
 <p>The following example is intended to work with the global mean (land+sea) 2-m temperature data stored as <em>.csv</em> files in the <a class="reference external" href="https://github.com/IPCC-WG1/Atlas/blob/devel/datasets-aggregated-regionally">datasets-aggregated-regionally</a> directory.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">getGWL</span></code> function is loaded by issuing:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">source</span><span class="p">(</span><span class="s">&quot;../warming-levels/scripts/getGWL.R&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>The script is available for download:</p>
+<p><a class="reference download internal" download="" href="../_downloads/dfb30b22fffbebe904a0c18c71d6ea49/getGWL.R"><code class="xref download docutils literal notranslate"><span class="pre">getGWL.R</span></code></a></p>
 </section>
 <section id="example-for-one-single-cmip5-gcm">
 <h2>Example for one single CMIP5 GCM<a class="headerlink" href="#example-for-one-single-cmip5-gcm" title="Permalink to this headline">#</a></h2>
@@ -708,7 +767,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/global-warming-levels_R_15_0.png" src="../_images/global-warming-levels_R_15_0.png" />
+<img alt="../_images/global-warming-levels_R_16_0.png" src="../_images/global-warming-levels_R_16_0.png" />
 </div>
 </div>
 <p>The same procedure is next carried out with the RCP 8.5 experiment data, adapting the pattern used in the regular expression to retrieve the corresponding data and repeating the rest of the steps:</p>
@@ -730,7 +789,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/global-warming-levels_R_17_0.png" src="../_images/global-warming-levels_R_17_0.png" />
+<img alt="../_images/global-warming-levels_R_18_0.png" src="../_images/global-warming-levels_R_18_0.png" />
 </div>
 </div>
 <p>We can now also plot the concatenated historical + RCP85 time series. A vertical dashed line is added to differentiate both experiments.</p>
@@ -748,7 +807,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/global-warming-levels_R_19_0.png" src="../_images/global-warming-levels_R_19_0.png" />
+<img alt="../_images/global-warming-levels_R_20_0.png" src="../_images/global-warming-levels_R_20_0.png" />
 </div>
 </div>
 </section>
@@ -838,7 +897,7 @@ attr(,&quot;interval&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/global-warming-levels_R_29_0.png" src="../_images/global-warming-levels_R_29_0.png" />
+<img alt="../_images/global-warming-levels_R_30_0.png" src="../_images/global-warming-levels_R_30_0.png" />
 </div>
 </div>
 <p>A more detailed <a class="reference external" href="https://github.com/IPCC-WG1/Atlas/blob/devel/warming-levels/scripts/gwl_time_series_plots.R">script</a> for representing the GWL spread of CMIP5 and CMIP6 multimodel ensembles with a flexible parameter setting is provided in the <code class="docutils literal notranslate"><span class="pre">warming-levels/scripts</span></code> directory.</p>
@@ -855,7 +914,7 @@ attr(,&quot;interval&quot;)
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Ubuntu 22.04.1 LTS
+Running under: Fedora Linux 36 (Workstation Edition)
 
 Matrix products: default
 BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so

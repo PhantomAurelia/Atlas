@@ -42,6 +42,41 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "PhantomAurelia/Atlas");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -179,6 +214,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="CORDEX-overlaps_Python.html">
    Selecting reference regions used for every CORDEX domain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="GeoTIFF-post-processing_R.html">
+   GeoTIFF file post-processing: Spatial operations
   </a>
  </li>
  <li class="toctree-l1">
@@ -374,6 +414,23 @@ title="Open an issue"
   <i class="fas fa-lightbulb"></i>
   </span>
 <span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/PhantomAurelia/Atlas/edit/jb-test/./notebooks/reference-regions_Python.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
 </a>
 
       </li>
@@ -648,7 +705,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.6.2&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.7.0&#39;
 </pre></div>
 </div>
 </div>
@@ -663,7 +720,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.18.2&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.19.0&#39;
 </pre></div>
 </div>
 </div>
@@ -714,6 +771,10 @@ ocean : Regions
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/regions.py:410: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for p in poly:
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;regionmask.Regions&gt;
 Name:     AR6 reference regions
 Source:   Iturbide et al., 2020 (Earth Syst. Sci. Data)
@@ -747,7 +808,15 @@ Regions:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_12_0.png" src="../_images/reference-regions_Python_12_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/utils.py:15: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  polys += list(p)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/utils.py:15: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  polys += list(p)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/plot.py:28: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
+  coords = _polygons_coords(polygons)
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_Python_12_1.png" src="../_images/reference-regions_Python_12_1.png" />
 </div>
 </div>
 <p>The plot can also be customized:</p>
@@ -770,7 +839,15 @@ Regions:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_14_0.png" src="../_images/reference-regions_Python_14_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:228: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(multi_line_string) &gt; 1:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:280: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for line in multi_line_string:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:347: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(p_mline) &gt; 0:
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_Python_14_1.png" src="../_images/reference-regions_Python_14_1.png" />
 </div>
 </div>
 </section>
@@ -809,7 +886,25 @@ Regions:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_18_0.png" src="../_images/reference-regions_Python_18_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/plot.py:28: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
+  coords = _polygons_coords(polygons)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:228: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(multi_line_string) &gt; 1:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:280: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for line in multi_line_string:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:347: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(p_mline) &gt; 0:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_Python_18_1.png" src="../_images/reference-regions_Python_18_1.png" />
 </div>
 </div>
 <p>Regions can also be selected by their abbreviation or name, let’s select several regions at once:</p>
@@ -919,7 +1014,23 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_25_0.png" src="../_images/reference-regions_Python_25_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:228: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(multi_line_string) &gt; 1:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:280: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for line in multi_line_string:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:347: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(p_mline) &gt; 0:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_Python_25_1.png" src="../_images/reference-regions_Python_25_1.png" />
 </div>
 </div>
 </section>
@@ -929,6 +1040,12 @@ Coordinates:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar6_land</span> <span class="o">=</span> <span class="n">regionmask</span><span class="o">.</span><span class="n">defined_regions</span><span class="o">.</span><span class="n">ar6</span><span class="o">.</span><span class="n">land</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/regions.py:410: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for p in poly:
 </pre></div>
 </div>
 </div>
@@ -956,7 +1073,29 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_31_0.png" src="../_images/reference-regions_Python_31_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:228: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(multi_line_string) &gt; 1:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:280: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for line in multi_line_string:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:347: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(p_mline) &gt; 0:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/utils.py:15: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  polys += list(p)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/utils.py:15: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  polys += list(p)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/plot.py:28: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
+  coords = _polygons_coords(polygons)
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_Python_31_1.png" src="../_images/reference-regions_Python_31_1.png" />
 </div>
 </div>
 </section>
@@ -1030,7 +1169,23 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_35_0.png" src="../_images/reference-regions_Python_35_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:228: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(multi_line_string) &gt; 1:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:280: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for line in multi_line_string:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:347: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(p_mline) &gt; 0:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_Python_35_1.png" src="../_images/reference-regions_Python_35_1.png" />
 </div>
 </div>
 <section id="select-a-region-of-a-3d-mask">
@@ -1072,7 +1227,15 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_39_0.png" src="../_images/reference-regions_Python_39_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:228: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(multi_line_string) &gt; 1:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:280: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for line in multi_line_string:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:347: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(p_mline) &gt; 0:
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_Python_39_1.png" src="../_images/reference-regions_Python_39_1.png" />
 </div>
 </div>
 <p>Note this also works with a 2D mask, using <code class="docutils literal notranslate"><span class="pre">tas.where(mask_2D</span> <span class="pre">==</span> <span class="pre">2)</span></code>.</p>
@@ -1139,7 +1302,25 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_47_0.png" src="../_images/reference-regions_Python_47_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/regions.py:410: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for p in poly:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:228: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(multi_line_string) &gt; 1:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:280: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for line in multi_line_string:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:347: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(p_mline) &gt; 0:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_Python_47_1.png" src="../_images/reference-regions_Python_47_1.png" />
 </div>
 </div>
 <p>To create the combined mask we multiply the two:</p>
@@ -1161,7 +1342,29 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_51_0.png" src="../_images/reference-regions_Python_51_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/utils.py:15: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  polys += list(p)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/utils.py:15: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  polys += list(p)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/regionmask/core/plot.py:28: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
+  coords = _polygons_coords(polygons)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:228: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(multi_line_string) &gt; 1:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:239: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings = list(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:280: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  for line in multi_line_string:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:347: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  if len(p_mline) &gt; 0:
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+/home/phanaur/mambaforge/envs/tfg2/lib/python3.7/site-packages/cartopy/crs.py:385: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
+  line_strings.extend(multi_line_string)
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_Python_51_1.png" src="../_images/reference-regions_Python_51_1.png" />
 </div>
 </div>
 <p>We can now again calculate the regional mean temperature for all land points:</p>

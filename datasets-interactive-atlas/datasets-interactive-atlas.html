@@ -42,6 +42,41 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "PhantomAurelia/Atlas");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -179,6 +214,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../notebooks/CORDEX-overlaps_Python.html">
    Selecting reference regions used for every CORDEX domain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks/GeoTIFF-post-processing_R.html">
+   GeoTIFF file post-processing: Spatial operations
   </a>
  </li>
  <li class="toctree-l1">
@@ -349,6 +389,23 @@ title="Open an issue"
 
       </li>
       
+      <li>
+        <a href="https://github.com/PhantomAurelia/Atlas/edit/jb-test/./datasets-interactive-atlas/datasets-interactive-atlas.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
     </ul>
   </div>
 </div>
@@ -472,18 +529,18 @@ title="Print to PDF"
 <section id="script-list">
 <h2>Script list<a class="headerlink" href="#script-list" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p><span class="xref myst">01_index_calculation_bias_corrected.R</span></p></li>
-<li><p><span class="xref myst">01_index_calculation.R</span></p></li>
-<li><p><span class="xref myst">01_index_calculation_SPI.R</span></p></li>
-<li><p><span class="xref myst">02_interpolation.R</span></p></li>
-<li><p><span class="xref myst">03_ensemble_building.R</span></p></li>
-<li><p><span class="xref myst">04_map_figures.R</span></p></li>
-<li><p><span class="xref myst">bias-correction</span> / <span class="xref myst">bias_correction_isimip3.R</span></p></li>
-<li><p><span class="xref myst">hatching-functions</span> / <span class="xref myst">hatching-functions.R</span></p></li>
-<li><p><span class="xref myst">bash-interpolation-scripts</span> / <span class="xref myst">AtlasCDOremappeR_CMIP6_Omon.sh</span></p></li>
-<li><p><span class="xref myst">bash-interpolation-scripts</span> / <span class="xref myst">AtlasCDOremappeR_CMIP.sh</span></p></li>
-<li><p><span class="xref myst">bash-interpolation-scripts</span> / <span class="xref myst">AtlasCDOremappeR_CORDEX</span> / <span class="xref myst">AtlasCDOremappeR_CORDEX.sh</span></p></li>
-<li><p><span class="xref myst">bash-interpolation-scripts</span> / <span class="xref myst">AtlasCDOremappeR_CORDEX</span> / <span class="xref myst">grid_bounds_calc.py</span></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/73237e4363da91a850217f6382c8792a/01_index_calculation_bias_corrected.R"><code class="xref download docutils literal notranslate"><span class="pre">01_index_calculation_bias_corrected.R</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/bf6fbc5bf7c02a6e35044f5e852a1056/01_index_calculation.R"><code class="xref download docutils literal notranslate"><span class="pre">01_index_calculation.R</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/61f8c9492c42eed6fb443b73ac702769/01_index_calculation_SPI.R"><code class="xref download docutils literal notranslate"><span class="pre">01_index_calculation_SPI.R</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/aa6303a05a6b644300a6880ef2405815/02_interpolation.R"><code class="xref download docutils literal notranslate"><span class="pre">02_interpolation.R</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/67d5f504d81bb7cda0311ef63aa0dd73/03_ensemble_building.R"><code class="xref download docutils literal notranslate"><span class="pre">03_ensemble_building.R</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/7da4f38ed6d5035a4960c2840251e4f1/04_map_figures.R"><code class="xref download docutils literal notranslate"><span class="pre">04_map_figures.R</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/e745930452e7d39ab5b705fdab419987/bias_correction_isimip3.R"><code class="xref download docutils literal notranslate"><span class="pre">bias_correction_isimip3.R</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/b8fec28adb28f63a63e6e0ec416b1546/hatching-functions.R"><code class="xref download docutils literal notranslate"><span class="pre">hatching-functions.R</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/b30d110e8ccd98c1f22c0eda6ad02969/AtlasCDOremappeR_CMIP6_Omon.sh"><code class="xref download docutils literal notranslate"><span class="pre">AtlasCDOremappeR_CMIP6_Omon.sh</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/7df400f6883a53d6d85b4cb989d68ba7/AtlasCDOremappeR_CMIP.sh"><code class="xref download docutils literal notranslate"><span class="pre">AtlasCDOremappeR_CMIP.sh</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/bd13e3886123c2988ed93edaf9812cf6/AtlasCDOremappeR_CORDEX.sh"><code class="xref download docutils literal notranslate"><span class="pre">AtlasCDOremappeR_CORDEX.sh</span></code></a></p></li>
+<li><p><code class="xref download docutils literal notranslate"><span class="pre">grid_bounds_calc.py</span></code></p></li>
 </ul>
 </section>
 </section>

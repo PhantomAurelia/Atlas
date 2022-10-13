@@ -42,6 +42,41 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "PhantomAurelia/Atlas");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -179,6 +214,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="CORDEX-overlaps_Python.html">
    Selecting reference regions used for every CORDEX domain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="GeoTIFF-post-processing_R.html">
+   GeoTIFF file post-processing: Spatial operations
   </a>
  </li>
  <li class="toctree-l1">
@@ -374,6 +414,23 @@ title="Open an issue"
   <i class="fas fa-lightbulb"></i>
   </span>
 <span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/PhantomAurelia/Atlas/edit/jb-test/./notebooks/regional-scatter-plots_R.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
 </a>
 
       </li>
@@ -575,7 +632,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>The main function to generate the boxplots and scatterplots is <code class="docutils literal notranslate"><span class="pre">computeFigures</span></code>, which internally uses functions <code class="docutils literal notranslate"><span class="pre">computeDeltas</span></code> and <code class="docutils literal notranslate"><span class="pre">computeOffset</span></code>, all available in this repository. To load these functions in the working environment use the <code class="docutils literal notranslate"><span class="pre">source</span></code> R base function as follows.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">source</span><span class="p">(</span><span class="s">&quot;../datasets-aggregated-regionally/scripts/computeDeltas.R&quot;</span><span class="p">)</span>
 <span class="nf">source</span><span class="p">(</span><span class="s">&quot;../datasets-aggregated-regionally/scripts/computeFigures.R&quot;</span><span class="p">)</span>
@@ -584,6 +641,12 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>The scripts are available for download:</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/ec752ad836190e21b59c5c206d63b608/computeDeltas.R"><code class="xref download docutils literal notranslate"><span class="pre">computeDeltas.R</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/6db9ea4fa0b837be06f3e03f05909fa3/computeFigures.R"><code class="xref download docutils literal notranslate"><span class="pre">computeFigures.R</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/e0b43bd5e0e7fe3fc200f77d1c12fe5e/computeOffset.R"><code class="xref download docutils literal notranslate"><span class="pre">computeOffset.R</span></code></a></p></li>
+</ul>
 </section>
 <section id="parameter-setting">
 <h3>Parameter setting<a class="headerlink" href="#parameter-setting" title="Permalink to this headline">#</a></h3>
@@ -654,52 +717,68 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:12:55] Computing annual delta changes for the Boxplot of region ECA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:20:50] Computing annual delta changes for the Boxplot of region ECA
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:12:55] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:20:50] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:12:57] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:20:52] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:12:59] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:20:54] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:13:20] Computing seasonal delta changes for the Scatterplots of region ECA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in order(as.numeric(x)):
+“NAs introducidos por coerción”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:13:20] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in diff(as.numeric(x[ord])):
+“NAs introducidos por coerción”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:13:26] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:13] Computing seasonal delta changes for the Scatterplots of region ECA
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:13:34] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:13] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:13:39] Computing annual delta changes for the Boxplot of region EAS
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:18] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:13:39] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:25] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:13:41] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:30] Computing annual delta changes for the Boxplot of region EAS
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:13:44] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:30] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:14:04] Computing seasonal delta changes for the Scatterplots of region EAS
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:32] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:14:04] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:34] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:14:11] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in order(as.numeric(x)):
+“NAs introducidos por coerción”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:14:18] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in diff(as.numeric(x[ord])):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:54] Computing seasonal delta changes for the Scatterplots of region EAS
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:54] Computing CMIP5..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:00] Computing CMIP6..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:06] Computing CORDEX..
 </pre></div>
 </div>
 </div>
@@ -712,7 +791,47 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/regional-scatter-plots_R_21_0.png" src="../_images/regional-scatter-plots_R_21_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in panel.xyplot(...):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in panel.xyplot(...):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<img alt="../_images/regional-scatter-plots_R_22_10.png" src="../_images/regional-scatter-plots_R_22_10.png" />
 </div>
 </div>
 <p>The legend and axis label information of these panels is the one shown in the AR6-WGI Atlas chapter figures. The first column shows the annual temperature delta changes. The second and third columns, the scatterplots of the seasonal temperature and precipitation changes. Each row corresponds to a different reference region (ECA and EAS in this worked example).</p>
@@ -730,6 +849,46 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in panel.xyplot(...):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in panel.xyplot(...):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
 <div class="output text_html"><strong>png:</strong> 2</div></div>
 </div>
 <p>Play with arguments width and height to create different PDF sizes.</p>
@@ -750,28 +909,36 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:14:24] Computing annual delta changes for the Boxplot of region world
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:12] Computing annual delta changes for the Boxplot of region world
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:14:24] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:12] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:14:26] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:14] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:14:28] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:16] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:14:49] Computing seasonal delta changes for the Scatterplots of region world
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in order(as.numeric(x)):
+“NAs introducidos por coerción”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:14:49] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in diff(as.numeric(x[ord])):
+“NAs introducidos por coerción”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:14:55] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:35] Computing seasonal delta changes for the Scatterplots of region world
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 10:15:03] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:35] Computing CMIP5..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:41] Computing CMIP6..
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:48] Computing CORDEX..
 </pre></div>
 </div>
 </div>
@@ -783,7 +950,27 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/regional-scatter-plots_R_26_0.png" src="../_images/regional-scatter-plots_R_26_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in panel.xyplot(...):
+“NAs introducidos por coerción”
+</pre></div>
+</div>
+<img alt="../_images/regional-scatter-plots_R_27_5.png" src="../_images/regional-scatter-plots_R_27_5.png" />
 </div>
 </div>
 <p>We have easily reproduced parts of the AR6-WGI Atlas chapter figures using the function <code class="docutils literal notranslate"><span class="pre">computeFigures</span></code>. To extend the results shown in the Atlas chapter, just use different parameter settings above, e.g. additional seasons, alternative baselines, etc.</p>
@@ -986,7 +1173,7 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/regional-scatter-plots_R_33_0.png" src="../_images/regional-scatter-plots_R_33_0.png" />
+<img alt="../_images/regional-scatter-plots_R_34_0.png" src="../_images/regional-scatter-plots_R_34_0.png" />
 </div>
 </div>
 <p>Once the data is obtained, the user is free to apply any additional operations. For instance, in the next cell we will compute the ensemble mean for the SES region using the <code class="docutils literal notranslate"><span class="pre">apply</span></code> function.</p>
@@ -998,7 +1185,7 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/regional-scatter-plots_R_35_0.png" src="../_images/regional-scatter-plots_R_35_0.png" />
+<img alt="../_images/regional-scatter-plots_R_36_0.png" src="../_images/regional-scatter-plots_R_36_0.png" />
 </div>
 </div>
 <p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> or a <code class="docutils literal notranslate"><span class="pre">lapply</span></code> loop to apply the same operation for all available regions:</p>
@@ -1044,7 +1231,7 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/regional-scatter-plots_R_41_0.png" src="../_images/regional-scatter-plots_R_41_0.png" />
+<img alt="../_images/regional-scatter-plots_R_42_0.png" src="../_images/regional-scatter-plots_R_42_0.png" />
 </div>
 </div>
 </section>
@@ -1057,12 +1244,12 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.0.5 (2021-03-31)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Ubuntu 22.04.1 LTS
+Running under: Fedora Linux 36 (Workstation Edition)
 
 Matrix products: default
-BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
+BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg2/lib/libopenblasp-r0.3.21.so
 
 locale:
  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C              
@@ -1080,18 +1267,24 @@ other attached packages:
 [4] httr_1.4.2          magrittr_2.0.1     
 
 loaded via a namespace (and not attached):
- [1] uuid_0.1-4         R6_2.5.0           jpeg_0.1-8.1       rlang_0.4.11      
- [5] fansi_0.4.2        tools_3.6.3        grid_3.6.3         gtable_0.3.0      
- [9] png_0.1-7          utf8_1.2.1         htmltools_0.5.1.1  ellipsis_0.3.2    
-[13] digest_0.6.27      lifecycle_1.0.0    crayon_1.4.1       IRdisplay_1.0     
-[17] RColorBrewer_1.1-2 repr_1.1.3         base64enc_0.1-3    vctrs_0.3.8       
-[21] IRkernel_1.2       evaluate_0.14      pbdZMQ_0.3-5       compiler_3.6.3    
-[25] pillar_1.6.1       jsonlite_1.7.2    
+ [1] uuid_1.1-0         R6_2.5.1           jpeg_0.1-9         rlang_1.0.6       
+ [5] fastmap_1.1.0      fansi_1.0.3        tools_4.0.5        grid_4.0.5        
+ [9] gtable_0.3.1       png_0.1-7          utf8_1.2.2         cli_3.4.1         
+[13] htmltools_0.5.3    digest_0.6.29      lifecycle_1.0.2    crayon_1.5.1      
+[17] IRdisplay_1.1      RColorBrewer_1.1-3 repr_1.1.4         base64enc_0.1-3   
+[21] vctrs_0.4.1        IRkernel_1.2       glue_1.6.2         evaluate_0.16     
+[25] pbdZMQ_0.3-7       compiler_4.0.5     pillar_1.8.1       jsonlite_1.8.0    
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<script src="https://utteranc.es/client.js"
+        repo="PhantomAurelia/Atlas"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script></section>
 </section>
 </section>
 
