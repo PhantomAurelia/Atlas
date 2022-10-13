@@ -1,0 +1,1309 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Using the 4th version of the IPCC WGI reference regions in R &#8212; IPCC-ATLAS Jupyter Book</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Create stripes of anual temperature and precipitation mean values." href="stripes-plots_R.html" />
+    <link rel="prev" title="Using the 4th version of the IPCC WGI reference regions in Python" href="reference-regions_Python.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">IPCC-ATLAS Jupyter Book</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Repository supporting the implementation of FAIR principles in the IPCC-WGI Atlas
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Readmes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../warming-levels/warming-levels.html">
+   Global Warming Levels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../data-sources/data-sources.html">
+   Data sources used in the Atlas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference-grids/reference-grids.html">
+   Sets of reference grids
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets-interactive-atlas/datasets-interactive-atlas.html">
+   Code for reproducibility of the Interactive Atlas Dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference-regions/reference-regions.html">
+   Sets of regions for regional synthesis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets-aggregated-regionally/datasets-aggregated-regionally.html">
+   Aggregated datasets
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Notebooks
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="regional-scatter-plots_R.html">
+   Atlas notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="global-warming-levels_R.html">
+   Computing and visualizing transient global warming levels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bias-adjustment_R.html">
+   Bias adjustment of model temperatures for the calculation of extreme indices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="CORDEX-overlaps_Python.html">
+   Selecting reference regions used for every CORDEX domain
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="hatching-uncertainty_R.html">
+   Calculation and hatching of the uncertainty in projected delta changes.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linear-trends_R.html">
+   Computing and visualization of precipitation linear trends during the observed period (1980-2014)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reference-grids_R.html">
+   Using the Atlas reference grids in
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     R
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="reference-regions_Python.html">
+   Using the 4th version of the IPCC WGI reference regions in Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Using the 4th version of the IPCC WGI reference regions in R
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stripes-plots_R.html">
+   Create stripes of anual temperature and precipitation mean values.
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Anexos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ERRATA.html">
+   Errata and problem reporting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reproducibility/reproducibility.html">
+   Reproducibility scripts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="auxiliary-material/auxiliary-material.html">
+   Auxiliary Materials for Notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../binder/binder.html">
+   Binder image deployment
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/PhantomAurelia/Atlas/jb-test?urlpath=tree/./notebooks/reference-regions_R.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/PhantomAurelia/Atlas"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/PhantomAurelia/Atlas/issues/new?title=Issue%20on%20page%20%2Fnotebooks/reference-regions_R.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/notebooks/reference-regions_R.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements">
+   Requirements:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-the-updated-ipcc-regions">
+   Using the updated IPCC regions:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-the-reference-regions">
+     Import the reference regions:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-regions">
+   Plotting regions:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selecting-specific-regions">
+     Selecting specific regions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   Example:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-data-for-the-region-s-of-interest">
+     Extracting data for the region/s of interest
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#session-information">
+   Session information
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Using the 4th version of the IPCC WGI reference regions in R</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requirements">
+   Requirements:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-the-updated-ipcc-regions">
+   Using the updated IPCC regions:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-the-reference-regions">
+     Import the reference regions:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-regions">
+   Plotting regions:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#selecting-specific-regions">
+     Selecting specific regions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   Example:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-data-for-the-region-s-of-interest">
+     Extracting data for the region/s of interest
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#session-information">
+   Session information
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Atlas notebooks
+
+***
+
+&gt; This notebook reproduces and extends parts of the figures and products of the AR6-WGI Atlas. It is part of a notebook collection available at https://github.com/IPCC-WG1/Atlas for reproducibility and reusability purposes. This work is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0).
+&gt;
+&gt; ![Creative Commons License &gt;](https://i.creativecommons.org/l/by/4.0/88x31.png)
+</pre></div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="using-the-4th-version-of-the-ipcc-wgi-reference-regions-in-r">
+<span id="reference-regions-r"></span><h1>Using the 4th version of the IPCC WGI reference regions in R<a class="headerlink" href="#using-the-4th-version-of-the-ipcc-wgi-reference-regions-in-r" title="Permalink to this headline">#</a></h1>
+<p>30/6/2021</p>
+<p><strong>M. Iturbide</strong> (<a class="reference external" href="http://www.meteo.unican.es">Santander Meteorology Group</a>. Institute of Physics of Cantabria. CSIC-University of Cantabria, Santander, Spain)</p>
+<p><code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is the new set of reference regions that update the IPCC AR5 reference regions (<a class="reference external" href="http://www.ipcc-data.org/guidelines/pages/ar5_regions.html">http://www.ipcc-data.org/guidelines/pages/ar5_regions.html</a>) for reporting sub-continental climate information (e.g. CMIP6 projections). This tutorial shows how the standard R packages for spatial data can be used to manipulate and plot these regions, and how these capabilities can be further extended for climate data processing using the <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> framework (<a class="reference external" href="https://github.com/SantanderMetGroup/climate4R">https://github.com/SantanderMetGroup/climate4R</a>, Iturbide <em>et al.</em>, 2019).</p>
+<section id="requirements">
+<h2>Requirements:<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h2>
+<p>The following R packages are used to work with spatial data:</p>
+<ul class="simple">
+<li><p>rgdal (Bivand et al., 2018): <a class="reference external" href="https://cran.r-project.org/web/packages/rgdal/index.html">https://cran.r-project.org/web/packages/rgdal/index.html</a></p></li>
+<li><p>sp (Bivand et al., 2013): <a class="reference external" href="https://cran.r-project.org/web/packages/sp/index.html">https://cran.r-project.org/web/packages/sp/index.html</a></p></li>
+<li><p>RColorBrewer (Neuwirth, 2014): <a class="reference external" href="https://cran.r-project.org/web/packages/RColorBrewer/index.html">https://cran.r-project.org/web/packages/RColorBrewer/index.html</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">rgdal</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">RColorBrewer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: sp
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rgdal: version: 1.5-16, (SVN revision 1050)
+Geospatial Data Abstraction Library extensions to R successfully loaded
+Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
+Path to GDAL shared files: /home/phanaur/mambaforge/envs/tfg/share/gdal
+GDAL binary built with GEOS: TRUE 
+Loaded PROJ runtime: Rel. 7.2.0, November 1st, 2020, [PJ_VERSION: 720]
+Path to PROJ shared files: /home/phanaur/mambaforge/envs/tfg/share/proj
+PROJ CDN enabled: TRUE
+Linking to sp version:1.4-5
+To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.
+</pre></div>
+</div>
+</div>
+</div>
+<p>and the <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> components used to load, analyse and visualize climate data:</p>
+<ul class="simple">
+<li><p>loadeR (Iturbide et al., 2019): <a class="reference external" href="https://github.com/SantanderMetGroup/loadeR/wiki">https://github.com/SantanderMetGroup/loadeR/wiki</a></p></li>
+<li><p>visualizeR (Frías et al. 2018): <a class="reference external" href="https://github.com/SantanderMetGroup/visualizeR">https://github.com/SantanderMetGroup/visualizeR</a></p></li>
+<li><p>transformeR (Iturbide et al., 2019): <a class="reference external" href="https://github.com/SantanderMetGroup/transformeR">https://github.com/SantanderMetGroup/transformeR</a></p></li>
+<li><p>geoprocessoR (Iturbide et al., 2019): <a class="reference external" href="https://github.com/SantanderMetGroup/geoprocessoR">https://github.com/SantanderMetGroup/geoprocessoR</a></p></li>
+</ul>
+<p>See installation details and options, including a conda recipe, in the <a class="reference external" href="https://github.com/SantanderMetGroup/climate4R">climate4R main repository</a>.</p>
+</section>
+<section id="using-the-updated-ipcc-regions">
+<h2>Using the updated IPCC regions:<a class="headerlink" href="#using-the-updated-ipcc-regions" title="Permalink to this headline">#</a></h2>
+<section id="import-the-reference-regions">
+<h3>Import the reference regions:<a class="headerlink" href="#import-the-reference-regions" title="Permalink to this headline">#</a></h3>
+<p><strong>From shapefile</strong>: the shapefile of <code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is available for download at the <a class="reference external" href="https://github.com/IPCC-WG1/Atlas">Atlas GitHub repository</a>, within the <code class="docutils literal notranslate"><span class="pre">reference-regions</span></code> subdirectory stored in a <em>.zip</em> file (shapefiles consist of a number of complementary files storing geo-reference information, geometries, the associated database etc.). In this example, we first extract the <em>zip</em> contents into a temporary directory for data import.</p>
+<p>Function <code class="docutils literal notranslate"><span class="pre">readOGR</span></code> from package <code class="docutils literal notranslate"><span class="pre">rgdal</span></code> loads shapefiles into the R environment.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tmpdir</span> <span class="o">&lt;-</span> <span class="nf">tempdir</span><span class="p">()</span>
+<span class="nf">unzip</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_shapefile.zip&quot;</span><span class="p">,</span> <span class="n">exdir</span> <span class="o">=</span> <span class="n">tmpdir</span><span class="p">)</span>
+<span class="n">refregions</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="n">dsn</span> <span class="o">=</span> <span class="n">tmpdir</span><span class="p">,</span> <span class="n">layer</span> <span class="o">=</span> <span class="s">&quot;IPCC-WGI-reference-regions-v4&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OGR data source with driver: ESRI Shapefile 
+Source: &quot;/tmp/Rtmplpej2x&quot;, layer: &quot;IPCC-WGI-reference-regions-v4&quot;
+with 58 features
+It has 4 fields
+</pre></div>
+</div>
+</div>
+</div>
+<p>The R object that is obtained is a <code class="docutils literal notranslate"><span class="pre">SpatialPolygonsDataFrame</span></code>, this is a <code class="docutils literal notranslate"><span class="pre">Spatial*</span></code> class object from package <code class="docutils literal notranslate"><span class="pre">sp</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">refregions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">'SpatialPolygonsDataFrame'</div></div>
+</div>
+<ul class="simple">
+<li><p><strong>From R object</strong>: the <code class="docutils literal notranslate"><span class="pre">refregions</span></code> R object is also available in the same repo directory, thus, the Spatial object of the regions can be directly loaded into R as follows:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">load</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_R.rda&quot;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading objects:
+  IPCC_WGI_reference_regions_v4
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can simplify this object by converting it to a <code class="docutils literal notranslate"><span class="pre">SpatialPolygons</span></code> class object (i.e., only the polygons are retained and their attributes discarded):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">refregions</span> <span class="o">&lt;-</span> <span class="nf">as</span><span class="p">(</span><span class="n">IPCC_WGI_reference_regions_v4</span><span class="p">,</span> <span class="s">&quot;SpatialPolygons&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="plotting-regions">
+<h2>Plotting regions:<a class="headerlink" href="#plotting-regions" title="Permalink to this headline">#</a></h2>
+<p>We can use function <code class="docutils literal notranslate"><span class="pre">plot</span></code> to visualize the regions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">refregions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/reference-regions_R_13_0.png" src="../_images/reference-regions_R_13_0.png" />
+</div>
+</div>
+<p>The R basic plotting functions allow adding layers to the plot. Here the region names and coastline are added. Shapefiles such as global coastlines and other physical features or administrative boundaries can be either read from local or obtained from the Internet. In this example, a world coastline layer is used from the <a class="reference external" href="https://www.naturalearthdata.com">Natural Earth</a> public repository of digital cartography.</p>
+<hr class="docutils" />
+<p><em>(begin example)</em></p>
+<p>An example follows on how to download and load the vector layer. However, note that <strong>this step can be skipped</strong> and read the layer directly from the <code class="docutils literal notranslate"><span class="pre">auxiliary-material</span></code> subdir.</p>
+<p>The target vector layer (<em>shapefile</em> format) is next downloaded from Natural Earth download site to a temporary file and extracted:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">temp.dir</span> <span class="o">&lt;-</span> <span class="nf">tempdir</span><span class="p">()</span>
+<span class="n">zipfile</span> <span class="o">&lt;-</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">temp.dir</span><span class="p">,</span> <span class="s">&quot;world.zip&quot;</span><span class="p">)</span>
+<span class="nf">download.file</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/physical/ne_110m_coastline.zip&quot;</span><span class="p">,</span>
+              <span class="n">destfile</span> <span class="o">=</span> <span class="n">zipfile</span><span class="p">)</span>
+<span class="nf">unzip</span><span class="p">(</span><span class="n">zipfile</span><span class="p">,</span> <span class="n">exdir</span> <span class="o">=</span> <span class="n">temp.dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and next imported into R:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">coastLines</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="n">dsn</span> <span class="o">=</span> <span class="n">temp.dir</span><span class="p">,</span> <span class="n">layer</span> <span class="o">=</span> <span class="s">&quot;ne_110m_coastline&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OGR data source with driver: ESRI Shapefile 
+Source: &quot;/tmp/Rtmplpej2x&quot;, layer: &quot;ne_110m_coastline&quot;
+with 134 features
+It has 3 fields
+Integer64 fields read as strings:  scalerank 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">coastLines</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/reference-regions_R_20_0.png" src="../_images/reference-regions_R_20_0.png" />
+</div>
+</div>
+<p><em>(End of example)</em></p>
+<hr class="docutils" />
+<p>However, for better reproducibility, the vector layer is already stored in the <code class="docutils literal notranslate"><span class="pre">auxiliary-material</span></code> subdirectory:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">coastLines</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="n">dsn</span> <span class="o">=</span> <span class="s">&quot;./auxiliary-material/&quot;</span><span class="p">,</span> <span class="n">layer</span> <span class="o">=</span> <span class="s">&quot;WORLD_coastline&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OGR data source with driver: ESRI Shapefile 
+Source: &quot;/home/phanaur/github/Atlas/notebooks/auxiliary-material&quot;, layer: &quot;WORLD_coastline&quot;
+with 127 features
+It has 2 fields
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;grey&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">refregions</span><span class="p">,</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">refregions</span><span class="p">)[</span> <span class="p">,</span><span class="m">1</span><span class="p">],</span>
+     <span class="n">y</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">refregions</span><span class="p">)[</span> <span class="p">,</span><span class="m">2</span><span class="p">],</span>
+     <span class="n">labels</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">refregions</span><span class="p">),</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/reference-regions_R_24_0.png" src="../_images/reference-regions_R_24_0.png" />
+</div>
+</div>
+<section id="selecting-specific-regions">
+<h3>Selecting specific regions<a class="headerlink" href="#selecting-specific-regions" title="Permalink to this headline">#</a></h3>
+<p>The IDs of all regions can be inspected for easy subsetting:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">names</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">refregions</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'GIC'</li><li>'NWN'</li><li>'NEN'</li><li>'WNA'</li><li>'CNA'</li><li>'ENA'</li><li>'NCA'</li><li>'SCA'</li><li>'CAR'</li><li>'NWS'</li><li>'NSA'</li><li>'NES'</li><li>'SAM'</li><li>'SWS'</li><li>'SES'</li><li>'SSA'</li><li>'NEU'</li><li>'WCE'</li><li>'EEU'</li><li>'MED'</li><li>'SAH'</li><li>'WAF'</li><li>'CAF'</li><li>'NEAF'</li><li>'SEAF'</li><li>'WSAF'</li><li>'ESAF'</li><li>'MDG'</li><li>'RAR'</li><li>'WSB'</li><li>'ESB'</li><li>'RFE'</li><li>'WCA'</li><li>'ECA'</li><li>'TIB'</li><li>'EAS'</li><li>'ARP'</li><li>'SAS'</li><li>'SEA'</li><li>'NAU'</li><li>'CAU'</li><li>'EAU'</li><li>'SAU'</li><li>'NZ'</li><li>'EAN'</li><li>'WAN'</li><li>'ARO'</li><li>'NPO'</li><li>'EPO'</li><li>'SPO'</li><li>'NAO'</li><li>'EAO'</li><li>'SAO'</li><li>'ARS'</li><li>'BOB'</li><li>'EIO'</li><li>'SIO'</li><li>'SOO'</li></ol>
+</div></div>
+</div>
+<p>For instance, in order to extract one single region (e.g., New Zealand, NZ):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">newzealand</span> <span class="o">&lt;-</span> <span class="n">refregions</span><span class="p">[</span><span class="s">&quot;NZ&quot;</span><span class="p">]</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">newzealand</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;grey&quot;</span><span class="p">,</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">newzealand</span><span class="p">)[,</span><span class="m">1</span><span class="p">],</span>
+     <span class="n">y</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">newzealand</span><span class="p">)[,</span><span class="m">2</span><span class="p">],</span>
+     <span class="n">labels</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">newzealand</span><span class="p">),</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/reference-regions_R_29_0.png" src="../_images/reference-regions_R_29_0.png" />
+</div>
+</div>
+<p>or several regions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">australasia</span> <span class="o">&lt;-</span> <span class="n">refregions</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NZ&quot;</span><span class="p">,</span> <span class="s">&quot;SEA&quot;</span><span class="p">,</span> <span class="s">&quot;NAU&quot;</span><span class="p">,</span> <span class="s">&quot;CAU&quot;</span><span class="p">,</span> <span class="s">&quot;EAU&quot;</span><span class="p">,</span> <span class="s">&quot;SAU&quot;</span><span class="p">)]</span>
+
+<span class="nf">plot</span><span class="p">(</span><span class="n">australasia</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="nf">rgb</span><span class="p">(</span><span class="m">0.85</span><span class="p">,</span><span class="m">0.85</span><span class="p">,</span><span class="m">0.85</span><span class="p">,</span><span class="m">0.7</span><span class="p">),</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">australasia</span><span class="p">)[,</span><span class="m">1</span><span class="p">],</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">australasia</span><span class="p">)[,</span><span class="m">2</span><span class="p">],</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">australasia</span><span class="p">),</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/reference-regions_R_31_0.png" src="../_images/reference-regions_R_31_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
+<p>In this example we will consider a NetCDF file with historical temperature simulations and show several analysis and visualizations at a global scale or filtering by regions. To this aim, we load using <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> an example dataset corresponding to the following ESGF request:</p>
+<ul class="simple">
+<li><p>MIP Era: CMIP6</p></li>
+<li><p>Source ID: CanESM5</p></li>
+<li><p>Experiment ID: historical</p></li>
+<li><p>Variant Label: r1i1p1f1</p></li>
+<li><p>Table ID: Amon</p></li>
+<li><p>Frequency: mon</p></li>
+<li><p>Variable: tas</p></li>
+</ul>
+<p>In this case, functions <code class="docutils literal notranslate"><span class="pre">dataInventory</span></code> and <code class="docutils literal notranslate"><span class="pre">loadGridData</span></code> (package <code class="docutils literal notranslate"><span class="pre">loadeR</span></code>) are used. First we need to install the <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> framework (<strong>conda</strong> and <strong>docker</strong> installations available at <a class="reference external" href="https://github.com/SantanderMetGroup/ATLAS">https://github.com/SantanderMetGroup/ATLAS</a>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">transformeR</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">loadeR</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">visualizeR</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">geoprocessoR</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    _______   ____  ___________________  __  ________ 
+   / ___/ /  / /  |/  / __  /_  __/ __/ / / / / __  / 
+  / /  / /  / / /|_/ / /_/ / / / / __/ / /_/ / /_/_/  
+ / /__/ /__/ / /  / / __  / / / / /__ /___  / / \ \ 
+ \___/____/_/_/  /_/_/ /_/ /_/  \___/    /_/\/   \_\ 
+ 
+      github.com/SantanderMetGroup/climate4R
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>transformeR version 2.1.3 (2021-08-04) is loaded
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: Your current version of transformeR (v2.1.3) is not up-to-date
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get the latest stable version (2.1.4) using &lt;devtools::install_github(&#39;SantanderMetGroup/transformeR&#39;)&gt;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please see &#39;citation(&quot;transformeR&quot;)&#39; to cite this package.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: rJava
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: loadeR.java
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Java version 11x amd64 by Azul Systems, Inc. detected
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NetCDF Java Library v4.6.0-SNAPSHOT (23 Apr 2015) loaded and ready
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: climate4R.UDG
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>climate4R.UDG version 0.2.3 (2021-07-05) is loaded
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: Your current version of climate4R.UDG (v0.2.3) is not up-to-date
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get the latest stable version (0.2.4) using &lt;devtools::install_github(&#39;SantanderMetGroup/climate4R.UDG&#39;)&gt;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please use &#39;citation(&quot;climate4R.UDG&quot;)&#39; to cite this package.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loadeR version 1.7.1 (2021-07-05) is loaded
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please use &#39;citation(&quot;loadeR&quot;)&#39; to cite this package.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>visualizeR version 1.6.1 (2021-03-11) is loaded
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please see &#39;citation(&quot;visualizeR&quot;)&#39; to cite this package.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>geoprocessoR version 0.2.0 (2020-01-06) is loaded
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please see &#39;citation(&quot;geoprocessoR&quot;)&#39; to cite this package.
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, <code class="docutils literal notranslate"><span class="pre">dataInventory</span></code> provides basic information about the variables available in the file/dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">di</span> <span class="o">&lt;-</span> <span class="nf">dataInventory</span><span class="p">(</span><span class="s">&quot;./auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">)</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">di</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:55] Doing inventory ...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:56] Retrieving info for &#39;tas&#39; (0 vars remaining)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:56] Done.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of 1
+ $ tas:List of 7
+  ..$ Description: chr &quot;Near-Surface Air Temperature&quot;
+  ..$ DataType   : chr &quot;float&quot;
+  ..$ Shape      : int [1:3] 1980 64 128
+  ..$ Units      : chr &quot;K&quot;
+  ..$ DataSizeMb : num 64.9
+  ..$ Version    : logi NA
+  ..$ Dimensions :List of 3
+  .. ..$ time:List of 4
+  .. .. ..$ Type      : chr &quot;Time&quot;
+  .. .. ..$ TimeStep  : chr &quot;30.416 days&quot;
+  .. .. ..$ Units     : chr &quot;days since 1850-01-01 0:0:0.0&quot;
+  .. .. ..$ Date_range: chr &quot;1850-01-16T12:00:00Z - 2014-12-16T12:00:00Z&quot;
+  .. ..$ lat :List of 5
+  .. .. ..$ Type       : chr &quot;Lat&quot;
+  .. .. ..$ Units      : chr &quot;degrees_north&quot;
+  .. .. ..$ Values     : num [1:64] -87.9 -85.1 -82.3 -79.5 -76.7 ...
+  .. .. ..$ Shape      : int 64
+  .. .. ..$ Coordinates: chr &quot;lat&quot;
+  .. ..$ lon :List of 5
+  .. .. ..$ Type       : chr &quot;Lon&quot;
+  .. .. ..$ Units      : chr &quot;degrees_east&quot;
+  .. .. ..$ Values     : num [1:128] 0 2.81 5.62 8.44 11.25 ...
+  .. .. ..$ Shape      : int 128
+  .. .. ..$ Coordinates: chr &quot;lon&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see from the inventory output, it contains a single variable (‘tas’, 2 meters air temperature). To load this data, the function <code class="docutils literal notranslate"><span class="pre">loadGridData</span></code> from package <code class="docutils literal notranslate"><span class="pre">loadeR</span></code> is used:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="s">&quot;./auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">,</span>
+                      <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;tas&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:56] Defining geo-location parameters
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:56] Defining time selection parameters
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:32:56] Retrieving data subset ...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:33:00] Done
+</pre></div>
+</div>
+</div>
+</div>
+<p>The example data is the temperature field for the period 1850-2014. In order to plot the first time step, we extract the data for January 1850 with the function <code class="docutils literal notranslate"><span class="pre">subsetGrid</span></code> (package <code class="docutils literal notranslate"><span class="pre">transformeR</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid185001</span> <span class="o">&lt;-</span> <span class="nf">subsetGrid</span><span class="p">(</span><span class="n">grid1</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="m">1850</span><span class="p">,</span> <span class="n">season</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">drop</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">spatialPlot</span></code> from package <code class="docutils literal notranslate"><span class="pre">visualizeR</span></code> is the main map plotting function in <code class="docutils literal notranslate"><span class="pre">climate4R</span></code>. It is a wrapper of the powerful <code class="docutils literal notranslate"><span class="pre">spplot</span></code> method from package <code class="docutils literal notranslate"><span class="pre">sp</span></code>, thus accepting all possible optional parameters from lattice graphics. In addition, it also incorporates some additional arguments for straightforward fulfillment of commonplace requirements in climate data visualization (e.g. <code class="docutils literal notranslate"><span class="pre">backdrop.theme</span></code>, <code class="docutils literal notranslate"><span class="pre">set.min</span></code>, <code class="docutils literal notranslate"><span class="pre">set.max</span></code>, <code class="docutils literal notranslate"><span class="pre">lonCenter</span></code>, <code class="docutils literal notranslate"><span class="pre">color.theme</span></code>, <code class="docutils literal notranslate"><span class="pre">rev.colors</span></code> etc.).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regnameslayer</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;sp.text&quot;</span><span class="p">,</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">refregions</span><span class="p">),</span> <span class="nf">names</span><span class="p">(</span><span class="n">refregions</span><span class="p">))</span>
+<span class="nf">spatialPlot</span><span class="p">(</span><span class="n">grid185001</span><span class="p">,</span> <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span> 
+            <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
+            <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
+            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">refregions</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">),</span> <span class="n">regnameslayer</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/reference-regions_R_41_0.png" src="../_images/reference-regions_R_41_0.png" />
+</div>
+</div>
+<p>We could also get the annual values using function <code class="docutils literal notranslate"><span class="pre">aggregateGrid</span></code> and plot the annual climatology:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.ann</span> <span class="o">&lt;-</span> <span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">grid1</span><span class="p">,</span> <span class="n">aggr.y</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+<span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid1.ann</span><span class="p">),</span> <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span> 
+            <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
+            <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
+            <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Annual mean surface temperature (K)&quot;</span><span class="p">,</span>
+            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">refregions</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">),</span> <span class="n">regnameslayer</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:33:00] Performing annual aggregation...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:33:03] Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:33:03] - Computing climatology...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:33:04] - Done.
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_R_43_4.png" src="../_images/reference-regions_R_43_4.png" />
+</div>
+</div>
+<section id="extracting-data-for-the-region-s-of-interest">
+<h3>Extracting data for the region/s of interest<a class="headerlink" href="#extracting-data-for-the-region-s-of-interest" title="Permalink to this headline">#</a></h3>
+<p>Function <code class="docutils literal notranslate"><span class="pre">overGrid</span></code> perfoms the operation of intersecting a climate4R grid and a Spatial object. The only requirement is equal projections. Use function <code class="docutils literal notranslate"><span class="pre">projectGrid</span></code> to define and/or change the projection of a grid. Use <code class="docutils literal notranslate"><span class="pre">proj4string</span></code> and <code class="docutils literal notranslate"><span class="pre">spTransform</span></code> for Spatial objects. In this example the map projection is WGS84 (EPSG:4326). Note that several warning messages may appear during the following operations. These arise from recent changes in the versions of PROJ and GDAL, and can be safely ignored throughout these examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">proj4string</span><span class="p">(</span><span class="n">refregions</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in proj4string(refregions):
+“CRS object has comment, which is lost in output”
+</pre></div>
+</div>
+<div class="output text_html">'+proj=longlat +ellps=WGS84 +no_defs'</div></div>
+</div>
+<p>An appropriate definition of the current coordinates projection will be later needed to ensure spatial consistency of geospatial operations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.ann</span> <span class="o">&lt;-</span> <span class="nf">setGridProj</span><span class="p">(</span><span class="n">grid</span> <span class="o">=</span> <span class="n">grid1.ann</span><span class="p">,</span> <span class="n">proj</span> <span class="o">=</span> <span class="nf">proj4string</span><span class="p">(</span><span class="n">refregions</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in proj4string(refregions):
+“CRS object has comment, which is lost in output”
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once the spatial reference is defined, the spatial overlay is done:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.au</span> <span class="o">&lt;-</span> <span class="nf">overGrid</span><span class="p">(</span><span class="n">grid1.ann</span><span class="p">,</span> <span class="n">australasia</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
+“Discarded datum Unknown based on WGS84 ellipsoid in CRS definition”
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid1.au</span><span class="p">),</span> 
+            <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
+            <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
+            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:33:04] - Computing climatology...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:33:04] - Done.
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_R_50_2.png" src="../_images/reference-regions_R_50_2.png" />
+</div>
+</div>
+<p>Setting the argument <code class="docutils literal notranslate"><span class="pre">subset</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> the spatial object is cropped to the region extent:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.au</span> <span class="o">&lt;-</span> <span class="nf">overGrid</span><span class="p">(</span><span class="n">grid1.ann</span><span class="p">,</span> <span class="n">australasia</span><span class="p">,</span> <span class="n">subset</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
+“Discarded datum Unknown based on WGS84 ellipsoid in CRS definition”
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid1.au</span><span class="p">),</span> 
+            <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
+            <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
+            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:33:04] - Computing climatology...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-09-07 09:33:04] - Done.
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_R_53_2.png" src="../_images/reference-regions_R_53_2.png" />
+</div>
+</div>
+<p>Let’s calculate the regional average and visualize the yearly time series with <code class="docutils literal notranslate"><span class="pre">temporalPlot</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">temporalPlot</span><span class="p">(</span><span class="n">grid1.au</span><span class="p">,</span> <span class="n">aggr.spatial</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span> <span class="n">xyplot.custom</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Annual mean surface temperature (K)&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pad applied on the interval: year
+</pre></div>
+</div>
+<img alt="../_images/reference-regions_R_55_1.png" src="../_images/reference-regions_R_55_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<p>Bivand R.S., Pebesma E.J., Gomez-Rubio V. (2013). Applied spatial data analysis with R, Second edition. Springer, NY. <a class="reference external" href="http://www.asdar-book.org/">http://www.asdar-book.org/</a></p>
+<p>Bivand R.S., Keitt T., Rowlingson B. (2018). rgdal: Bindings for the ‘Geospatial’ Data Abstraction Library. R package version 1.3-6. <a class="reference external" href="https://CRAN.R-project.org/package=rgdal">https://CRAN.R-project.org/package=rgdal</a></p>
+<p>Frías M.D., Iturbide M., Manzanas R., Bedia J., Fernández J., Herrera S., Cofiño A.S., Gutiérrez J.M. (2018). An R package to visualize and communicate uncertainty in seasonal climate prediction. Environmental Modelling and Software, 99, 101-110, <a class="reference external" href="http://doi.org/10.1016/j.envsoft.2017.09.008">http://doi.org/10.1016/j.envsoft.2017.09.008</a></p>
+<p>Iturbide M., Bedia J., Herrera S., Baño-Medina J., Fernández J., Frías M., Manzanas R., San-Martín D., Cimadevilla E., Cofiño A., Gutiérrez J. (2019). The R-based climate4R open framework for reproducible climate data access and post-processing. Environmental Modelling &amp; Software. doi: <a class="reference external" href="https://doi.org/10.1016/j.envsoft.2018.09.009">https://doi.org/10.1016/j.envsoft.2018.09.009</a></p>
+<p>Neuwirth E. (2014). RColorBrewer: ColorBrewer Palettes. R package version 1.1-2. <a class="reference external" href="https://CRAN.R-project.org/package=RColorBrewer">https://CRAN.R-project.org/package=RColorBrewer</a></p>
+<p>Sarkar D. (2008) Lattice: Multivariate Data Visualization with R. Springer, NY. ISBN 978-0-387-75968-5</p>
+</section>
+<section id="session-information">
+<h2>Session information<a class="headerlink" href="#session-information" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sessionInfo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
+Platform: x86_64-conda-linux-gnu (64-bit)
+Running under: Ubuntu 22.04.1 LTS
+
+Matrix products: default
+BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
+
+locale:
+ [1] LC_CTYPE=es_ES.UTF-8          LC_NUMERIC=C                 
+ [3] LC_TIME=es_ES.UTF-8           LC_COLLATE=es_ES.UTF-8       
+ [5] LC_MONETARY=es_ES.UTF-8       LC_MESSAGES=es_ES.UTF-8      
+ [7] LC_PAPER=es_ES.UTF-8          LC_NAME=es_ES.UTF-8          
+ [9] LC_ADDRESS=es_ES.UTF-8        LC_TELEPHONE=es_ES.UTF-8     
+[11] LC_MEASUREMENT=es_ES.UTF-8    LC_IDENTIFICATION=es_ES.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] geoprocessoR_0.2.0  visualizeR_1.6.1    loadeR_1.7.1       
+ [4] climate4R.UDG_0.2.3 loadeR.java_1.1.1   rJava_1.0-4        
+ [7] transformeR_2.1.3   RColorBrewer_1.1-2  rgdal_1.5-16       
+[10] sp_1.4-5           
+
+loaded via a namespace (and not attached):
+ [1] viridis_0.6.1           maps_3.3.0              foreach_1.5.1          
+ [4] jsonlite_1.7.2          viridisLite_0.4.0       R.utils_2.10.1         
+ [7] SpecsVerification_0.5-3 dotCall64_1.0-1         kohonen_3.0.10         
+[10] sm_2.2-5.6              latticeExtra_0.6-29     pillar_1.6.1           
+[13] lattice_0.20-44         glue_1.4.2              RcppEigen_0.3.3.9.1    
+[16] uuid_0.1-4              digest_0.6.27           colorspace_2.0-1       
+[19] R.oo_1.24.0             htmltools_0.5.1.1       Matrix_1.3-3           
+[22] pkgconfig_2.0.3         raster_3.4-10           padr_0.5.3             
+[25] purrr_0.3.4             scales_1.1.1            jpeg_0.1-8.1           
+[28] CircStats_0.2-6         dtw_1.22-3              tibble_3.1.2           
+[31] proxy_0.4-25            generics_0.1.0          ggplot2_3.3.3          
+[34] ellipsis_0.3.2          repr_1.1.3              pbapply_1.4-3          
+[37] verification_1.42       gdalUtils_2.0.3.2       magrittr_2.0.1         
+[40] crayon_1.4.1            easyVerification_0.4.4  evaluate_0.14          
+[43] R.methodsS3_1.8.1       fansi_0.4.2             MASS_7.3-54            
+[46] tools_3.6.3             data.table_1.14.0       lifecycle_1.0.0        
+[49] munsell_0.5.0           akima_0.6-2.1           compiler_3.6.3         
+[52] mapplots_1.5.1          rlang_0.4.11            grid_3.6.3             
+[55] RCurl_1.98-1.3          iterators_1.0.13        pbdZMQ_0.3-5           
+[58] IRkernel_1.2            spam_2.6-0              bitops_1.0-7           
+[61] tcltk_3.6.3             base64enc_0.1-3         boot_1.3-28            
+[64] vioplot_0.3.6           codetools_0.2-18        gtable_0.3.0           
+[67] abind_1.4-5             R6_2.5.0                gridExtra_2.3          
+[70] zoo_1.8-9               dplyr_1.0.6             utf8_1.2.1             
+[73] parallel_3.6.3          IRdisplay_1.0           Rcpp_1.0.6             
+[76] fields_12.3             vctrs_0.3.8             png_0.1-7              
+[79] tidyselect_1.1.1       
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="reference-regions_Python.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Using the 4th version of the IPCC WGI reference regions in Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="stripes-plots_R.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Create stripes of anual temperature and precipitation mean values.</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By David Domínguez Román<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
