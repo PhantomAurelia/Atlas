@@ -150,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Readmes
+  Information
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -281,6 +281,31 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../binder/binder.html">
    Binder image deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reproducibility/maps/maps.html">
+   Code for reproducibility of the Atlas Map figures of model projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reproducibility/observations/observations.html">
+   Code for reproducibility of the ATLAS spatial maps of the observed linear trends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reproducibility/projections/projections.html">
+   Code for reproducibility of the ATLAS boxplots and scatterplots of model projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/bash-interpolation-scripts.html">
+   Bash interpolation scripts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/AtlasCDOremappeR_CORDEX/atlasCDOremappeR.html">
+   AtlasCDOremappeR for CORDEX RCM simulations
   </a>
  </li>
 </ul>
@@ -557,6 +582,11 @@ title="Print to PDF"
    Session information
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   References
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -627,6 +657,11 @@ title="Print to PDF"
    Session information
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   References
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -650,7 +685,7 @@ title="Print to PDF"
 <span id="reference-regions-r"></span><h1>Using the 4th version of the IPCC WGI reference regions in R<a class="headerlink" href="#using-the-4th-version-of-the-ipcc-wgi-reference-regions-in-r" title="Permalink to this headline">#</a></h1>
 <p>30/6/2021</p>
 <p><strong>M. Iturbide</strong> (<a class="reference external" href="http://www.meteo.unican.es">Santander Meteorology Group</a>. Institute of Physics of Cantabria. CSIC-University of Cantabria, Santander, Spain)</p>
-<p><code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is the new set of reference regions that update the IPCC AR5 reference regions (<a class="reference external" href="http://www.ipcc-data.org/guidelines/pages/ar5_regions.html">http://www.ipcc-data.org/guidelines/pages/ar5_regions.html</a>) for reporting sub-continental climate information (e.g. CMIP6 projections). This tutorial shows how the standard R packages for spatial data can be used to manipulate and plot these regions, and how these capabilities can be further extended for climate data processing using the <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> framework (<a class="reference external" href="https://github.com/SantanderMetGroup/climate4R">https://github.com/SantanderMetGroup/climate4R</a>, Iturbide <em>et al.</em>, 2019).</p>
+<p><code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is the new set of reference regions that update the IPCC AR5 reference regions <span id="id1">[<a class="reference internal" href="#id7" title="ipcc AR5. AR5 Regions. https://www.ipcc-data.org/guidelines/pages/ar5_regions.html.">AR5, n.d.</a>]</span> for reporting sub-continental climate information (e.g. CMIP6 projections). This tutorial shows how the standard R packages for spatial data can be used to manipulate and plot these regions, and how these capabilities can be further extended for climate data processing using the <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> framework <span id="id2">[<a class="reference internal" href="#id19" title="SantanderMetGroup/climate4R. Santander Meteorology Group (UC-CSIC), July 2022."><em>SantanderMetGroup/climate4R</em>, 2022</a>]</span>.</p>
 <section id="requirements">
 <h2>Requirements:<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h2>
 <p>The following R packages are used to work with spatial data:</p>
@@ -699,7 +734,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 <h2>Using the updated IPCC regions:<a class="headerlink" href="#using-the-updated-ipcc-regions" title="Permalink to this headline">#</a></h2>
 <section id="import-the-reference-regions">
 <h3>Import the reference regions:<a class="headerlink" href="#import-the-reference-regions" title="Permalink to this headline">#</a></h3>
-<p><strong>From shapefile</strong>: the shapefile of <code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is available for download at the <a class="reference external" href="https://github.com/IPCC-WG1/Atlas">Atlas GitHub repository</a>, within the <code class="docutils literal notranslate"><span class="pre">reference-regions</span></code> subdirectory stored in a <em>.zip</em> file (shapefiles consist of a number of complementary files storing geo-reference information, geometries, the associated database etc.). In this example, we first extract the <em>zip</em> contents into a temporary directory for data import.</p>
+<p><strong>From shapefile</strong>: the shapefile of <code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is available for download at the <em>Atlas GitHub repository</em> <span id="id3">[<a class="reference internal" href="#id9" title="Repository supporting the implementation of FAIR principles in the IPCC-WGI Atlas. IPCC-WG1, November 2022."><em>Repository Supporting the Implementation of FAIR Principles in the IPCC-WGI Atlas</em>, 2022</a>]</span>, within the <code class="docutils literal notranslate"><span class="pre">reference-regions</span></code> subdirectory stored in a <em>.zip</em> file (shapefiles consist of a number of complementary files storing geo-reference information, geometries, the associated database etc.). In this example, we first extract the <em>zip</em> contents into a temporary directory for data import.</p>
 <p>Function <code class="docutils literal notranslate"><span class="pre">readOGR</span></code> from package <code class="docutils literal notranslate"><span class="pre">rgdal</span></code> loads shapefiles into the R environment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -767,7 +802,7 @@ It has 4 fields
 <img alt="../_images/reference-regions_R_13_0.png" src="../_images/reference-regions_R_13_0.png" />
 </div>
 </div>
-<p>The R basic plotting functions allow adding layers to the plot. Here the region names and coastline are added. Shapefiles such as global coastlines and other physical features or administrative boundaries can be either read from local or obtained from the Internet. In this example, a world coastline layer is used from the <a class="reference external" href="https://www.naturalearthdata.com">Natural Earth</a> public repository of digital cartography.</p>
+<p>The R basic plotting functions allow adding layers to the plot. Here the region names and coastline are added. Shapefiles such as global coastlines and other physical features or administrative boundaries can be either read from local or obtained from the Internet. In this example, a world coastline layer is used from the <em>Natural Earth</em> <span id="id4">[<a class="reference internal" href="#id55" title="Natural Earth - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales."><em>Natural Earth - Free Vector and Raster Map Data at 1:10m, 1:50m, and 1:110m Scales</em>, n.d.</a>]</span> public repository of digital cartography.</p>
 <hr class="docutils" />
 <p><em>(begin example)</em></p>
 <p>An example follows on how to download and load the vector layer. However, note that <strong>this step can be skipped</strong> and read the layer directly from the <code class="docutils literal notranslate"><span class="pre">auxiliary-material</span></code> subdir.</p>
@@ -1295,6 +1330,31 @@ loaded via a namespace (and not attached):
 </div>
 </div>
 </section>
+<section id="id5">
+<h2>References<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<div class="docutils container" id="id6">
+<dl class="citation">
+<dt class="label" id="id55"><span class="brackets"><a class="fn-backref" href="#id4">Nat</a></span></dt>
+<dd><p>Natural Earth - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id3">atl22</a></span></dt>
+<dd><p>Repository supporting the implementation of FAIR principles in the IPCC-WGI Atlas. IPCC-WG1, November 2022.</p>
+</dd>
+<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id2">cli22</a></span></dt>
+<dd><p>SantanderMetGroup/climate4R. Santander Meteorology Group (UC-CSIC), July 2022.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id1">AR5</a></span></dt>
+<dd><p>ipcc AR5. AR5 Regions. https://www.ipcc-data.org/guidelines/pages/ar5_regions.html.</p>
+</dd>
+</dl>
+</div>
+<script src="https://utteranc.es/client.js"
+        repo="PhantomAurelia/Atlas"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script></section>
 </section>
 
     <script type="text/x-thebe-config">

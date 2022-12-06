@@ -152,7 +152,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Readmes
+  Information
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -283,6 +283,31 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../binder/binder.html">
    Binder image deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reproducibility/maps/maps.html">
+   Code for reproducibility of the Atlas Map figures of model projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reproducibility/observations/observations.html">
+   Code for reproducibility of the ATLAS spatial maps of the observed linear trends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reproducibility/projections/projections.html">
+   Code for reproducibility of the ATLAS boxplots and scatterplots of model projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/bash-interpolation-scripts.html">
+   Bash interpolation scripts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/AtlasCDOremappeR_CORDEX/atlasCDOremappeR.html">
+   AtlasCDOremappeR for CORDEX RCM simulations
   </a>
  </li>
 </ul>
@@ -539,6 +564,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#session-information">
    Session Information
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -590,6 +622,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#session-information">
    Session Information
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -632,8 +671,8 @@ title="Print to PDF"
 </section>
 <section id="gwl-calculation">
 <h2>GWL calculation<a class="headerlink" href="#gwl-calculation" title="Permalink to this headline">#</a></h2>
-<p>The function <a class="reference external" href="https://github.com/IPCC-WG1/Atlas/blob/devel/warming-levels/scripts/getGWL.R"><code class="docutils literal notranslate"><span class="pre">getGWL</span></code></a> performs the key task of GWL determination. It is an atomic function to compute the timing of a user-defined transient Global Warming Level, that uses as input a numeric vector of mean global annual temperature projections for a given GCM. This numeric vector must be named, using the corresponding years as names. Both pre-industrial baseline (default to 1850-1900) and transient period (usually up to year 2100) are concatenated in a single input vector.</p>
-<p>The following example is intended to work with the global mean (land+sea) 2-m temperature data stored as <em>.csv</em> files in the <a class="reference external" href="https://github.com/IPCC-WG1/Atlas/blob/devel/datasets-aggregated-regionally">datasets-aggregated-regionally</a> directory.</p>
+<p>The function (warming-levels/scripts/getGWL.R) performs the key task of GWL determination. It is an atomic function to compute the timing of a user-defined transient Global Warming Level, that uses as input a numeric vector of mean global annual temperature projections for a given GCM. This numeric vector must be named, using the corresponding years as names. Both pre-industrial baseline (default to 1850-1900) and transient period (usually up to year 2100) are concatenated in a single input vector.</p>
+<p>The following example is intended to work with the global mean (land+sea) 2-m temperature data stored as <em>.csv</em> files in the <em>datasets-aggregated-regionally</em> directory.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">getGWL</span></code> function is loaded by issuing:</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -900,7 +939,7 @@ attr(,&quot;interval&quot;)
 <img alt="../_images/global-warming-levels_R_30_0.png" src="../_images/global-warming-levels_R_30_0.png" />
 </div>
 </div>
-<p>A more detailed <a class="reference external" href="https://github.com/IPCC-WG1/Atlas/blob/devel/warming-levels/scripts/gwl_time_series_plots.R">script</a> for representing the GWL spread of CMIP5 and CMIP6 multimodel ensembles with a flexible parameter setting is provided in the <code class="docutils literal notranslate"><span class="pre">warming-levels/scripts</span></code> directory.</p>
+<p>A more detailed script <a class="reference download internal" download="" href="../_downloads/2724a26e8b24c2e2bf3dfc50a70eaa7a/gwl_time_series_plots.R"><code class="xref download docutils literal notranslate"><span class="pre">gwl_time_series_plots.R</span></code></a> for representing the GWL spread of CMIP5 and CMIP6 multimodel ensembles with a flexible parameter setting is provided in the <code class="docutils literal notranslate"><span class="pre">warming-levels/scripts</span></code> directory.</p>
 </section>
 </section>
 <section id="session-information">
@@ -943,6 +982,15 @@ loaded via a namespace (and not attached):
 </div>
 </div>
 </div>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h3>
+<span class="target" id="id1"></span><script src="https://utteranc.es/client.js"
+        repo="PhantomAurelia/Atlas"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script></section>
 </section>
 </section>
 

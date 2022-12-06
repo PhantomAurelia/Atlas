@@ -150,7 +150,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Readmes
+  Information
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -281,6 +281,31 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../binder/binder.html">
    Binder image deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reproducibility/maps/maps.html">
+   Code for reproducibility of the Atlas Map figures of model projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reproducibility/observations/observations.html">
+   Code for reproducibility of the ATLAS spatial maps of the observed linear trends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reproducibility/projections/projections.html">
+   Code for reproducibility of the ATLAS boxplots and scatterplots of model projections
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/bash-interpolation-scripts.html">
+   Bash interpolation scripts
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/AtlasCDOremappeR_CORDEX/atlasCDOremappeR.html">
+   AtlasCDOremappeR for CORDEX RCM simulations
   </a>
  </li>
 </ul>
@@ -481,6 +506,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#similar-repositories">
    Similar repositories
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -505,6 +537,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#similar-repositories">
    Similar repositories
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#references">
+     References
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -519,9 +558,9 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="global-warming-levels">
 <span id="warming-levels"></span><h1>Global Warming Levels<a class="headerlink" href="#global-warming-levels" title="Permalink to this headline">#</a></h1>
 <p>Time periods for which +1.5, +2, +3 and +4 degree Transient Global Warming Levels (GWLs) are reached (with respect to pre-industrial 1850-1900 mean value) are computed for CMIP5 and CMIP6 data using a 20-year moving window, building on the datasets listed in the corresponding CMIP5 and CMIP6 <a class="reference internal" href="../data-sources/data-sources.html#data-sources"><span class="std std-ref">data sources</span></a>.</p>
-<p>The approach is similar to that described by e.g. <a class="reference external" href="https://doi.org/10.1088/1748-9326/aab1b1">Nikulin <em>et al.</em> (2018)</a>. The values provided in the GWL tables in this directory (<span class="xref myst">CMIP5_Atlas_WarmingLevels.csv</span> and <span class="xref myst">CMIP6_Atlas_WarmingLevels.csv</span>) correspond to the <strong>central year (n) of the 20-year window</strong> where the warming is first reached (the GWL period is thus calculated as <strong>[n-9, n+10]</strong>). Cells with <strong>‘NA’</strong> indicate that the GWL was not reached before (the central year) 2100. Cells with <strong>‘9999’</strong> correspond to models with no available data for the particular scenario. The script provided for GWL calculation builds directly on the information available at the <a class="reference internal" href="../datasets-aggregated-regionally/datasets-aggregated-regionally.html#datasets-aggregated-regionally"><span class="std std-ref">datasets-aggregated-regionally</span></a> directory, in particular using the global values in the last column of the files (<em>‘tas_landsea’</em> csv files, under the <code class="docutils literal notranslate"><span class="pre">&quot;world&quot;</span></code> heading).</p>
+<p>The approach is similar to that described by e.g. <span id="id1">[<a class="reference internal" href="#id53" title="Grigory Nikulin, Chris Lennard, Alessandro Dosio, Erik Kjellström, Youmin Chen, Andreas Hänsler, Marco Kupiainen, René Laprise, Laura Mariotti, Cathrine Fox Maule, Erik van Meijgaard, Hans-Jürgen Panitz, John F. Scinocca, and Samuel Somot. The effects of 1.5 and 2 degrees of global warming on Africa in the CORDEX ensemble. Environmental Research Letters, 13(6):065003, May 2018. doi:10.1088/1748-9326/aab1b1.">Nikulin <em>et al.</em>, 2018</a>]</span>. The values provided in the GWL tables in this directory (<em>CMIP5_Atlas_WarmingLevels.csv</em> and <em>CMIP6_Atlas_WarmingLevels.csv</em>) correspond to the <strong>central year (n) of the 20-year window</strong> where the warming is first reached (the GWL period is thus calculated as <strong>[n-9, n+10]</strong>). Cells with <strong>‘NA’</strong> indicate that the GWL was not reached before (the central year) 2100. Cells with <strong>‘9999’</strong> correspond to models with no available data for the particular scenario. The script provided for GWL calculation builds directly on the information available at the <a class="reference internal" href="../datasets-aggregated-regionally/datasets-aggregated-regionally.html#datasets-aggregated-regionally"><span class="std std-ref">datasets-aggregated-regionally</span></a> directory, in particular using the global values in the last column of the files (<em>‘tas_landsea’</em> csv files, under the <code class="docutils literal notranslate"><span class="pre">&quot;world&quot;</span></code> heading).</p>
 <p>The use of a 20-year moving window is selected to be consistent with 20-year time slices typically used for future projections: the near-term (2021-2040), mid-term (2041-2060) and long-term (2081-2100). However, the figures in the <em>CMIPx_WarmingLevels_spread_scenario.pdf</em> files compare the results for 20- and 30-year windows using the large CMIP5/CMIP6 ensembles.</p>
-<p>The <span class="xref myst">scripts</span> folder also contains a script to produce plots of the GWL crossing time, with a flexible parameter setting. For instance, the following parameter set:</p>
+<p>The <em>scripts</em> folder also contains a script to produce plots of the GWL crossing time, with a flexible parameter setting. For instance, the following parameter set:</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">cmip</span> <span class="o">&lt;-</span> <span class="s">&quot;CMIP6&quot;</span>
 <span class="n">gwl</span> <span class="o">&lt;-</span> <span class="m">2</span>        <span class="c1"># Possible values: 1.5, 2 , 3 or 4 (degrees)</span>
 <span class="n">exp</span> <span class="o">&lt;-</span> <span class="s">&quot;ssp370&quot;</span> <span class="c1"># This is a CMIP-dependent parameter</span>
@@ -535,7 +574,26 @@ title="Print to PDF"
 <p>See also the <a class="reference internal" href="../notebooks/global-warming-levels_R.html#global-warming-levels-r"><span class="std std-ref">global warming levels</span></a> notebook in the notebooks section to learn the basics of GWL calculation.</p>
 <section id="similar-repositories">
 <h2>Similar repositories<a class="headerlink" href="#similar-repositories" title="Permalink to this headline">#</a></h2>
-<p>A similar repository for GWL calculation is maintained by <a class="reference external" href="https://github.com/mathause/cmip_warming_levels">Mathias Hauser</a> and provides similar information which allows double-checking the results. Small differences (1-year shifts) are attributable to different postprocessing methods and/or different members/versions.</p>
+<p>A similar repository for GWL calculation is maintained by <span id="id2">[<a class="reference internal" href="#id48" title="Mathause/cmip_warming_levels: year when a certain warming level was reached in cmip5 and cmip6 data. https://github.com/mathause/cmip_warming_levels."><em>Mathause/Cmip_warming_levels: Year When a Certain Warming Level Was Reached in Cmip5 and Cmip6 Data</em>, n.d.</a>]</span> and provides similar information which allows double-checking the results. Small differences (1-year shifts) are attributable to different postprocessing methods and/or different members/versions.</p>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h3>
+<div class="docutils container" id="id3">
+<dl class="citation">
+<dt class="label" id="id48"><span class="brackets"><a class="fn-backref" href="#id2">Mat</a></span></dt>
+<dd><p>Mathause/cmip_warming_levels: year when a certain warming level was reached in cmip5 and cmip6 data. https://github.com/mathause/cmip_warming_levels.</p>
+</dd>
+<dt class="label" id="id53"><span class="brackets"><a class="fn-backref" href="#id1">NLD+18</a></span></dt>
+<dd><p>Grigory Nikulin, Chris Lennard, Alessandro Dosio, Erik Kjellström, Youmin Chen, Andreas Hänsler, Marco Kupiainen, René Laprise, Laura Mariotti, Cathrine Fox Maule, Erik van Meijgaard, Hans-Jürgen Panitz, John F. Scinocca, and Samuel Somot. The effects of 1.5 and 2 degrees of global warming on Africa in the CORDEX ensemble. <em>Environmental Research Letters</em>, 13(6):065003, May 2018. <a class="reference external" href="https://doi.org/10.1088/1748-9326/aab1b1">doi:10.1088/1748-9326/aab1b1</a>.</p>
+</dd>
+</dl>
+</div>
+<script src="https://utteranc.es/client.js"
+        repo="PhantomAurelia/Atlas"
+        issue-term="pathname"
+        theme="preferred-color-scheme"
+        crossorigin="anonymous"
+        async>
+</script></section>
 </section>
 </section>
 
