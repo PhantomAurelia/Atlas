@@ -693,15 +693,15 @@ title="Print to PDF"
 <p>The next call of <code class="docutils literal notranslate"><span class="pre">computeStripes</span></code> produces a stripes figure for CMIP6 (<code class="docutils literal notranslate"><span class="pre">project</span> <span class="pre">=</span> <span class="pre">&quot;CMIP6&quot;</span></code>) annual (<code class="docutils literal notranslate"><span class="pre">season</span> <span class="pre">=</span> <span class="pre">1:12</span></code>) mean precipitation (<code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">=</span> <span class="pre">&quot;pr&quot;</span></code>). The historical and ssp585 scenarios are considered (<code class="docutils literal notranslate"><span class="pre">experiment</span> <span class="pre">=</span> <span class="pre">&quot;ssp585&quot;</span></code>) for the global land surface (<code class="docutils literal notranslate"><span class="pre">region</span> <span class="pre">=</span> <span class="pre">&quot;world&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">area</span> <span class="pre">=</span> <span class="pre">&quot;land&quot;</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">computeStripes</span><span class="p">(</span><span class="n">project</span> <span class="o">=</span> <span class="s">&quot;CMIP6&quot;</span><span class="p">,</span> 
-               <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;pr&quot;</span><span class="p">,</span>
-               <span class="n">experiment</span> <span class="o">=</span> <span class="s">&quot;ssp585&quot;</span><span class="p">,</span>
-               <span class="n">season</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,</span>
-               <span class="n">area</span> <span class="o">=</span> <span class="s">&quot;land&quot;</span><span class="p">,</span>
-               <span class="n">region</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">,</span>
-               <span class="n">cordex.domain</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
-               <span class="n">brewer.pal.name</span> <span class="o">=</span> <span class="s">&quot;Blues&quot;</span><span class="p">,</span>
-               <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">computeStripes</span><span class="p">(</span><span class="n">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CMIP6&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">               </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pr&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">experiment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ssp585&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">season</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,</span>
+<span class="w">               </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;land&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;world&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">cordex.domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span>
+<span class="w">               </span><span class="n">brewer.pal.name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Blues&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -712,17 +712,17 @@ title="Print to PDF"
 <p>Play with the parameter options for different configurations. For instance, change the variable (<code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">=</span> <span class="pre">&quot;tas&quot;</span></code>) or use additional graphical parameters (type <code class="docutils literal notranslate"><span class="pre">?levelplot</span></code> to check available parameters) to, for instance, change the title (<code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">=</span> <span class="pre">list(&quot;Stripes</span> <span class="pre">of</span> <span class="pre">Mediterranean</span> <span class="pre">mean</span> <span class="pre">temperature</span> <span class="pre">for</span> <span class="pre">CMIP6&quot;,</span> <span class="pre">cex</span> <span class="pre">=</span> <span class="pre">1.5)</span></code>) or the width of the colorkey (<code class="docutils literal notranslate"><span class="pre">colorkey</span> <span class="pre">=</span> <span class="pre">list(width</span> <span class="pre">=</span> <span class="pre">2)</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">computeStripes</span><span class="p">(</span><span class="n">project</span> <span class="o">=</span> <span class="s">&quot;CMIP6&quot;</span><span class="p">,</span> 
-               <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;tas&quot;</span><span class="p">,</span>
-               <span class="n">experiment</span> <span class="o">=</span> <span class="s">&quot;ssp585&quot;</span><span class="p">,</span>
-               <span class="n">season</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,</span>
-               <span class="n">area</span> <span class="o">=</span> <span class="s">&quot;land&quot;</span><span class="p">,</span>
-               <span class="n">region</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">,</span>
-               <span class="n">cordex.domain</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
-               <span class="n">brewer.pal.name</span> <span class="o">=</span> <span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
-               <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-               <span class="n">main</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;Stripes of mean temperature for CMIP6&quot;</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">1.5</span><span class="p">),</span>
-               <span class="n">colorkey</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="m">2</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">computeStripes</span><span class="p">(</span><span class="n">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CMIP6&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">               </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tas&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">experiment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ssp585&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">season</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,</span>
+<span class="w">               </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;land&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;world&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">cordex.domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span>
+<span class="w">               </span><span class="n">brewer.pal.name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span>
+<span class="w">               </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;Stripes of mean temperature for CMIP6&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">),</span>
+<span class="w">               </span><span class="n">colorkey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -736,15 +736,15 @@ title="Print to PDF"
 <p>Use the name of any of the <a class="reference external" href="https://github.com/IPCC-WG1/Atlas/tree/main/reference-regions">reference regions</a> available in this repository, for instance “MED” (Mediterranean) in the next example. As “MED” can be considered both land or sea, here we will select the mediterranean sea:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">computeStripes</span><span class="p">(</span><span class="n">project</span> <span class="o">=</span> <span class="s">&quot;CMIP6&quot;</span><span class="p">,</span> 
-               <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;tas&quot;</span><span class="p">,</span>
-               <span class="n">experiment</span> <span class="o">=</span> <span class="s">&quot;ssp585&quot;</span><span class="p">,</span>
-               <span class="n">season</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,</span>
-               <span class="n">area</span> <span class="o">=</span> <span class="s">&quot;sea&quot;</span><span class="p">,</span>
-               <span class="n">region</span> <span class="o">=</span> <span class="s">&quot;MED&quot;</span><span class="p">,</span>
-               <span class="n">cordex.domain</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span>
-               <span class="n">brewer.pal.name</span> <span class="o">=</span> <span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
-               <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">computeStripes</span><span class="p">(</span><span class="n">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CMIP6&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">               </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tas&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">experiment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ssp585&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">season</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,</span>
+<span class="w">               </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sea&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;MED&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">cordex.domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NULL</span><span class="p">,</span>
+<span class="w">               </span><span class="n">brewer.pal.name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -755,15 +755,15 @@ title="Print to PDF"
 <p>Lets consider summer values for CORDEX (<code class="docutils literal notranslate"><span class="pre">season</span> <span class="pre">=</span> <span class="pre">6:8</span></code> and <code class="docutils literal notranslate"><span class="pre">project</span> <span class="pre">=</span> <span class="pre">&quot;CORDEX&quot;</span></code>). We need to specify a CORDEX domain, for instance <code class="docutils literal notranslate"><span class="pre">cordex.domain</span> <span class="pre">=</span> <span class="pre">&quot;AFR&quot;</span></code> (we could also select “EUR”, as both domains cover the MED region). We will also change the color palette (<code class="docutils literal notranslate"><span class="pre">brewer.pal.name</span> <span class="pre">=</span> <span class="pre">&quot;RdGy&quot;</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">computeStripes</span><span class="p">(</span><span class="n">project</span> <span class="o">=</span> <span class="s">&quot;CORDEX&quot;</span><span class="p">,</span> 
-               <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;tas&quot;</span><span class="p">,</span>
-               <span class="n">experiment</span> <span class="o">=</span> <span class="s">&quot;rcp85&quot;</span><span class="p">,</span>
-               <span class="n">season</span> <span class="o">=</span> <span class="m">6</span><span class="o">:</span><span class="m">8</span><span class="p">,</span>
-               <span class="n">area</span> <span class="o">=</span> <span class="s">&quot;land&quot;</span><span class="p">,</span>
-               <span class="n">region</span> <span class="o">=</span> <span class="s">&quot;MED&quot;</span><span class="p">,</span>
-               <span class="n">cordex.domain</span> <span class="o">=</span> <span class="s">&quot;AFR&quot;</span><span class="p">,</span>
-               <span class="n">brewer.pal.name</span> <span class="o">=</span> <span class="s">&quot;RdGy&quot;</span><span class="p">,</span>
-               <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">computeStripes</span><span class="p">(</span><span class="n">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CORDEX&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">               </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tas&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">experiment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;rcp85&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">season</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="o">:</span><span class="m">8</span><span class="p">,</span>
+<span class="w">               </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;land&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;MED&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">cordex.domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;AFR&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">brewer.pal.name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;RdGy&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -771,7 +771,7 @@ title="Print to PDF"
 <img alt="../_images/stripes-plots_R_16_0.png" src="../_images/stripes-plots_R_16_0.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sessionInfo</span><span class="p">()</span>
 </pre></div>
@@ -780,10 +780,10 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Fedora Linux 36 (Workstation Edition)
+Running under: Fedora Linux 37 (Workstation Edition)
 
 Matrix products: default
-BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
+BLAS/LAPACK: /home/phanaur/mambaforge/envs/prueba/lib/libopenblasp-r0.3.21.so
 
 locale:
  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C              

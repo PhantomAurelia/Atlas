@@ -673,12 +673,12 @@ title="Print to PDF"
 <p>This notebook relies on several climate4R packages. We start by extending the Java memory allocation, which will be used by <code class="docutils literal notranslate"><span class="pre">loadeR</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">java.parameters</span> <span class="o">=</span> <span class="s">&quot;-Xmx8g&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">java.parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;-Xmx8g&quot;</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">loadeR</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">transformeR</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">visualizeR</span><span class="p">)</span> <span class="c1"># spatialPlot</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">visualizeR</span><span class="p">)</span><span class="w"> </span><span class="c1"># spatialPlot</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">geoprocessoR</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">climate4R.indices</span><span class="p">)</span> <span class="c1"># linearTrend</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">climate4R.indices</span><span class="p">)</span><span class="w"> </span><span class="c1"># linearTrend</span>
 </pre></div>
 </div>
 </div>
@@ -780,7 +780,7 @@ title="Print to PDF"
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">magrittr</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">RColorBrewer</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">rgdal</span><span class="p">)</span> <span class="c1"># readOGR</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">rgdal</span><span class="p">)</span><span class="w"> </span><span class="c1"># readOGR</span>
 </pre></div>
 </div>
 </div>
@@ -788,10 +788,10 @@ title="Print to PDF"
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rgdal: version: 1.5-16, (SVN revision 1050)
 Geospatial Data Abstraction Library extensions to R successfully loaded
 Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
-Path to GDAL shared files: /home/phanaur/mambaforge/envs/tfg/share/gdal
+Path to GDAL shared files: /home/phanaur/mambaforge/envs/prueba/share/gdal
 GDAL binary built with GEOS: TRUE 
 Loaded PROJ runtime: Rel. 7.2.0, November 1st, 2020, [PJ_VERSION: 720]
-Path to PROJ shared files: /home/phanaur/mambaforge/envs/tfg/share/proj
+Path to PROJ shared files: /home/phanaur/mambaforge/envs/prueba/share/proj
 PROJ CDN enabled: TRUE
 Linking to sp version:1.4-5
 To mute warnings of possible GDAL/OSR exportToProj4() degradation,
@@ -806,7 +806,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 <p>We will load the polygons of the IPCC <span id="id1">[<a class="reference internal" href="#id15" title="Atlas/reference-regions at main · IPCC-WG1/Atlas. https://github.com/IPCC-WG1/Atlas/tree/main/reference-regions."><em>Atlas/Reference-Regions at Main · IPCC-WG1/Atlas</em>, n.d.</a>]</span>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regs</span> <span class="o">&lt;-</span> <span class="nf">get</span><span class="p">(</span><span class="nf">load</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_R.rda&quot;</span><span class="p">))</span> <span class="o">%&gt;%</span> <span class="nf">as</span><span class="p">(</span><span class="s">&quot;SpatialPolygons&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="nf">load</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_R.rda&quot;</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="nf">as</span><span class="p">(</span><span class="s">&quot;SpatialPolygons&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -814,7 +814,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 <p>In this notebook we will focus on a set of regions in North America. We will use the following character vector of the target region names to select them. Change it accordingly to adapt this notebook for other regions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regs.area</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;NWN&quot;</span><span class="p">,</span> <span class="s">&quot;NEN&quot;</span><span class="p">,</span> <span class="s">&quot;WNA&quot;</span><span class="p">,</span> <span class="s">&quot;CNA&quot;</span><span class="p">,</span><span class="s">&quot;ENA&quot;</span><span class="p">,</span><span class="s">&quot;NCA&quot;</span><span class="p">)</span> <span class="c1"># North America regions</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regs.area</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NWN&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;NEN&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;WNA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CNA&quot;</span><span class="p">,</span><span class="s">&quot;ENA&quot;</span><span class="p">,</span><span class="s">&quot;NCA&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># North America regions</span>
 </pre></div>
 </div>
 </div>
@@ -822,7 +822,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 <p>We can now extract the subset of regions and show their outline as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regs</span> <span class="o">&lt;-</span> <span class="n">regs</span><span class="p">[</span><span class="n">regs.area</span><span class="p">]</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">regs</span><span class="p">[</span><span class="n">regs.area</span><span class="p">]</span>
 <span class="nf">plot</span><span class="p">(</span><span class="n">regs</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -834,7 +834,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 <p>We load also the coastlines, to be used in the spatial maps below. These are available in the <a class="reference internal" href="auxiliary-material/auxiliary-material.html#auxiliary-material"><span class="std std-ref">auxiliary-material</span></a> folder:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">coast</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="s">&quot;auxiliary-material/WORLD_coastline.shp&quot;</span><span class="p">)</span> 
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">coast</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">readOGR</span><span class="p">(</span><span class="s">&quot;auxiliary-material/WORLD_coastline.shp&quot;</span><span class="p">)</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
@@ -853,7 +853,7 @@ It has 2 fields
 <blockquote>
 <div><p>This section takes long to execute due to intensive remote data loading. See the next section (<a class="reference external" href="#Load-data-from-file">Load data from file</a>) to load these data from a local copy available in the repository and continue with the notebook operations.</p>
 </div></blockquote>
-<p>The <em>Santander Climate Data Service</em> (SCDS) <span id="id2">[<a class="reference internal" href="#id42" title="Inicio | Servicio Climático de Datos. https://www.scds.es/es/."><em>Inicio | Servicio Climático de Datos</em>, n.d.</a>]</span> archives and provides access to a variety of climate datasets and contributes to international infrastructures, serving e.g. as data node for the Earth System Grid Federation (ESGF) or the IPCC Data Distribution Center (IPCC-DDC). This service is maintained by the <em>Santander Meteorology Group</em> <span id="id3">[<a class="reference internal" href="#id42" title="Inicio | Servicio Climático de Datos. https://www.scds.es/es/."><em>Inicio | Servicio Climático de Datos</em>, n.d.</a>]</span> (University of Cantabria - CSIC) and includes a THREDDS Data Server for remote data access with seamless integration with the climate4R framework for climate data postprocessing. This integration, the User Data Gateway (UDG), is handled by the <em>climate4R.UDG</em> <span id="id4">[<a class="reference internal" href="#id21" title="climate4R.UDG. Santander Meteorology Group (UC-CSIC), June 2022."><em>climate4R.UDG</em>, 2022</a>]</span> package, loaded automatically by the <em>loadeR</em> <span id="id5">[<a class="reference internal" href="#id74" title="What is loadeR? Santander Meteorology Group (UC-CSIC), July 2022."><em>What Is loadeR?</em>, 2022</a>]</span> package, which provides user-friendly access to a variety of remote data sources.</p>
+<p>The <em>Santander Climate Data Service</em> (SCDS) <span id="id2">[<a class="reference internal" href="#id43" title="Inicio | Servicio Climático de Datos. https://www.scds.es/es/."><em>Inicio | Servicio Climático de Datos</em>, n.d.</a>]</span> archives and provides access to a variety of climate datasets and contributes to international infrastructures, serving e.g. as data node for the Earth System Grid Federation (ESGF) or the IPCC Data Distribution Center (IPCC-DDC). This service is maintained by the <em>Santander Meteorology Group</em> <span id="id3">[<a class="reference internal" href="#id43" title="Inicio | Servicio Climático de Datos. https://www.scds.es/es/."><em>Inicio | Servicio Climático de Datos</em>, n.d.</a>]</span> (University of Cantabria - CSIC) and includes a THREDDS Data Server for remote data access with seamless integration with the climate4R framework for climate data postprocessing. This integration, the User Data Gateway (UDG), is handled by the <em>climate4R.UDG</em> <span id="id4">[<a class="reference internal" href="#id22" title="climate4R.UDG. Santander Meteorology Group (UC-CSIC), June 2022."><em>climate4R.UDG</em>, 2022</a>]</span> package, loaded automatically by the <em>loadeR</em> <span id="id5">[<a class="reference internal" href="#id74" title="What is loadeR? Santander Meteorology Group (UC-CSIC), July 2022."><em>What Is loadeR?</em>, 2022</a>]</span> package, which provides user-friendly access to a variety of remote data sources.</p>
 <p>To load data stored in the User Data Gateway (similar to loading data from a local directory), we first list the available datasets with function <code class="docutils literal notranslate"><span class="pre">UDG.datasets</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -876,8 +876,8 @@ It has 2 fields
 <p>We see that, among others, the W5E5 dataset <span id="id6">[<a class="reference internal" href="#id72" title="WFDE5 over land merged with ERA5 over the ocean (W5E5). https://dataservices.gfz-potsdam.de/pik/showshort.php?id=escidoc:4855898."><em>WFDE5 over Land Merged with ERA5 over the Ocean (W5E5)</em>, n.d.</a>]</span> is available from the UDG. This dataset is global, but we can load just the region of interest. In this case, we provide the limits for a North American lon-lat window:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">lonLim</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">168.0</span><span class="p">,</span> <span class="m">-50</span><span class="p">)</span>
-<span class="n">latLim</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">2.2</span><span class="p">,</span> <span class="m">85</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">lonLim</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">168.0</span><span class="p">,</span><span class="w"> </span><span class="m">-50</span><span class="p">)</span>
+<span class="n">latLim</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2.2</span><span class="p">,</span><span class="w"> </span><span class="m">85</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -885,7 +885,7 @@ It has 2 fields
 <p>We will also set the analysis period to 1980-2014:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">years</span> <span class="o">&lt;-</span> <span class="m">1980</span><span class="o">:</span><span class="m">2014</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">years</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1980</span><span class="o">:</span><span class="m">2014</span>
 </pre></div>
 </div>
 </div>
@@ -901,27 +901,27 @@ It has 2 fields
 <p>The variable of interest in this notebook is precipitation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="o">&lt;-</span> <span class="s">&quot;pr&quot;</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">var</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;pr&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>To load W5E5 we would just input the corresponding label to the <code class="docutils literal notranslate"><span class="pre">dataset</span></code> argument in <code class="docutils literal notranslate"><span class="pre">loadGridData</span></code>. In order to save memory, we load the data year by year in a loop and perform annual aggregation in each iteration. After using <code class="docutils literal notranslate"><span class="pre">bindGrid</span></code> (to join the yearly data sets) we end up with a climate4R Grid object containing yearly averages for the region selected. The following piece of code takes about 1 minute per year loaded (depends on your network connection speed).</p>
-<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">grid.list</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">()</span>
-<span class="nf">for </span><span class="p">(</span><span class="n">year</span> <span class="n">in</span> <span class="n">years</span><span class="p">){</span>
-    <span class="nf">message</span><span class="p">(</span><span class="s">&quot; ** Reading year &quot;</span><span class="p">,</span> <span class="n">year</span><span class="p">)</span>
-    <span class="n">grid.list</span><span class="p">[[</span><span class="nf">as.character</span><span class="p">(</span><span class="n">year</span><span class="p">)]]</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span>
-        <span class="n">dataset</span> <span class="o">=</span> <span class="s">&quot;W5E5&quot;</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">var</span><span class="p">,</span>
-        <span class="n">latLim</span> <span class="o">=</span> <span class="n">latLim</span><span class="p">,</span> <span class="n">lonLim</span> <span class="o">=</span> <span class="n">lonLim</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="n">year</span>
-    <span class="p">)</span> <span class="o">%&gt;%</span>
-    <span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">aggr.y</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span> 
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">grid.list</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">()</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">year</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">years</span><span class="p">){</span>
+<span class="w">    </span><span class="nf">message</span><span class="p">(</span><span class="s">&quot; ** Reading year &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">year</span><span class="p">)</span>
+<span class="w">    </span><span class="n">grid.list</span><span class="p">[[</span><span class="nf">as.character</span><span class="p">(</span><span class="n">year</span><span class="p">)]]</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span>
+<span class="w">        </span><span class="n">dataset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;W5E5&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">,</span>
+<span class="w">        </span><span class="n">latLim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">latLim</span><span class="p">,</span><span class="w"> </span><span class="n">lonLim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lonLim</span><span class="p">,</span><span class="w"> </span><span class="n">years</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">year</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">    </span><span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">aggr.y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mean&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span>
 <span class="p">}</span>
-<span class="n">grid</span> <span class="o">&lt;-</span> <span class="nf">bindGrid</span><span class="p">(</span><span class="n">grid.list</span><span class="p">,</span> <span class="n">dimension</span> <span class="o">=</span> <span class="s">&quot;time&quot;</span><span class="p">)</span>                                         
+<span class="n">grid</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">bindGrid</span><span class="p">(</span><span class="n">grid.list</span><span class="p">,</span><span class="w"> </span><span class="n">dimension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;time&quot;</span><span class="p">)</span><span class="w">                                         </span>
 </pre></div>
 </div>
 <p>This operation takes a long time, therefore it is convenient to save the resulting data. We can export the final dataset to NetCDF using the <code class="docutils literal notranslate"><span class="pre">loadeR.2nc</span></code> library, which provides the function <code class="docutils literal notranslate"><span class="pre">grid2nc</span></code>.</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">loadeR.2nc</span><span class="p">)</span>
-<span class="nf">grid2nc</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">NetCDFOutFile</span> <span class="o">=</span> <span class="s">&quot;auxiliary-material/W5E5_NorthAmerica_pr_1980-2014_yearly.nc4&quot;</span><span class="p">)</span>
+<span class="nf">grid2nc</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">NetCDFOutFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;auxiliary-material/W5E5_NorthAmerica_pr_1980-2014_yearly.nc4&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The resulting NetCDF is available as auxiliary material in this repository, therefore the previous data loading step can be skipped.</p>
@@ -931,21 +931,21 @@ It has 2 fields
 <p>Skip this section if you sucessfully loaded your data from the User Data Gateway. For a fast loading of the required data, you can use a copy of the yearly averaged precipitation available in the <code class="docutils literal notranslate"><span class="pre">auxiliary-material</span></code> folder:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/W5E5_NorthAmerica_pr_1980-2014_yearly.nc4&quot;</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;pr&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/W5E5_NorthAmerica_pr_1980-2014_yearly.nc4&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pr&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:39] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:10] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:39] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:10] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:39] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:10] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:40] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:11] Done
 </pre></div>
 </div>
 </div>
@@ -954,7 +954,7 @@ It has 2 fields
 <p>We can start by plotting the climatology of precipitation for the selected period and region. We define the geographical projection (WGS84) the same as the reference regions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">&lt;-</span> <span class="nf">setGridProj</span><span class="p">(</span><span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span><span class="p">,</span> <span class="n">proj</span> <span class="o">=</span> <span class="nf">proj4string</span><span class="p">(</span><span class="n">regs</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">setGridProj</span><span class="p">(</span><span class="n">grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">proj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">proj4string</span><span class="p">(</span><span class="n">regs</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -969,24 +969,24 @@ It has 2 fields
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid</span><span class="p">),</span>
-            <span class="n">at</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> 
-            <span class="n">set.min</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span>
-            <span class="n">set.max</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
-            <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span>
-            <span class="n">col.regions</span> <span class="o">=</span> <span class="nf">brewer.pal</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">9</span><span class="p">,</span> <span class="s">&quot;BuPu&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">colorRampPalette</span><span class="p">(),</span>
-            <span class="n">main</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;Climatology of total precipitation (W5E5, &quot;</span><span class="p">,</span> <span class="nf">min</span><span class="p">(</span><span class="n">years</span><span class="p">),</span> <span class="s">&quot;-&quot;</span><span class="p">,</span> <span class="nf">max</span><span class="p">(</span><span class="n">years</span><span class="p">),</span> <span class="s">&quot;) - mm/day&quot;</span><span class="p">),</span>
-            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
-                <span class="nf">list</span><span class="p">(</span><span class="n">regs</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">),</span>
-                <span class="nf">list</span><span class="p">(</span><span class="s">&quot;sp.text&quot;</span><span class="p">,</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span> <span class="nf">names</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="w">            </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span>
+<span class="w">            </span><span class="n">set.min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
+<span class="w">            </span><span class="n">set.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span>
+<span class="w">            </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">col.regions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">brewer.pal</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BuPu&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="nf">colorRampPalette</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;Climatology of total precipitation (W5E5, &quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">years</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">years</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;) - mm/day&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="n">sp.layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span>
+<span class="w">                </span><span class="nf">list</span><span class="p">(</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">),</span>
+<span class="w">                </span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;sp.text&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">coordinates</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:40] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:11] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:40] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:11] - Done.
 </pre></div>
 </div>
 <img alt="../_images/linear-trends_R_35_2.png" src="../_images/linear-trends_R_35_2.png" />
@@ -995,7 +995,7 @@ It has 2 fields
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">overGrid</span></code> function to mask the values outside the IPCC regions of interest to this use-case.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">%&lt;&gt;%</span> <span class="nf">overGrid</span><span class="p">(</span><span class="n">regs</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="w"> </span><span class="o">%&lt;&gt;%</span><span class="w"> </span><span class="nf">overGrid</span><span class="p">(</span><span class="n">regs</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1010,24 +1010,24 @@ It has 2 fields
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid</span><span class="p">),</span>
-            <span class="n">at</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> 
-            <span class="n">set.min</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span>
-            <span class="n">set.max</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
-            <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span>
-            <span class="n">col.regions</span> <span class="o">=</span> <span class="nf">brewer.pal</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">9</span><span class="p">,</span> <span class="s">&quot;BuPu&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">colorRampPalette</span><span class="p">(),</span>
-            <span class="n">main</span> <span class="o">=</span> <span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;Climatology of total precipitation (W5E5, &quot;</span><span class="p">,</span> <span class="nf">min</span><span class="p">(</span><span class="n">years</span><span class="p">),</span> <span class="s">&quot;-&quot;</span><span class="p">,</span> <span class="nf">max</span><span class="p">(</span><span class="n">years</span><span class="p">),</span> <span class="s">&quot;) - mm/day&quot;</span><span class="p">),</span>
-            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
-                <span class="nf">list</span><span class="p">(</span><span class="n">regs</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">),</span>
-                <span class="nf">list</span><span class="p">(</span><span class="s">&quot;sp.text&quot;</span><span class="p">,</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span> <span class="nf">names</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="w">            </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span><span class="w"> </span>
+<span class="w">            </span><span class="n">set.min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span>
+<span class="w">            </span><span class="n">set.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span>
+<span class="w">            </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">col.regions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">brewer.pal</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BuPu&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="nf">colorRampPalette</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="s">&quot;Climatology of total precipitation (W5E5, &quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">years</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">years</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;) - mm/day&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="n">sp.layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span>
+<span class="w">                </span><span class="nf">list</span><span class="p">(</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">),</span>
+<span class="w">                </span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;sp.text&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">coordinates</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:40] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:12] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:41] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:12] - Done.
 </pre></div>
 </div>
 <img alt="../_images/linear-trends_R_39_2.png" src="../_images/linear-trends_R_39_2.png" />
@@ -1039,7 +1039,7 @@ It has 2 fields
 <p>Now, trends can be computed by means of the <code class="docutils literal notranslate"><span class="pre">linearTrend</span></code> function, which fits a linear model at gridbox level and returns all the involved statistics, including the p-value of the estimated slope. We subset the slope (“b”) among all the statistics returned, by calling <code class="docutils literal notranslate"><span class="pre">subsetGrid</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">trendGrid</span> <span class="o">&lt;-</span> <span class="nf">linearTrend</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">subsetGrid</span><span class="p">(</span><span class="n">var</span> <span class="o">=</span> <span class="s">&quot;b&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">trendGrid</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">linearTrend</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="nf">subsetGrid</span><span class="p">(</span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1047,10 +1047,10 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:41] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:13] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:41] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:13] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1060,22 +1060,22 @@ It has 2 fields
 </div>
 </div>
 <p>We could save these climate products as NetCDF files using the <code class="docutils literal notranslate"><span class="pre">loadeR.2nc</span></code> library.</p>
-<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">grid2nc</span><span class="p">(</span><span class="n">trendGrid</span><span class="p">,</span> <span class="n">NetCDFOutFile</span> <span class="o">=</span> <span class="s">&quot;trends.nc4&quot;</span><span class="p">)</span>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">grid2nc</span><span class="p">(</span><span class="n">trendGrid</span><span class="p">,</span><span class="w"> </span><span class="n">NetCDFOutFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;trends.nc4&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We rely again on <code class="docutils literal notranslate"><span class="pre">spatialPlot</span></code> from visualizeR, to show the map of trends.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">trendGrid</span><span class="p">,</span> 
-            <span class="n">col.regions</span> <span class="o">=</span> <span class="nf">brewer.pal</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">9</span><span class="p">,</span> <span class="s">&quot;BrBG&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">colorRampPalette</span><span class="p">(),</span>
-            <span class="n">at</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-0.1</span><span class="p">,</span> <span class="m">0.1</span><span class="p">,</span> <span class="m">0.01</span><span class="p">),</span> 
-            <span class="n">set.min</span> <span class="o">=</span> <span class="m">-0.1</span><span class="p">,</span>
-            <span class="n">set.max</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">,</span>
-            <span class="n">main</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Linear trends of the annual total precipitaion (mm/day) - W5E5&quot;</span><span class="p">),</span>
-            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>  
-            <span class="nf">list</span><span class="p">(</span><span class="n">regs</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">),</span>
-            <span class="nf">list</span><span class="p">(</span><span class="n">coast</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;gray50&quot;</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">),</span>  
-            <span class="nf">list</span><span class="p">(</span><span class="s">&quot;sp.text&quot;</span><span class="p">,</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span> <span class="nf">names</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">trendGrid</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">col.regions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">brewer.pal</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BrBG&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="nf">colorRampPalette</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">-0.1</span><span class="p">,</span><span class="w"> </span><span class="m">0.1</span><span class="p">,</span><span class="w"> </span><span class="m">0.01</span><span class="p">),</span><span class="w"> </span>
+<span class="w">            </span><span class="n">set.min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-0.1</span><span class="p">,</span>
+<span class="w">            </span><span class="n">set.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.1</span><span class="p">,</span>
+<span class="w">            </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Linear trends of the annual total precipitaion (mm/day) - W5E5&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="n">sp.layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="w">  </span>
+<span class="w">            </span><span class="nf">list</span><span class="p">(</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">),</span>
+<span class="w">            </span><span class="nf">list</span><span class="p">(</span><span class="n">coast</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gray50&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">),</span><span class="w">  </span>
+<span class="w">            </span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;sp.text&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">coordinates</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 <span class="p">))</span>
 </pre></div>
 </div>
@@ -1089,8 +1089,8 @@ It has 2 fields
 <p>Next, we show how to add trend statistical significance information as a hatching. For this purpose, we repeat the process but retrieving the p-values of the linear trends (instead of the slopes, as above). Therefore we subset the variable <code class="docutils literal notranslate"><span class="pre">pval</span></code> using <code class="docutils literal notranslate"><span class="pre">subsetGrid</span></code>. Finally, we convert the p-values to a binary field using a threshold of 0.1. In the resulting binary field, 0 indicates that the trend is significant and 1 means non-significant.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pvalGrid</span> <span class="o">&lt;-</span> <span class="nf">linearTrend</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">subsetGrid</span><span class="p">(</span><span class="n">var</span> <span class="o">=</span> <span class="s">&quot;pval&quot;</span><span class="p">)</span>
-<span class="n">pvalGrid</span> <span class="o">&lt;-</span> <span class="nf">binaryGrid</span><span class="p">(</span><span class="n">pvalGrid</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="s">&quot;GT&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pvalGrid</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">linearTrend</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="nf">subsetGrid</span><span class="p">(</span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pval&quot;</span><span class="p">)</span>
+<span class="n">pvalGrid</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">binaryGrid</span><span class="p">(</span><span class="n">pvalGrid</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.1</span><span class="p">,</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GT&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1098,10 +1098,10 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:43] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:14] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:43] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:14] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1124,16 +1124,16 @@ It has 2 fields
 <p>We build (<code class="docutils literal notranslate"><span class="pre">binaryGrid</span></code>) and apply (<code class="docutils literal notranslate"><span class="pre">gridArithmetics</span></code>) a mask to avoid R misusing NaN data out of the regions of interest when calculating the p-values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">&lt;-</span> <span class="nf">binaryGrid</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid</span><span class="p">),</span><span class="n">condition</span> <span class="o">=</span> <span class="s">&quot;GE&quot;</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
-<span class="n">pvalGrid</span> <span class="o">&lt;-</span> <span class="nf">gridArithmetics</span><span class="p">(</span><span class="n">pvalGrid</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">binaryGrid</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid</span><span class="p">),</span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GE&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="m">1</span><span class="p">))</span>
+<span class="n">pvalGrid</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gridArithmetics</span><span class="p">(</span><span class="n">pvalGrid</span><span class="p">,</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:44] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:16] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:44] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:16] - Done.
 </pre></div>
 </div>
 </div>
@@ -1151,38 +1151,38 @@ It has 2 fields
 <p>We can now use the p-values computed above to add a hatching pattern over the trend maps. To do so, we encapsulate the function <code class="docutils literal notranslate"><span class="pre">map.hatching</span></code> in a 2-way loop that corresponds to each line in a ‘x’ symbol. An ‘x’ would be associated whenever the condition is fullfilled, in our case whenever at least half the gridpoints of the upscaled grid are non-significant (i.e., 0-valued in the binary p-value object, <code class="docutils literal notranslate"><span class="pre">pvalGrid</span></code>). We use the <code class="docutils literal notranslate"><span class="pre">mean</span></code> fuction as the upscaling aggregation function, moving from a spatial resolution of half a degree in the trends field, to 2 degrees in the hatching. The upscaled (hatching) grid resolution is based on the <code class="docutils literal notranslate"><span class="pre">density</span></code> parameter of function <code class="docutils literal notranslate"><span class="pre">map.hatching</span></code>. In our case <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">=</span> <span class="pre">4</span></code> and, therefore, the corresponding spatial resolution is 4 x 0.5 degrees = 2 degrees.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">hatching.lines</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;45&quot;</span><span class="p">,</span><span class="s">&quot;-45&quot;</span><span class="p">),</span> <span class="n">FUN</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nf">c</span><span class="p">(</span><span class="nf">map.hatching</span><span class="p">(</span><span class="n">clim</span> <span class="o">=</span> <span class="nf">climatology</span><span class="p">(</span><span class="n">pvalGrid</span><span class="p">),</span> 
-                 <span class="n">threshold</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> 
-                 <span class="n">condition</span> <span class="o">=</span> <span class="s">&quot;GE&quot;</span><span class="p">,</span> 
-                 <span class="n">density</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span>
-                 <span class="n">angle</span> <span class="o">=</span> <span class="n">angle</span><span class="p">,</span> <span class="n">coverage.percent</span> <span class="o">=</span> <span class="m">50</span><span class="p">,</span>
-                 <span class="n">upscaling.aggr.fun</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
-  <span class="p">),</span> 
-  <span class="s">&quot;which&quot;</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">hatching.lines</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lapply</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;45&quot;</span><span class="p">,</span><span class="s">&quot;-45&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nf">c</span><span class="p">(</span><span class="nf">map.hatching</span><span class="p">(</span><span class="n">clim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">climatology</span><span class="p">(</span><span class="n">pvalGrid</span><span class="p">),</span><span class="w"> </span>
+<span class="w">                 </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                 </span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GE&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                 </span><span class="n">density</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span>
+<span class="w">                 </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angle</span><span class="p">,</span><span class="w"> </span><span class="n">coverage.percent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">,</span>
+<span class="w">                 </span><span class="n">upscaling.aggr.fun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mean&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="w">  </span><span class="p">),</span><span class="w"> </span>
+<span class="w">  </span><span class="s">&quot;which&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">)</span>
 <span class="p">})</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:44] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:16] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:44] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
-“Discarded datum Unknown based on WGS84 ellipsoid in CRS definition”
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:16] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
 “Discarded datum Unknown based on WGS84 ellipsoid in CRS definition”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:45] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
+“Discarded datum Unknown based on WGS84 ellipsoid in CRS definition”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:45] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:17] - Computing climatology...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:17] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
@@ -1198,19 +1198,19 @@ It has 2 fields
 <p>We rely again on <code class="docutils literal notranslate"><span class="pre">spatialPlot</span></code> from visualizeR to plot the trend maps and include the p-value as hatching as a member of the <code class="docutils literal notranslate"><span class="pre">sp.layout</span></code> argument list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">trendGrid</span><span class="p">,</span> 
-            <span class="n">col.regions</span> <span class="o">=</span> <span class="nf">brewer.pal</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">9</span><span class="p">,</span> <span class="s">&quot;BrBG&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">colorRampPalette</span><span class="p">(),</span>
-            <span class="n">at</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-0.1</span><span class="p">,</span> <span class="m">0.1</span><span class="p">,</span> <span class="m">0.01</span><span class="p">),</span> 
-            <span class="n">set.min</span> <span class="o">=</span> <span class="m">-0.1</span><span class="p">,</span>
-            <span class="n">set.max</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">,</span>
-            <span class="n">main</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Linear trend of total precipitation (mm/day) - W5E5&quot;</span><span class="p">),</span>
-            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
-              <span class="n">hatching.lines</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span>
-              <span class="n">hatching.lines</span><span class="p">[[</span><span class="m">2</span><span class="p">]],</span>  
-              <span class="nf">list</span><span class="p">(</span><span class="n">regs</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">),</span>
-              <span class="nf">list</span><span class="p">(</span><span class="n">coast</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;gray50&quot;</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">),</span>  
-              <span class="nf">list</span><span class="p">(</span><span class="s">&quot;sp.text&quot;</span><span class="p">,</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span> <span class="nf">names</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
-            <span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">trendGrid</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">col.regions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">brewer.pal</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BrBG&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="nf">colorRampPalette</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">-0.1</span><span class="p">,</span><span class="w"> </span><span class="m">0.1</span><span class="p">,</span><span class="w"> </span><span class="m">0.01</span><span class="p">),</span><span class="w"> </span>
+<span class="w">            </span><span class="n">set.min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-0.1</span><span class="p">,</span>
+<span class="w">            </span><span class="n">set.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.1</span><span class="p">,</span>
+<span class="w">            </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Linear trend of total precipitation (mm/day) - W5E5&quot;</span><span class="p">),</span>
+<span class="w">            </span><span class="n">sp.layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span>
+<span class="w">              </span><span class="n">hatching.lines</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span>
+<span class="w">              </span><span class="n">hatching.lines</span><span class="p">[[</span><span class="m">2</span><span class="p">]],</span><span class="w">  </span>
+<span class="w">              </span><span class="nf">list</span><span class="p">(</span><span class="n">regs</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">),</span>
+<span class="w">              </span><span class="nf">list</span><span class="p">(</span><span class="n">coast</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gray50&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">),</span><span class="w">  </span>
+<span class="w">              </span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;sp.text&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">coordinates</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="w">            </span><span class="p">)</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1226,7 +1226,7 @@ It has 2 fields
 <p>Finally, we can have a look at the trends in average time series for each IPCC region. For this purpose, we loop over the IPCC regions to crop the field for each particular region. This will facilitate the spatial averaging over each region. To do so we rely on function <code class="docutils literal notranslate"><span class="pre">overGrid</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid.regs</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span> <span class="nf">function</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="nf">overGrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">regs</span><span class="p">[</span><span class="n">r</span><span class="p">]))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid.regs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lapply</span><span class="p">(</span><span class="nf">names</span><span class="p">(</span><span class="n">regs</span><span class="p">),</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="nf">overGrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">regs</span><span class="p">[</span><span class="n">r</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -1260,17 +1260,17 @@ It has 2 fields
 <p>Let’s check the corresponding map e.g. for NWN</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid.regs</span><span class="p">[[</span><span class="s">&quot;NWN&quot;</span><span class="p">]]),</span> 
-            <span class="n">col.regions</span> <span class="o">=</span> <span class="nf">brewer.pal</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">9</span><span class="p">,</span> <span class="s">&quot;BuPu&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">colorRampPalette</span><span class="p">()</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid.regs</span><span class="p">[[</span><span class="s">&quot;NWN&quot;</span><span class="p">]]),</span><span class="w"> </span>
+<span class="w">            </span><span class="n">col.regions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">brewer.pal</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BuPu&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="nf">colorRampPalette</span><span class="p">()</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:19] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:19] - Done.
 </pre></div>
 </div>
 <img alt="../_images/linear-trends_R_60_2.png" src="../_images/linear-trends_R_60_2.png" />
@@ -1279,100 +1279,100 @@ It has 2 fields
 <p>We compute the anomalies by calling <code class="docutils literal notranslate"><span class="pre">scaleGrid</span></code> of <code class="docutils literal notranslate"><span class="pre">transformeR</span></code> and setting the argument <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">center</span></code> to substract the mean from the temporal series. Previously, we call <code class="docutils literal notranslate"><span class="pre">aggregateGrid</span></code> over the list of IPCC objets to average spatially over each region and, therefore, output the temporal series for every North American IPCC region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">spatial.mean</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">aggr.spatial</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span> <span class="o">%&gt;%</span> <span class="nf">scaleGrid</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="s">&quot;center&quot;</span><span class="p">)</span>
-<span class="n">grid.anom</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">grid.regs</span><span class="p">,</span> <span class="n">spatial.mean</span><span class="p">)</span>  
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">spatial.mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="w"> </span><span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">aggr.spatial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mean&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="nf">scaleGrid</span><span class="p">(</span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;center&quot;</span><span class="p">)</span>
+<span class="n">grid.anom</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lapply</span><span class="p">(</span><span class="n">grid.regs</span><span class="p">,</span><span class="w"> </span><span class="n">spatial.mean</span><span class="p">)</span><span class="w">  </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Scaling ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:19] - Scaling ...
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:19] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:19] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:19] - Done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Scaling ...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Aggregating spatially...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Scaling ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:19] - Scaling ...
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:19] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Scaling ...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Aggregating spatially...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Scaling ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Scaling ...
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Scaling ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Scaling ...
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Scaling ...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Aggregating spatially...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Scaling ...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Aggregating spatially...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done
 </pre></div>
 </div>
 </div>
@@ -1396,11 +1396,11 @@ It has 2 fields
 <p>If we’d like to add the trend value to the legend, we only need to paste these values to the names of object <code class="docutils literal notranslate"><span class="pre">grid.anom</span></code> before calling <code class="docutils literal notranslate"><span class="pre">temporalPlot</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">trend.val</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">grid.anom</span><span class="p">),</span> <span class="n">FUN</span> <span class="o">=</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">aux</span> <span class="o">&lt;-</span> <span class="nf">linearTrend</span><span class="p">(</span><span class="n">grid.anom</span><span class="p">[[</span><span class="n">x</span><span class="p">]])</span> <span class="o">%&gt;%</span> <span class="nf">subsetGrid</span><span class="p">(</span><span class="n">var</span> <span class="o">=</span> <span class="s">&quot;b&quot;</span><span class="p">)</span>
-    <span class="nf">round</span><span class="p">(</span><span class="n">aux</span><span class="o">$</span><span class="n">Data</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">digits</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">trend.val</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="nf">length</span><span class="p">(</span><span class="n">grid.anom</span><span class="p">),</span><span class="w"> </span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">aux</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">linearTrend</span><span class="p">(</span><span class="n">grid.anom</span><span class="p">[[</span><span class="n">x</span><span class="p">]])</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="nf">subsetGrid</span><span class="p">(</span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">round</span><span class="p">(</span><span class="n">aux</span><span class="o">$</span><span class="n">Data</span><span class="p">[</span><span class="m">1</span><span class="p">],</span><span class="w"> </span><span class="n">digits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
 <span class="p">})</span>
-<span class="nf">names</span><span class="p">(</span><span class="n">grid.anom</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;%s (%g mm/day/yr)&quot;</span><span class="p">,</span> <span class="nf">names</span><span class="p">(</span><span class="n">grid.anom</span><span class="p">),</span> <span class="n">trend.val</span><span class="p">)</span>
+<span class="nf">names</span><span class="p">(</span><span class="n">grid.anom</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;%s (%g mm/day/yr)&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">grid.anom</span><span class="p">),</span><span class="w"> </span><span class="n">trend.val</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1408,23 +1408,10 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
-“Only one grid passed as input. Nothing was done”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Computing climatology...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1434,23 +1421,10 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
-“Only one grid passed as input. Nothing was done”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Computing climatology...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1460,10 +1434,10 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1473,10 +1447,36 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:47] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:48] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“Only one grid passed as input. Nothing was done”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Computing climatology...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“Only one grid passed as input. Nothing was done”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Computing climatology...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:20] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1503,9 +1503,9 @@ It has 2 fields
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">temporalPlot</span><span class="p">(</span><span class="n">grid.anom</span><span class="p">,</span>
-               <span class="n">xyplot.custom</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span>
-                 <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Precipitation anomaly time series (mm/day)&quot;</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-0.65</span><span class="p">,</span> <span class="m">0.65</span><span class="p">)</span>
-               <span class="p">))</span>      
+<span class="w">               </span><span class="n">xyplot.custom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span>
+<span class="w">                 </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Precipitation anomaly time series (mm/day)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-0.65</span><span class="p">,</span><span class="w"> </span><span class="m">0.65</span><span class="p">)</span>
+<span class="w">               </span><span class="p">))</span><span class="w">      </span>
 </pre></div>
 </div>
 </div>
@@ -1534,7 +1534,7 @@ It has 2 fields
 </section>
 <section id="session-info">
 <h2>Session info<a class="headerlink" href="#session-info" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sessionInfo</span><span class="p">()</span>
 </pre></div>
@@ -1543,10 +1543,10 @@ It has 2 fields
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Fedora Linux 36 (Workstation Edition)
+Running under: Fedora Linux 37 (Workstation Edition)
 
 Matrix products: default
-BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
+BLAS/LAPACK: /home/phanaur/mambaforge/envs/prueba/lib/libopenblasp-r0.3.21.so
 
 locale:
  [1] LC_CTYPE=es_ES.UTF-8          LC_NUMERIC=C                 
@@ -1605,7 +1605,7 @@ loaded via a namespace (and not attached):
 <dt class="label" id="id15"><span class="brackets"><a class="fn-backref" href="#id1">Atl</a></span></dt>
 <dd><p>Atlas/reference-regions at main · IPCC-WG1/Atlas. https://github.com/IPCC-WG1/Atlas/tree/main/reference-regions.</p>
 </dd>
-<dt class="label" id="id42"><span class="brackets">Ini</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>)</span></dt>
+<dt class="label" id="id43"><span class="brackets">Ini</span><span class="fn-backref">(<a href="#id2">1</a>,<a href="#id3">2</a>)</span></dt>
 <dd><p>Inicio | Servicio Climático de Datos. https://www.scds.es/es/.</p>
 </dd>
 <dt class="label" id="id72"><span class="brackets"><a class="fn-backref" href="#id6">WFD</a></span></dt>
@@ -1614,7 +1614,7 @@ loaded via a namespace (and not attached):
 <dt class="label" id="id74"><span class="brackets"><a class="fn-backref" href="#id5">Wha22</a></span></dt>
 <dd><p>What is loadeR? Santander Meteorology Group (UC-CSIC), July 2022.</p>
 </dd>
-<dt class="label" id="id21"><span class="brackets"><a class="fn-backref" href="#id4">Cli22</a></span></dt>
+<dt class="label" id="id22"><span class="brackets"><a class="fn-backref" href="#id4">Cli22</a></span></dt>
 <dd><p>climate4R.UDG. Santander Meteorology Group (UC-CSIC), June 2022.</p>
 </dd>
 </dl>

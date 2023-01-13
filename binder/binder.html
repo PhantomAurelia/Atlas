@@ -508,7 +508,7 @@ title="Print to PDF"
 <span id="binder"></span><h1>Binder image deployment<a class="headerlink" href="#binder-image-deployment" title="Permalink to this headline">#</a></h1>
 <p>This folder provides Reproducible Execution Environment Specifications (REES) to deploy a execution environment for all the scripts and notebooks included in the repository. These REES ensure the use of the same versions of all tools and libraries as those used during the development of the Atlas data and graphical products. This is the same execution environment as the virtual enviroment accessed through the MyBinder badge available in the <a class="reference internal" href="../intro.html#intro"><span class="std std-ref">introduction</span></a> file.</p>
 <p>Docker users can use the <em>Dockerfile</em> file to deploy the image of the environment. This file can also be used in a local binder setup (e.g. to have access to larger amounts of memory, as compared to the free MyBinder service). Additionally, the <em>environment.yml</em> file can be used to deploy the execution environment using conda. It is advisable to create a separate conda environment using:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda env create -n ipcc-wgi-ar6-atlas --file binder/conda/environment.yml
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>ipcc-wgi-ar6-atlas<span class="w"> </span>--file<span class="w"> </span>binder/conda/environment.yml
 </pre></div>
 </div>
 <script src="https://utteranc.es/client.js"

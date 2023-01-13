@@ -737,7 +737,7 @@ title="Print to PDF"
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: udunits2
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>udunits system database read from /home/phanaur/mambaforge/envs/tfg/share/udunits/udunits2.xml
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>udunits system database read from /home/phanaur/mambaforge/envs/prueba/share/udunits/udunits2.xml
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>convertR version 0.2.0 (2020-02-22) is loaded
@@ -763,24 +763,24 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># global reference 1º land/sea mask</span>
-<span class="n">mask</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;../reference-grids/land_sea_mask_1degree.nc4&quot;</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;sftlf&quot;</span><span class="p">)</span>
+<span class="n">mask</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;../reference-grids/land_sea_mask_1degree.nc4&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sftlf&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:47] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:42] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:48] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:42] Defining time selection parameters
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NOTE: Undefined Dataset Time Axis (static variable)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:48] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:42] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:48] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:42] Done
 </pre></div>
 </div>
 </div>
@@ -804,22 +804,22 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># loading global mean temperature</span>
-<span class="n">tas</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">,</span> 
-                    <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;tas&quot;</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="m">2000</span><span class="o">:</span><span class="m">2010</span><span class="p">)</span> 
+<span class="n">tas</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tas&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">years</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2000</span><span class="o">:</span><span class="m">2010</span><span class="p">)</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:52] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:46] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:52] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:46] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:52] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:46] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:52] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:47] Done
 </pre></div>
 </div>
 </div>
@@ -828,15 +828,15 @@ title="Print to PDF"
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting climatology</span>
-<span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">tas</span><span class="p">),</span> <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span> <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">tas</span><span class="p">),</span><span class="w"> </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:52] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:47] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:52] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:47] - Done.
 </pre></div>
 </div>
 <img alt="../_images/reference-grids_R_11_2.png" src="../_images/reference-grids_R_11_2.png" />
@@ -860,7 +860,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: This cell may take a while to run </span>
-<span class="n">tas.i</span> <span class="o">&lt;-</span> <span class="nf">interpGrid</span><span class="p">(</span><span class="n">tas</span><span class="p">,</span> <span class="nf">getGrid</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;bilinear&quot;</span><span class="p">)</span>
+<span class="n">tas.i</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">interpGrid</span><span class="p">(</span><span class="n">tas</span><span class="p">,</span><span class="w"> </span><span class="nf">getGrid</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;bilinear&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -873,10 +873,10 @@ title="Print to PDF"
 “The new latitudes are outside the data extent”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:53] Performing bilinear interpolation... may take a while
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:47] Performing bilinear interpolation... may take a while
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:06:58] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:53] Done
 </pre></div>
 </div>
 </div>
@@ -898,7 +898,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># binary 1º land/sea mask</span>
-<span class="n">land</span> <span class="o">&lt;-</span> <span class="nf">binaryGrid</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="s">&quot;GT&quot;</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="m">0.999</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
+<span class="n">land</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">binaryGrid</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.999</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
 <span class="nf">spatialPlot</span><span class="p">(</span><span class="n">land</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -910,8 +910,8 @@ title="Print to PDF"
 <p>In order to apply this binary mask to our temperature data, we need that both C4R grid objects have the same dimensions. Therefore, we resize the binary mask to match the time dimension of <code class="docutils literal notranslate"><span class="pre">tas.i</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">masktimes</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">land</span><span class="p">),</span> <span class="nf">getShape</span><span class="p">(</span><span class="n">tas.i</span><span class="p">,</span> <span class="s">&quot;time&quot;</span><span class="p">))</span>
-<span class="n">mask2apply</span> <span class="o">&lt;-</span> <span class="nf">bindGrid</span><span class="p">(</span><span class="n">masktimes</span><span class="p">,</span> <span class="n">dimension</span> <span class="o">=</span> <span class="s">&quot;time&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">masktimes</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">land</span><span class="p">),</span><span class="w"> </span><span class="nf">getShape</span><span class="p">(</span><span class="n">tas.i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;time&quot;</span><span class="p">))</span>
+<span class="n">mask2apply</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">bindGrid</span><span class="p">(</span><span class="n">masktimes</span><span class="p">,</span><span class="w"> </span><span class="n">dimension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;time&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -925,18 +925,18 @@ title="Print to PDF"
 <p>At this point, we can already use the <code class="docutils literal notranslate"><span class="pre">gridArithmetics</span></code> function to multiply the binary land/sea mask and the temperature data, making NA over sea in the latter.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tas.i.land</span> <span class="o">&lt;-</span> <span class="nf">gridArithmetics</span><span class="p">(</span><span class="n">tas.i</span><span class="p">,</span> <span class="n">mask2apply</span><span class="p">,</span> <span class="n">operator</span> <span class="o">=</span> <span class="s">&quot;*&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tas.i.land</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gridArithmetics</span><span class="p">(</span><span class="n">tas.i</span><span class="p">,</span><span class="w"> </span><span class="n">mask2apply</span><span class="p">,</span><span class="w"> </span><span class="n">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span><span class="p">)</span>
 
 <span class="c1"># final land-only temperature data</span>
-<span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">tas.i.land</span><span class="p">),</span> <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>  
+<span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">tas.i.land</span><span class="p">),</span><span class="w"> </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">  </span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:01] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:57] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:01] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:04:57] - Done.
 </pre></div>
 </div>
 <img alt="../_images/reference-grids_R_22_2.png" src="../_images/reference-grids_R_22_2.png" />
@@ -949,7 +949,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># monthly time-series (in K)</span>
-<span class="nf">temporalPlot</span><span class="p">(</span><span class="n">tas.i</span><span class="p">,</span> <span class="n">tas.i.land</span><span class="p">,</span> <span class="n">x.axis</span> <span class="o">=</span> <span class="s">&quot;index&quot;</span><span class="p">)</span>
+<span class="nf">temporalPlot</span><span class="p">(</span><span class="n">tas.i</span><span class="p">,</span><span class="w"> </span><span class="n">tas.i.land</span><span class="p">,</span><span class="w"> </span><span class="n">x.axis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;index&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -961,9 +961,9 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># monthly time-series (in Celsius degrees)</span>
-<span class="n">tas.i.degC</span> <span class="o">&lt;-</span> <span class="nf">udConvertGrid</span><span class="p">(</span><span class="n">tas.i</span><span class="p">,</span> <span class="n">new.units</span> <span class="o">=</span> <span class="s">&quot;degC&quot;</span><span class="p">)</span>
-<span class="n">tas.i.land.degC</span> <span class="o">&lt;-</span> <span class="nf">udConvertGrid</span><span class="p">(</span><span class="n">tas.i.land</span><span class="p">,</span> <span class="n">new.units</span> <span class="o">=</span> <span class="s">&quot;degC&quot;</span><span class="p">)</span>
-<span class="nf">temporalPlot</span><span class="p">(</span><span class="n">tas.i.degC</span><span class="p">,</span> <span class="n">tas.i.land.degC</span><span class="p">,</span> <span class="n">x.axis</span> <span class="o">=</span> <span class="s">&quot;index&quot;</span><span class="p">)</span>
+<span class="n">tas.i.degC</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">udConvertGrid</span><span class="p">(</span><span class="n">tas.i</span><span class="p">,</span><span class="w"> </span><span class="n">new.units</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;degC&quot;</span><span class="p">)</span>
+<span class="n">tas.i.land.degC</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">udConvertGrid</span><span class="p">(</span><span class="n">tas.i.land</span><span class="p">,</span><span class="w"> </span><span class="n">new.units</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;degC&quot;</span><span class="p">)</span>
+<span class="nf">temporalPlot</span><span class="p">(</span><span class="n">tas.i.degC</span><span class="p">,</span><span class="w"> </span><span class="n">tas.i.land.degC</span><span class="p">,</span><span class="w"> </span><span class="n">x.axis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;index&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -974,7 +974,7 @@ title="Print to PDF"
 </section>
 <section id="session-info">
 <h2>Session info<a class="headerlink" href="#session-info" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sessionInfo</span><span class="p">()</span>
 </pre></div>
@@ -983,10 +983,10 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Fedora Linux 36 (Workstation Edition)
+Running under: Fedora Linux 37 (Workstation Edition)
 
 Matrix products: default
-BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
+BLAS/LAPACK: /home/phanaur/mambaforge/envs/prueba/lib/libopenblasp-r0.3.21.so
 
 locale:
  [1] LC_CTYPE=es_ES.UTF-8          LC_NUMERIC=C                 

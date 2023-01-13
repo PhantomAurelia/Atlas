@@ -731,20 +731,23 @@ title="Print to PDF"
 <span id="reference-regions-python"></span><h1>Using the 4th version of the IPCC WGI reference regions in Python<a class="headerlink" href="#using-the-4th-version-of-the-ipcc-wgi-reference-regions-in-python" title="Permalink to this headline">#</a></h1>
 <p><strong>Companion to the paper “An update of IPCC climate reference regions for subcontinental analysis of climate model data: Definition and aggregated datasets” (July 2020).</strong></p>
 <p><em>Mathias Hauser</em> - Institute for Atmospheric and Climate Science, ETH Zurich, Zurich, Switzerland</p>
-<p>A new set of reference regions is defined in Iturbide et al. (2020) for reporting sub-continental climate information. Officially named IPCC-WGI-reference-regions-v4 they will be referred to as AR6 regions here. These regions update the IPCC <em>AR5 reference regions</em> <span id="id1">[<a class="reference internal" href="reference-regions_R.html#id7" title="ipcc AR5. AR5 Regions. https://www.ipcc-data.org/guidelines/pages/ar5_regions.html.">AR5, n.d.</a>]</span>. This tutorial shows how the python package <em>regionmask</em> <span id="id2">[<a class="reference internal" href="#id62" title="Create masks of geographical regions — regionmask 0.9.0 documentation. https://regionmask.readthedocs.io/en/stable/."><em>Create Masks of Geographical Regions — Regionmask 0.9.0 Documentation</em>, n.d.</a>]</span> can be used to plot these regions, and to create masks for arbitrary latitude and longitude grids (Version 0.9.0 was used <span id="id3">[<a class="reference internal" href="#id40" title="Mathias Hauser, Aaron Spring, Julius Busecke, Martin van Driel, Ruth Lorenz, and readthedocs-assistant. Regionmask/regionmask: version 0.9.0. Zenodo, March 2022. doi:10.5281/zenodo.6324240.">Hauser <em>et al.</em>, 2022</a>]</span>). These masks can then be used to subset individual regions or to calculate regional averages. The package <em>xarray</em> <span id="id4">[<a class="reference internal" href="#id75" title="Xarray documentation. https://docs.xarray.dev/en/latest/index.html."><em>Xarray Documentation</em>, n.d.</a>]</span>  is used to load netCDF files <span id="id5">[<a class="reference internal" href="#id41" title="Stephan Hoyer and Joe Hamman. Xarray: N-D labeled Arrays and Datasets in Python. Journal of Open Research Software, 5(1):10, April 2017. doi:10.5334/jors.148.">Hoyer and Hamman, 2017</a>]</span>.</p>
+<p>A new set of reference regions is defined in Iturbide et al. (2020) for reporting sub-continental climate information. Officially named IPCC-WGI-reference-regions-v4 they will be referred to as AR6 regions here. These regions update the IPCC <em>AR5 reference regions</em> <span id="id1">[<a class="reference internal" href="reference-regions_R.html#id7" title="ipcc AR5. AR5 Regions. https://www.ipcc-data.org/guidelines/pages/ar5_regions.html.">AR5, n.d.</a>]</span>. This tutorial shows how the python package <em>regionmask</em> <span id="id2">[<a class="reference internal" href="#id63" title="Create masks of geographical regions — regionmask 0.9.0 documentation. https://regionmask.readthedocs.io/en/stable/."><em>Create Masks of Geographical Regions — Regionmask 0.9.0 Documentation</em>, n.d.</a>]</span> can be used to plot these regions, and to create masks for arbitrary latitude and longitude grids (Version 0.9.0 was used <span id="id3">[<a class="reference internal" href="#id41" title="Mathias Hauser, Aaron Spring, Julius Busecke, Martin van Driel, Ruth Lorenz, and readthedocs-assistant. Regionmask/regionmask: version 0.9.0. Zenodo, March 2022. doi:10.5281/zenodo.6324240.">Hauser <em>et al.</em>, 2022</a>]</span>). These masks can then be used to subset individual regions or to calculate regional averages. The package <em>xarray</em> <span id="id4">[<a class="reference internal" href="#id75" title="Xarray documentation. https://docs.xarray.dev/en/latest/index.html."><em>Xarray Documentation</em>, n.d.</a>]</span>  is used to load netCDF files <span id="id5">[<a class="reference internal" href="#id42" title="Stephan Hoyer and Joe Hamman. Xarray: N-D labeled Arrays and Datasets in Python. Journal of Open Research Software, 5(1):10, April 2017. doi:10.5334/jors.148.">Hoyer and Hamman, 2017</a>]</span>.</p>
 <p>This tutorial requires regionmask version 0.6.1 or later and xarray version 0.15.1 or later. Check the <a class="reference external" href="https://regionmask.readthedocs.io/en/stable/">documentation of regionmask</a> for details.</p>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
 <p>Import <code class="docutils literal notranslate"><span class="pre">regionmask</span></code> and check the version:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">regionmask</span>
-<span class="n">regionmask</span><span class="o">.</span><span class="n">__version__</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">import</span><span class="w"> </span><span class="n">regionmask</span>
+<span class="n">regionmask.__version__</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.6.2&#39;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">parse</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">srcfile</span> <span class="o">=</span> <span class="n">src</span><span class="p">):</span> <span class="o">&lt;</span><span class="n">text</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span> <span class="n">unexpected</span> <span class="n">symbol</span>
+<span class="mi">1</span><span class="p">:</span> <span class="kn">import</span> <span class="nn">regionmask</span>
+           <span class="o">^</span>
+<span class="ne">Traceback</span>:
 </pre></div>
 </div>
 </div>
@@ -752,9 +755,9 @@ title="Print to PDF"
 <p>Import <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and check the version:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="n">xr</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span><span class="n">display_style</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
-<span class="n">xr</span><span class="o">.</span><span class="n">__version__</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">import</span><span class="w"> </span><span class="n">xarray</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">xr</span>
+<span class="nf">xr.set_options</span><span class="p">(</span><span class="n">display_style</span><span class="o">=</span><span class="s">&quot;text&quot;</span><span class="p">)</span>
+<span class="n">xr.__version__</span>
 </pre></div>
 </div>
 </div>
@@ -767,11 +770,11 @@ title="Print to PDF"
 <p>Import additional packages</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">import</span><span class="w"> </span><span class="n">cartopy.crs</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">ccrs</span>
+<span class="n">import</span><span class="w"> </span><span class="n">matplotlib.pyplot</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">plt</span>
+<span class="n">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">np</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">edgeitems</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nf">np.set_printoptions</span><span class="p">(</span><span class="n">edgeitems</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -782,7 +785,7 @@ title="Print to PDF"
 <p>The regions are available at <code class="docutils literal notranslate"><span class="pre">regionmask.defined_regions.ar6</span></code>. The whole set of 58 regions is available under (<code class="docutils literal notranslate"><span class="pre">ar6.all</span></code>). In addition the land (<code class="docutils literal notranslate"><span class="pre">ar6.land</span></code>) and ocean (<code class="docutils literal notranslate"><span class="pre">ar6.ocean</span></code>) regions are given separately. The numbering is kept consistent between the categories. Note that some regions are in the land and in the ocean categories (e.g. the Mediterranean).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regionmask</span><span class="o">.</span><span class="n">defined_regions</span><span class="o">.</span><span class="n">ar6</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regionmask.defined_regions.ar6</span>
 </pre></div>
 </div>
 </div>
@@ -804,7 +807,7 @@ ocean : Regions
 <p>We will illustrate the use of regionmask with <code class="docutils literal notranslate"><span class="pre">regionmask.defined_regions.ar6.all</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar6_all</span> <span class="o">=</span> <span class="n">regionmask</span><span class="o">.</span><span class="n">defined_regions</span><span class="o">.</span><span class="n">ar6</span><span class="o">.</span><span class="n">all</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ar6_all</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regionmask.defined_regions.ar6.all</span>
 <span class="n">ar6_all</span>
 </pre></div>
 </div>
@@ -838,7 +841,7 @@ Regions:
 <p><code class="docutils literal notranslate"><span class="pre">ar6_all.plot()</span></code> creates an cartopy map plot including the outline of all regions. It returns an <code class="docutils literal notranslate"><span class="pre">axes</span></code> instance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">ar6_all</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ar6_all.plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -849,19 +852,19 @@ Regions:
 <p>The plot can also be customized:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">plt.subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="nf">ccrs.Robinson</span><span class="p">()))</span>
 
-<span class="n">text_kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;#67000d&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">))</span>
+<span class="n">text_kws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">&quot;#67000d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="n">bbox</span><span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="m">0.2</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="s">&quot;w&quot;</span><span class="p">))</span>
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">ar6_all</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
-    <span class="n">add_ocean</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">line_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-    <span class="n">coastlines</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">text_kws</span><span class="o">=</span><span class="n">text_kws</span><span class="p">,</span>
+<span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ar6_all.plot</span><span class="p">(</span>
+<span class="w">    </span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+<span class="w">    </span><span class="n">add_ocean</span><span class="o">=</span><span class="n">False</span><span class="p">,</span>
+<span class="w">    </span><span class="n">line_kws</span><span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="m">1</span><span class="p">),</span>
+<span class="w">    </span><span class="n">coastlines</span><span class="o">=</span><span class="n">False</span><span class="p">,</span>
+<span class="w">    </span><span class="n">text_kws</span><span class="o">=</span><span class="n">text_kws</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+<span class="nf">ax.coastlines</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">&quot;0.5&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lw</span><span class="o">=</span><span class="m">0.5</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -875,7 +878,7 @@ Regions:
 <p>Selecting regions is done by indexing (note the double brackets):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_zealand</span> <span class="o">=</span> <span class="n">ar6_all</span><span class="p">[[</span><span class="mi">43</span><span class="p">]]</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">new_zealand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ar6_all</span><span class="p">[[</span><span class="m">43</span><span class="p">]]</span>
 <span class="n">new_zealand</span>
 </pre></div>
 </div>
@@ -896,11 +899,11 @@ Regions:
 <p>We plot the selected region and color the ocean blue with <code class="docutils literal notranslate"><span class="pre">add_ocean=True</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">projection</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">projection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ccrs.PlateCarree</span><span class="p">(</span><span class="n">central_longitude</span><span class="o">=</span><span class="m">180</span><span class="p">)</span>
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">new_zealand</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">proj</span><span class="o">=</span><span class="n">projection</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;abbrev&quot;</span><span class="p">,</span> <span class="n">add_ocean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">new_zealand.plot</span><span class="p">(</span><span class="n">proj</span><span class="o">=</span><span class="n">projection</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;abbrev&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">add_ocean</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="mi">120</span><span class="p">,</span> <span class="mi">185</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">60</span><span class="p">],</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="nf">ax.set_extent</span><span class="p">([</span><span class="m">120</span><span class="p">,</span><span class="w"> </span><span class="m">185</span><span class="p">,</span><span class="w"> </span><span class="m">-20</span><span class="p">,</span><span class="w"> </span><span class="m">-60</span><span class="p">],</span><span class="w"> </span><span class="nf">ccrs.PlateCarree</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -911,9 +914,9 @@ Regions:
 <p>Regions can also be selected by their abbreviation or name, let’s select several regions at once:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">australasia</span> <span class="o">=</span> <span class="n">ar6_all</span><span class="p">[[</span><span class="s2">&quot;NZ&quot;</span><span class="p">,</span> <span class="s2">&quot;SEA&quot;</span><span class="p">,</span> <span class="s2">&quot;NAU&quot;</span><span class="p">,</span> <span class="s2">&quot;C.Australia&quot;</span><span class="p">,</span> <span class="s2">&quot;SAU&quot;</span><span class="p">]]</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">australasia</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ar6_all</span><span class="p">[[</span><span class="s">&quot;NZ&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SEA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;NAU&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C.Australia&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SAU&quot;</span><span class="p">]]</span>
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">australasia</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">proj</span><span class="o">=</span><span class="n">projection</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;abbrev&quot;</span><span class="p">,</span> <span class="n">add_ocean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">australasia.plot</span><span class="p">(</span><span class="n">proj</span><span class="o">=</span><span class="n">projection</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;abbrev&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">add_ocean</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -943,23 +946,23 @@ Regions:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fN</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">)</span> 
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">fN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">)</span><span class="w"> </span>
 
-<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">fN</span><span class="p">)</span>
+<span class="n">ds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">xr.open_dataset</span><span class="p">(</span><span class="n">fN</span><span class="p">)</span>
 
-<span class="n">tas</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">tas</span>
+<span class="n">tas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ds.tas</span>
 
 <span class="c1"># calculate annual mean</span>
-<span class="n">tas</span> <span class="o">=</span> <span class="n">tas</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;time.year&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-<span class="n">tas</span> <span class="o">=</span> <span class="n">tas</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">tas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">tas.groupby</span><span class="p">(</span><span class="s">&quot;time.year&quot;</span><span class="p">)</span><span class="nf">.mean</span><span class="p">(</span><span class="s">&quot;time&quot;</span><span class="p">)</span>
+<span class="n">tas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">tas.rename</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="s">&quot;time&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert to celsius</span>
-<span class="n">tas</span> <span class="o">=</span> <span class="n">tas</span> <span class="o">-</span> <span class="mf">273.15</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert to celsius</span>
+<span class="n">tas</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tas</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">273.15</span>
 
 <span class="n">tas</span>
 </pre></div>
@@ -1002,15 +1005,15 @@ Coordinates:
 <p>The example data is a temperature field. Let’s plot the first time step:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ccrs.Robinson</span><span class="p">()</span>
 
-<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">))</span>
+<span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">plt.subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">))</span>
 
-<span class="n">h</span> <span class="o">=</span> <span class="n">tas</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span>
-    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">tas.isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="m">0</span><span class="p">)</span><span class="nf">.plot.pcolormesh</span><span class="p">(</span>
+<span class="w">    </span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">transform</span><span class="o">=</span><span class="nf">ccrs.PlateCarree</span><span class="p">(),</span><span class="w"> </span><span class="n">robust</span><span class="o">=</span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">center</span><span class="o">=</span><span class="m">0</span>
 <span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">();</span>
+<span class="nf">ax.coastlines</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -1024,7 +1027,7 @@ Coordinates:
 <p>We illustrate the creation of masks using the land regions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar6_land</span> <span class="o">=</span> <span class="n">regionmask</span><span class="o">.</span><span class="n">defined_regions</span><span class="o">.</span><span class="n">ar6</span><span class="o">.</span><span class="n">land</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ar6_land</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regionmask.defined_regions.ar6.land</span>
 </pre></div>
 </div>
 </div>
@@ -1032,7 +1035,7 @@ Coordinates:
 <p>Using <code class="docutils literal notranslate"><span class="pre">ar6_land.mask(lon,</span> <span class="pre">lat)</span></code> we can create an array where each grid cell is numbered according to the region it belongs to. Grid cells that are not part of any region are <code class="docutils literal notranslate"><span class="pre">NaN</span></code>. We can directly pass an xarray object containing <code class="docutils literal notranslate"><span class="pre">lon</span></code> and <code class="docutils literal notranslate"><span class="pre">lat</span></code> coordinates to the <code class="docutils literal notranslate"><span class="pre">mask</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask_2D</span> <span class="o">=</span> <span class="n">ar6_land</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">tas</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mask_2D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ar6_land.mask</span><span class="p">(</span><span class="n">tas</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1040,14 +1043,14 @@ Coordinates:
 <p>The resulting mask indicates which region each grid point belongs to and looks as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()</span>
-<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">proj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ccrs.Robinson</span><span class="p">()</span>
+<span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">plt.subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">))</span>
 
-<span class="n">h</span> <span class="o">=</span> <span class="n">mask_2D</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mask_2D.plot.pcolormesh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">transform</span><span class="o">=</span><span class="nf">ccrs.PlateCarree</span><span class="p">(),</span><span class="w"> </span><span class="n">add_colorbar</span><span class="o">=</span><span class="n">False</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+<span class="nf">ax.coastlines</span><span class="p">()</span>
 
-<span class="n">ar6_land</span><span class="o">.</span><span class="n">plot_regions</span><span class="p">(</span><span class="n">line_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span> <span class="n">add_label</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+<span class="nf">ar6_land.plot_regions</span><span class="p">(</span><span class="n">line_kws</span><span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="m">0.5</span><span class="p">),</span><span class="w"> </span><span class="n">add_label</span><span class="o">=</span><span class="n">False</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1061,7 +1064,7 @@ Coordinates:
 <p>2D masks are good for plotting. However, to calculate weighted regional averages 3D boolean masks are more convenient. 3D masks are created as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask_3D</span> <span class="o">=</span> <span class="n">ar6_land</span><span class="o">.</span><span class="n">mask_3D</span><span class="p">(</span><span class="n">tas</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mask_3D</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ar6_land.mask_3D</span><span class="p">(</span><span class="n">tas</span><span class="p">)</span>
 <span class="n">mask_3D</span>
 </pre></div>
 </div>
@@ -1104,24 +1107,24 @@ Coordinates:
 <p>The first two regions look as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span> <span class="k">as</span> <span class="n">mplc</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">from</span><span class="w"> </span><span class="n">matplotlib</span><span class="w"> </span><span class="n">import</span><span class="w"> </span><span class="n">colors</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">mplc</span>
 
-<span class="n">cmap1</span> <span class="o">=</span> <span class="n">mplc</span><span class="o">.</span><span class="n">ListedColormap</span><span class="p">([</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;#9ecae1&quot;</span><span class="p">])</span>
+<span class="n">cmap1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mplc.ListedColormap</span><span class="p">([</span><span class="s">&quot;none&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#9ecae1&quot;</span><span class="p">])</span>
 
-<span class="n">fg</span> <span class="o">=</span> <span class="n">mask_3D</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="n">subplot_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()),</span>
-    <span class="n">col</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">,</span>
-    <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
-    <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">aspect</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
-    <span class="n">cmap</span><span class="o">=</span><span class="n">cmap1</span><span class="p">,</span>
+<span class="n">fg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mask_3D.isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="nf">slice</span><span class="p">(</span><span class="m">2</span><span class="p">))</span><span class="nf">.plot</span><span class="p">(</span>
+<span class="w">    </span><span class="n">subplot_kws</span><span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="nf">ccrs.PlateCarree</span><span class="p">()),</span>
+<span class="w">    </span><span class="n">col</span><span class="o">=</span><span class="s">&quot;region&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">col_wrap</span><span class="o">=</span><span class="m">2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">transform</span><span class="o">=</span><span class="nf">ccrs.PlateCarree</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">add_colorbar</span><span class="o">=</span><span class="n">False</span><span class="p">,</span>
+<span class="w">    </span><span class="n">aspect</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span>
+<span class="w">    </span><span class="n">cmap</span><span class="o">=</span><span class="n">cmap1</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">fg</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">():</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;0.5&quot;</span><span class="p">)</span>
+<span class="n">for</span><span class="w"> </span><span class="n">ax</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">fg.axes.flatten</span><span class="p">()</span><span class="o">:</span>
+<span class="w">    </span><span class="nf">ax.coastlines</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="s">&quot;0.5&quot;</span><span class="p">)</span>
 
-<span class="n">fg</span><span class="o">.</span><span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">);</span>
+<span class="nf">fg.fig.subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">wspace</span><span class="o">=</span><span class="m">0.1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1134,14 +1137,14 @@ Coordinates:
 <p>As <code class="docutils literal notranslate"><span class="pre">mask_3D</span></code> contains region, abbrevs, and names as (non-dimension) coordinates we can use each of those to select an individual region:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) by the index of the region:</span>
-<span class="n">r1</span> <span class="o">=</span> <span class="n">mask_3D</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1) by the index of the region:</span>
+<span class="n">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mask_3D.sel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
 
 <span class="c1"># 2) with the abbreviation</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="n">mask_3D</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="p">(</span><span class="n">mask_3D</span><span class="o">.</span><span class="n">abbrevs</span> <span class="o">==</span> <span class="s2">&quot;CNA&quot;</span><span class="p">))</span>
+<span class="n">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mask_3D.isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="p">(</span><span class="n">mask_3D.abbrevs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;CNA&quot;</span><span class="p">))</span>
 
 <span class="c1"># 3) with the long name:</span>
-<span class="n">r3</span> <span class="o">=</span> <span class="n">mask_3D</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="p">(</span><span class="n">mask_3D</span><span class="o">.</span><span class="n">names</span> <span class="o">==</span> <span class="s2">&quot;C.North-America&quot;</span><span class="p">))</span>
+<span class="n">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">mask_3D.isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="p">(</span><span class="n">mask_3D.names</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;C.North-America&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1153,17 +1156,17 @@ Coordinates:
 <p>Using <code class="docutils literal notranslate"><span class="pre">tas.where</span></code> a specific region can be ‘masked out’ (i.e. all data points outside of the region become NaN):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tas_CNA</span> <span class="o">=</span> <span class="n">tas</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tas_CNA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">tas.where</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span>
 
-<span class="n">proj</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">()</span>
+<span class="n">proj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ccrs.Robinson</span><span class="p">()</span>
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">)</span>
+<span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">plt.subplot</span><span class="p">(</span><span class="m">111</span><span class="p">,</span><span class="w"> </span><span class="n">projection</span><span class="o">=</span><span class="n">proj</span><span class="p">)</span>
 
-<span class="n">tas_CNA</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+<span class="nf">tas_CNA.isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="m">0</span><span class="p">)</span><span class="nf">.plot.pcolormesh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">transform</span><span class="o">=</span><span class="nf">ccrs.PlateCarree</span><span class="p">())</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Central North America&quot;</span><span class="p">)</span>
+<span class="nf">ax.set_title</span><span class="p">(</span><span class="s">&quot;Central North America&quot;</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">();</span>
+<span class="nf">ax.coastlines</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -1178,9 +1181,9 @@ Coordinates:
 <p>Using the 3-dimensional mask it is possible to calculate weighted averages of all regions in one go, using the weighted method (requires xarray 0.15.1 or later). Here, we use <code class="docutils literal notranslate"><span class="pre">cos(lat)</span></code> as proxy of the grid area. This works well for the rectangular grid in our example. In general, it is better to the model’s own grid area.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">tas</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">np.cos</span><span class="p">(</span><span class="nf">np.deg2rad</span><span class="p">(</span><span class="n">tas.lat</span><span class="p">))</span>
 
-<span class="n">tas_regional</span> <span class="o">=</span> <span class="n">tas</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">mask_3D</span> <span class="o">*</span> <span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">))</span>
+<span class="n">tas_regional</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">tas.weighted</span><span class="p">(</span><span class="n">mask_3D</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">weights</span><span class="p">)</span><span class="nf">.mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s">&quot;lat&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;lon&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1188,7 +1191,7 @@ Coordinates:
 <p>Let’s break down what happens here. By multiplying <code class="docutils literal notranslate"><span class="pre">mask_3D</span> <span class="pre">*</span> <span class="pre">weights</span></code> we get a DataArray where gridpoints within a region get a weight proportional to the gridcell area and all others get a weight of 0. <code class="docutils literal notranslate"><span class="pre">airtemps.weighted(mask_3D</span> <span class="pre">*</span> <span class="pre">weights)</span></code> creates an xarray object which can be used for weighted operations. From this we calculate the weighted mean over the lat and lon dimensions. The resulting dataarray has the dimensions <code class="docutils literal notranslate"><span class="pre">region</span> <span class="pre">x</span> <span class="pre">time</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tas_regional</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tas_regional</span>
 </pre></div>
 </div>
 </div>
@@ -1209,7 +1212,7 @@ Coordinates:
 <p>The regionally-averaged time series can be plotted:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tas_regional</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="s2">&quot;region&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">tas_regional.isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="nf">slice</span><span class="p">(</span><span class="m">6</span><span class="p">))</span><span class="nf">.plot</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="s">&quot;region&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">col_wrap</span><span class="o">=</span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">sharey</span><span class="o">=</span><span class="n">False</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1224,13 +1227,13 @@ Coordinates:
 <p>With this caveat in mind we can create the land-sea mask and plot it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">land_110</span> <span class="o">=</span> <span class="n">regionmask</span><span class="o">.</span><span class="n">defined_regions</span><span class="o">.</span><span class="n">natural_earth</span><span class="o">.</span><span class="n">land_110</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">land_110</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regionmask.defined_regions.natural_earth.land_110</span>
 
-<span class="n">land_mask</span> <span class="o">=</span> <span class="n">land_110</span><span class="o">.</span><span class="n">mask_3D</span><span class="p">(</span><span class="n">tas</span><span class="p">)</span>
+<span class="n">land_mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">land_110.mask_3D</span><span class="p">(</span><span class="n">tas</span><span class="p">)</span>
 
 <span class="c1"># add a plot</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">())</span>
-<span class="n">land_mask</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+<span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">plt.axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="nf">ccrs.Robinson</span><span class="p">())</span>
+<span class="nf">land_mask.plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">transform</span><span class="o">=</span><span class="nf">ccrs.PlateCarree</span><span class="p">(),</span><span class="w"> </span><span class="n">add_colorbar</span><span class="o">=</span><span class="n">False</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1241,7 +1244,7 @@ Coordinates:
 <p>To create the combined mask we multiply the two:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask_lsm</span> <span class="o">=</span> <span class="n">mask_3D</span> <span class="o">*</span> <span class="n">land_mask</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mask_lsm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mask_3D</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">land_mask.squeeze</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1250,9 +1253,9 @@ Coordinates:
 <p>The resulting <code class="docutils literal notranslate"><span class="pre">mask_lsm</span></code> is also a 3D mask which cannot be directly plotted. For this <code class="docutils literal notranslate"><span class="pre">regionmask.plot_3D_mask</span></code> is given as convenience function to flatten and plot 3D masks:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar6_land</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">add_label</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">proj</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">Robinson</span><span class="p">())</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">ar6_land.plot</span><span class="p">(</span><span class="n">add_label</span><span class="o">=</span><span class="n">False</span><span class="p">,</span><span class="w"> </span><span class="n">line_kws</span><span class="o">=</span><span class="nf">dict</span><span class="p">(</span><span class="n">lw</span><span class="o">=</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">proj</span><span class="o">=</span><span class="nf">ccrs.Robinson</span><span class="p">())</span>
 
-<span class="n">regionmask</span><span class="o">.</span><span class="n">plot_3D_mask</span><span class="p">(</span><span class="n">mask_lsm</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span> <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+<span class="nf">regionmask.plot_3D_mask</span><span class="p">(</span><span class="n">mask_lsm</span><span class="p">,</span><span class="w"> </span><span class="n">transform</span><span class="o">=</span><span class="nf">ccrs.PlateCarree</span><span class="p">(),</span><span class="w"> </span><span class="n">add_colorbar</span><span class="o">=</span><span class="n">False</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1263,7 +1266,7 @@ Coordinates:
 <p>We can now again calculate the regional mean temperature for all land points:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tas_regional_land</span> <span class="o">=</span> <span class="n">tas</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">mask_lsm</span> <span class="o">*</span> <span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tas_regional_land</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">tas.weighted</span><span class="p">(</span><span class="n">mask_lsm</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">weights</span><span class="p">)</span><span class="nf">.mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s">&quot;lat&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;lon&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1271,23 +1274,23 @@ Coordinates:
 <p>and compare it to the temperature of the land and ocean:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">axes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">plt.subplots</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">sharex</span><span class="o">=</span><span class="n">True</span><span class="p">,</span><span class="w"> </span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">))</span>
+<span class="n">axes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">axes.flatten</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="p">):</span>
+<span class="n">for</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">ax</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nf">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span><span class="o">:</span>
 
-    <span class="n">ds</span> <span class="o">=</span> <span class="n">tas_regional</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">ds</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Land + Ocean&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">ds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">tas_regional.isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">ds.plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;Land + Ocean&quot;</span><span class="p">)</span>
 
-    <span class="n">ds</span> <span class="o">=</span> <span class="n">tas_regional_land</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
-    <span class="n">ds</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Land only&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">ds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">tas_regional_land.isel</span><span class="p">(</span><span class="n">region</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">ds.plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;Land only&quot;</span><span class="p">)</span>
 
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">ax.set_title</span><span class="p">(</span><span class="n">ds.names.values</span><span class="p">)</span>
+<span class="w">    </span><span class="n">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="o">:</span>
+<span class="w">        </span><span class="nf">ax.set_xlabel</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
 
-<span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">axes</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="nf">.legend</span><span class="p">()</span>
+<span class="nf">plt.tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1306,33 +1309,33 @@ Coordinates:
 <p>xarray only offers weighted averages since version 0.15.1. For users of older versions the a <code class="docutils literal notranslate"><span class="pre">weighted_mean</span></code> function is provided below. This function can also compute the weighed mean over all regions (<code class="docutils literal notranslate"><span class="pre">weighted_mean(tas,</span> <span class="pre">mask_3D</span> <span class="pre">*</span> <span class="pre">weights,</span> <span class="pre">(&quot;lon&quot;,</span> <span class="pre">&quot;lat&quot;))</span></code>), however, it is less memory efficient and much slower than the one implemented in xarray.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">weighted_mean</span><span class="p">(</span><span class="n">da</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Reduce da by a weighted mean along some dimension(s).</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">def</span><span class="w"> </span><span class="nf">weighted_mean</span><span class="p">(</span><span class="n">da</span><span class="p">,</span><span class="w"> </span><span class="n">weights</span><span class="p">,</span><span class="w"> </span><span class="n">dim</span><span class="p">)</span><span class="o">:</span>
+<span class="w">    </span><span class="s">&quot;&quot;&quot;Reduce da by a weighted mean along some dimension(s).</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    da : DataArray</span>
-<span class="sd">        Object over which the weighted reduction operation is applied.    </span>
-<span class="sd">    weights : DataArray</span>
-<span class="sd">        An array of weights associated with the values in this Dataset.</span>
-<span class="sd">    dim : str or sequence of str, optional</span>
-<span class="sd">        Dimension(s) over which to apply the weighted `mean`.</span>
-<span class="sd">        </span>
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    weighted_mean : DataArray</span>
-<span class="sd">        New DataArray with weighted mean applied to its data and</span>
-<span class="sd">        the indicated dimension(s) removed.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="s">    Parameters</span>
+<span class="s">    ----------</span>
+<span class="s">    da : DataArray</span>
+<span class="s">        Object over which the weighted reduction operation is applied.    </span>
+<span class="s">    weights : DataArray</span>
+<span class="s">        An array of weights associated with the values in this Dataset.</span>
+<span class="s">    dim : str or sequence of str, optional</span>
+<span class="s">        Dimension(s) over which to apply the weighted `mean`.</span>
+<span class="s">        </span>
+<span class="s">    Returns</span>
+<span class="s">    -------</span>
+<span class="s">    weighted_mean : DataArray</span>
+<span class="s">        New DataArray with weighted mean applied to its data and</span>
+<span class="s">        the indicated dimension(s) removed.</span>
+<span class="s">    &quot;&quot;&quot;</span>
 
-    <span class="n">weighted_sum</span> <span class="o">=</span> <span class="p">(</span><span class="n">da</span> <span class="o">*</span> <span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="c1"># need to mask weights where data is not valid</span>
-    <span class="n">masked_weights</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">da</span><span class="o">.</span><span class="n">notnull</span><span class="p">())</span>
-    <span class="n">sum_of_weights</span> <span class="o">=</span> <span class="n">masked_weights</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">valid_weights</span> <span class="o">=</span> <span class="n">sum_of_weights</span> <span class="o">!=</span> <span class="mi">0</span>
-    <span class="n">sum_of_weights</span> <span class="o">=</span> <span class="n">sum_of_weights</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">valid_weights</span><span class="p">)</span>
+<span class="w">    </span><span class="n">weighted_sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">da</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">weights</span><span class="p">)</span><span class="nf">.sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span><span class="w"> </span><span class="n">skipna</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+<span class="w">    </span><span class="c1"># need to mask weights where data is not valid</span>
+<span class="w">    </span><span class="n">masked_weights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">weights.where</span><span class="p">(</span><span class="nf">da.notnull</span><span class="p">())</span>
+<span class="w">    </span><span class="n">sum_of_weights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">masked_weights.sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span><span class="w"> </span><span class="n">skipna</span><span class="o">=</span><span class="n">True</span><span class="p">)</span>
+<span class="w">    </span><span class="n">valid_weights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum_of_weights</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="n">sum_of_weights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">sum_of_weights.where</span><span class="p">(</span><span class="n">valid_weights</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">weighted_sum</span> <span class="o">/</span> <span class="n">sum_of_weights</span>
+<span class="w">    </span><span class="n">return</span><span class="w"> </span><span class="n">weighted_sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">sum_of_weights</span>
 </pre></div>
 </div>
 </div>
@@ -1348,7 +1351,7 @@ Coordinates:
 <h3>References<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <div class="docutils container" id="id7">
 <dl class="citation">
-<dt class="label" id="id62"><span class="brackets"><a class="fn-backref" href="#id2">reg</a></span></dt>
+<dt class="label" id="id63"><span class="brackets"><a class="fn-backref" href="#id2">reg</a></span></dt>
 <dd><p>Create masks of geographical regions — regionmask 0.9.0 documentation. https://regionmask.readthedocs.io/en/stable/.</p>
 </dd>
 <dt class="label" id="id75"><span class="brackets"><a class="fn-backref" href="#id4">Xar</a></span></dt>
@@ -1357,10 +1360,10 @@ Coordinates:
 <dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">AR5</a></span></dt>
 <dd><p>ipcc AR5. AR5 Regions. https://www.ipcc-data.org/guidelines/pages/ar5_regions.html.</p>
 </dd>
-<dt class="label" id="id40"><span class="brackets"><a class="fn-backref" href="#id3">HSB+22</a></span></dt>
+<dt class="label" id="id41"><span class="brackets"><a class="fn-backref" href="#id3">HSB+22</a></span></dt>
 <dd><p>Mathias Hauser, Aaron Spring, Julius Busecke, Martin van Driel, Ruth Lorenz, and readthedocs-assistant. Regionmask/regionmask: version 0.9.0. Zenodo, March 2022. <a class="reference external" href="https://doi.org/10.5281/zenodo.6324240">doi:10.5281/zenodo.6324240</a>.</p>
 </dd>
-<dt class="label" id="id41"><span class="brackets"><a class="fn-backref" href="#id5">HH17</a></span></dt>
+<dt class="label" id="id42"><span class="brackets"><a class="fn-backref" href="#id5">HH17</a></span></dt>
 <dd><p>Stephan Hoyer and Joe Hamman. Xarray: N-D labeled Arrays and Datasets in Python. <em>Journal of Open Research Software</em>, 5(1):10, April 2017. <a class="reference external" href="https://doi.org/10.5334/jors.148">doi:10.5334/jors.148</a>.</p>
 </dd>
 </dl>

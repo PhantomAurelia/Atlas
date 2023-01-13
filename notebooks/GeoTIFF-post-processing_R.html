@@ -743,10 +743,10 @@ title="Print to PDF"
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rgdal: version: 1.5-16, (SVN revision 1050)
 Geospatial Data Abstraction Library extensions to R successfully loaded
 Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
-Path to GDAL shared files: /home/phanaur/mambaforge/envs/tfg/share/gdal
+Path to GDAL shared files: /home/phanaur/mambaforge/envs/prueba/share/gdal
 GDAL binary built with GEOS: TRUE 
 Loaded PROJ runtime: Rel. 7.2.0, November 1st, 2020, [PJ_VERSION: 720]
-Path to PROJ shared files: /home/phanaur/mambaforge/envs/tfg/share/proj
+Path to PROJ shared files: /home/phanaur/mambaforge/envs/prueba/share/proj
 PROJ CDN enabled: TRUE
 Linking to sp version:1.4-5
 To mute warnings of possible GDAL/OSR exportToProj4() degradation,
@@ -762,7 +762,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 <img alt="GeoTIFF access" src="../_images/geotiff-access-ia.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">map</span> <span class="o">&lt;-</span> <span class="nf">readGDAL</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP5 - Mean temperature (T) Change deg C - Long Term (2081-2100) RCP 8.5 1986-2005 - Annual (mean of 29 models).tiff&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">map</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">readGDAL</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP5 - Mean temperature (T) Change deg C - Long Term (2081-2100) RCP 8.5 1986-2005 - Annual (mean of 29 models).tiff&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -776,7 +776,7 @@ and has 90 rows and 180 columns
 <p>In order to continue with climate4R, first, we need to convert <code class="docutils literal notranslate"><span class="pre">map</span></code> to a <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> grid object.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">&lt;-</span> <span class="nf">sgdf2clim</span><span class="p">(</span><span class="n">map</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sgdf2clim</span><span class="p">(</span><span class="n">map</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -792,7 +792,7 @@ and has 90 rows and 180 columns
 <p>We can now use standard climate4R functions, such as <code class="docutils literal notranslate"><span class="pre">spatialPlot</span></code> to creat map figures.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -805,25 +805,25 @@ and has 90 rows and 180 columns
 <p>We can now combine this information with other available in the repository. For instance, the masking surface for this example is provided as a NetCDF in the <a class="reference internal" href="../reference-grids/reference-grids.html"><span class="doc std std-doc">reference-grids</span></a> folder. Therefore, we can load the corresponding mask (2 degrees for this CMIP5 example), and use it to select land-only data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;../reference-grids/land_sea_mask_2degree.nc4&quot;</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;sftlf&quot;</span><span class="p">)</span>
-<span class="n">mask.land</span> <span class="o">&lt;-</span> <span class="nf">binaryGrid</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="s">&quot;GT&quot;</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="m">0.999</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;../reference-grids/land_sea_mask_2degree.nc4&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sftlf&quot;</span><span class="p">)</span>
+<span class="n">mask.land</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">binaryGrid</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.999</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:51] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:21] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:51] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:21] Defining time selection parameters
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NOTE: Undefined Dataset Time Axis (static variable)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:51] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:21] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:51] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:21] Done
 </pre></div>
 </div>
 </div>
@@ -831,8 +831,8 @@ and has 90 rows and 180 columns
 <p>Here, we apply the mask using <code class="docutils literal notranslate"><span class="pre">gridArithmetic</span></code> (i.e. perfom <code class="docutils literal notranslate"><span class="pre">delta</span></code> x <code class="docutils literal notranslate"><span class="pre">mask</span></code>) and display it. We also reverse the default color scheme to have hot colors for larger warming.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">delta.masked</span> <span class="o">&lt;-</span> <span class="nf">gridArithmetics</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">mask.land</span><span class="p">,</span> <span class="n">operator</span> <span class="o">=</span> <span class="s">&quot;*&quot;</span><span class="p">)</span>
-<span class="nf">spatialPlot</span><span class="p">(</span><span class="n">delta.masked</span><span class="p">,</span> <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span> <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">delta.masked</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gridArithmetics</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="n">mask.land</span><span class="p">,</span><span class="w"> </span><span class="n">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;*&quot;</span><span class="p">)</span>
+<span class="nf">spatialPlot</span><span class="p">(</span><span class="n">delta.masked</span><span class="p">,</span><span class="w"> </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -846,8 +846,8 @@ and has 90 rows and 180 columns
 <p>We can get a spatial subset with <code class="docutils literal notranslate"><span class="pre">subsetGrid</span></code>. E.g. for Europe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">delta.EU</span> <span class="o">&lt;-</span> <span class="nf">subsetGrid</span><span class="p">(</span><span class="n">delta.masked</span><span class="p">,</span> <span class="n">lonLim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">-30</span><span class="p">,</span> <span class="m">65</span><span class="p">),</span> <span class="n">latLim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">28</span><span class="p">,</span> <span class="m">75</span><span class="p">))</span>
-<span class="nf">spatialPlot</span><span class="p">(</span><span class="n">delta.EU</span><span class="p">,</span> <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span> <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">delta.EU</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subsetGrid</span><span class="p">(</span><span class="n">delta.masked</span><span class="p">,</span><span class="w"> </span><span class="n">lonLim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">-30</span><span class="p">,</span><span class="w"> </span><span class="m">65</span><span class="p">),</span><span class="w"> </span><span class="n">latLim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">28</span><span class="p">,</span><span class="w"> </span><span class="m">75</span><span class="p">))</span>
+<span class="nf">spatialPlot</span><span class="p">(</span><span class="n">delta.EU</span><span class="p">,</span><span class="w"> </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -858,9 +858,9 @@ and has 90 rows and 180 columns
 <p>Or using the IPCC WGI <a class="reference internal" href="../reference-regions/reference-regions.html"><span class="doc std std-doc">reference regions</span></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regions</span> <span class="o">&lt;-</span> <span class="nf">get</span><span class="p">(</span><span class="nf">load</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_R.rda&quot;</span><span class="p">))</span>
-<span class="n">regions</span> <span class="o">&lt;-</span> <span class="nf">as</span><span class="p">(</span><span class="n">regions</span><span class="p">,</span> <span class="s">&quot;SpatialPolygons&quot;</span><span class="p">)</span>
-<span class="nf">proj4string</span><span class="p">(</span><span class="n">regions</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">CRS</span><span class="p">(</span><span class="s">&quot;+init=epsg:4326&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="nf">load</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_R.rda&quot;</span><span class="p">))</span>
+<span class="n">regions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as</span><span class="p">(</span><span class="n">regions</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SpatialPolygons&quot;</span><span class="p">)</span>
+<span class="nf">proj4string</span><span class="p">(</span><span class="n">regions</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">CRS</span><span class="p">(</span><span class="s">&quot;+init=epsg:4326&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -881,7 +881,7 @@ For reprojection, use function spTransform”
 <p>Define the original projection of the data (in this case is the same as the regions)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">delta.masked</span> <span class="o">&lt;-</span> <span class="nf">projectGrid</span><span class="p">(</span><span class="n">delta.masked</span><span class="p">,</span> <span class="nf">proj4string</span><span class="p">(</span><span class="n">regions</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">delta.masked</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">projectGrid</span><span class="p">(</span><span class="n">delta.masked</span><span class="p">,</span><span class="w"> </span><span class="nf">proj4string</span><span class="p">(</span><span class="n">regions</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -894,7 +894,7 @@ For reprojection, use function spTransform”
 “CAUTION! Grid with previusly defined projection: +proj=longlat +datum=WGS84 +no_defs”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:51] Arguments of the original projection defined as +proj=longlat +datum=WGS84 +no_defs
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:22] Arguments of the original projection defined as +proj=longlat +datum=WGS84 +no_defs
 </pre></div>
 </div>
 </div>
@@ -902,7 +902,7 @@ For reprojection, use function spTransform”
 <p>Select the desired regions by acronym. Display the names typing <code class="docutils literal notranslate"><span class="pre">names(regions)</span></code>. Here we select the European regions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regionnames</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;NEU&quot;</span><span class="p">,</span> <span class="s">&quot;WCE&quot;</span><span class="p">,</span> <span class="s">&quot;EEU&quot;</span><span class="p">,</span> <span class="s">&quot;MED&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regionnames</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NEU&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;WCE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;EEU&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;MED&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -911,21 +911,21 @@ For reprojection, use function spTransform”
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Overly with reference regions</span>
-<span class="n">delta.masked.regs</span> <span class="o">&lt;-</span> <span class="nf">overGrid</span><span class="p">(</span><span class="n">delta.masked</span><span class="p">,</span> <span class="n">regions</span><span class="p">[</span><span class="n">regionnames</span><span class="p">],</span> <span class="n">subset</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="n">delta.masked.regs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">overGrid</span><span class="p">(</span><span class="n">delta.masked</span><span class="p">,</span><span class="w"> </span><span class="n">regions</span><span class="p">[</span><span class="n">regionnames</span><span class="p">],</span><span class="w"> </span><span class="n">subset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 
 <span class="nf">spatialPlot</span><span class="p">(</span><span class="n">delta.masked.regs</span><span class="p">,</span>
-            <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;RdBu&quot;</span><span class="p">,</span> 
-            <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-            <span class="n">strip</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span>
-            <span class="n">as.table</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-            <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span>
-            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">regions</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)),</span>
-            <span class="n">par.settings</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">axis.line</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s">&quot;transparent&quot;</span><span class="p">)),</span>
-            <span class="n">main</span> <span class="o">=</span>  <span class="nf">list</span><span class="p">(</span><span class="s">&quot;CMIP5_DELTA_CHANGE&quot;</span><span class="p">,</span>
-                         <span class="n">cex</span> <span class="o">=</span> <span class="m">0.7</span><span class="p">),</span>
-            <span class="n">at</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span>
-            <span class="n">set.max</span> <span class="o">=</span> <span class="m">10</span><span class="p">,</span>
-            <span class="n">set.min</span> <span class="o">=</span> <span class="m">-10</span><span class="p">)</span>
+<span class="w">            </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;RdBu&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span>
+<span class="w">            </span><span class="n">strip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span>
+<span class="w">            </span><span class="n">as.table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span>
+<span class="w">            </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">sp.layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">regions</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)),</span>
+<span class="w">            </span><span class="n">par.settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">axis.line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;transparent&quot;</span><span class="p">)),</span>
+<span class="w">            </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;CMIP5_DELTA_CHANGE&quot;</span><span class="p">,</span>
+<span class="w">                         </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.7</span><span class="p">),</span>
+<span class="w">            </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">),</span>
+<span class="w">            </span><span class="n">set.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span>
+<span class="w">            </span><span class="n">set.min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -939,10 +939,10 @@ For reprojection, use function spTransform”
 <p>Calculate regional averages for each region using <code class="docutils literal notranslate"><span class="pre">aggregateGrid</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">reg.averages</span> <span class="o">&lt;-</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">regionnames</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
-      <span class="n">reg</span> <span class="o">&lt;-</span> <span class="nf">overGrid</span><span class="p">(</span><span class="n">delta.masked</span><span class="p">,</span> <span class="n">regions</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-      <span class="n">grid</span> <span class="o">&lt;-</span> <span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">aggr.spatial</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span> <span class="n">weight.by.lat</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
-      <span class="n">grid</span><span class="o">$</span><span class="n">Data</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">reg.averages</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sapply</span><span class="p">(</span><span class="n">regionnames</span><span class="p">,</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">i</span><span class="p">){</span>
+<span class="w">      </span><span class="n">reg</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">overGrid</span><span class="p">(</span><span class="n">delta.masked</span><span class="p">,</span><span class="w"> </span><span class="n">regions</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="w">      </span><span class="n">grid</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span><span class="w"> </span><span class="n">aggr.spatial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mean&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span><span class="w"> </span><span class="n">weight.by.lat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="w">      </span><span class="n">grid</span><span class="o">$</span><span class="n">Data</span>
 <span class="p">})</span>
 </pre></div>
 </div>
@@ -951,37 +951,37 @@ For reprojection, use function spTransform”
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:51] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:22] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:51] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:52] - Aggregating spatially...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:52] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:22] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:52] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:22] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:52] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:22] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:52] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:22] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:52] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:22] - Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:22] - Aggregating spatially...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:22] - Done.
 </pre></div>
 </div>
 </div>
@@ -1005,7 +1005,7 @@ For reprojection, use function spTransform”
 </section>
 <section id="session-info">
 <h2>Session info<a class="headerlink" href="#session-info" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sessionInfo</span><span class="p">()</span>
 </pre></div>
@@ -1014,10 +1014,10 @@ For reprojection, use function spTransform”
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Fedora Linux 36 (Workstation Edition)
+Running under: Fedora Linux 37 (Workstation Edition)
 
 Matrix products: default
-BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
+BLAS/LAPACK: /home/phanaur/mambaforge/envs/prueba/lib/libopenblasp-r0.3.21.so
 
 locale:
  [1] LC_CTYPE=es_ES.UTF-8          LC_NUMERIC=C                 

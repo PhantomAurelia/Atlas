@@ -551,17 +551,17 @@ title="Print to PDF"
 <li><p>Seasons</p></li>
 <li><p>Reference period</p></li>
 <li><p>Surface (Land, sea or both)</p></li>
-<li><p>Region/s from the ‘’’sh ./reference-regions/’’’ <span id="id1">[<a class="reference internal" href="#id42" title="Maialen Iturbide, José M. Gutiérrez, Lincoln M. Alves, Joaquín Bedia, Ruth Cerezo-Mota, Ezequiel Cimadevilla, Antonio S. Cofiño, Alejandro Di Luca, Sergio Henrique Faria, Irina V. Gorodetskaya, Mathias Hauser, Sixto Herrera, Kevin Hennessy, Helene T. Hewitt, Richard G. Jones, Svitlana Krakovska, Rodrigo Manzanas, Daniel Martínez-Castro, Gemma T. Narisma, Intan S. Nurhati, Izidine Pinto, Sonia I. Seneviratne, Bart van den Hurk, and Carolina S. Vera. An update of IPCC climate reference regions for subcontinental analysis of climate model data: definition and aggregated datasets. Earth System Science Data, 12(4):2959–2970, November 2020. doi:10.5194/essd-12-2959-2020.">Iturbide <em>et al.</em>, 2020</a>]</span>.</p></li>
+<li><p>Region/s from the ‘’’sh ./reference-regions/’’’ <span id="id1">[<a class="reference internal" href="#id43" title="Maialen Iturbide, José M. Gutiérrez, Lincoln M. Alves, Joaquín Bedia, Ruth Cerezo-Mota, Ezequiel Cimadevilla, Antonio S. Cofiño, Alejandro Di Luca, Sergio Henrique Faria, Irina V. Gorodetskaya, Mathias Hauser, Sixto Herrera, Kevin Hennessy, Helene T. Hewitt, Richard G. Jones, Svitlana Krakovska, Rodrigo Manzanas, Daniel Martínez-Castro, Gemma T. Narisma, Intan S. Nurhati, Izidine Pinto, Sonia I. Seneviratne, Bart van den Hurk, and Carolina S. Vera. An update of IPCC climate reference regions for subcontinental analysis of climate model data: definition and aggregated datasets. Earth System Science Data, 12(4):2959–2970, November 2020. doi:10.5194/essd-12-2959-2020.">Iturbide <em>et al.</em>, 2020</a>]</span>.</p></li>
 </ul>
 <p>For example, the following parameter configuration,</p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># select seasons, use c(12,1,2) for winter</span>
-<span class="n">scatter.seasons</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">12</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="m">6</span><span class="o">:</span><span class="m">8</span><span class="p">)</span>
+<span class="n">scatter.seasons</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="m">6</span><span class="o">:</span><span class="m">8</span><span class="p">)</span>
 <span class="c1"># select reference period</span>
-<span class="n">ref.period</span> <span class="o">&lt;-</span> <span class="m">1995</span><span class="o">:</span><span class="m">2014</span>
+<span class="n">ref.period</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1995</span><span class="o">:</span><span class="m">2014</span>
 <span class="c1"># select the area, i.e. &quot;land&quot;, &quot;sea&quot; or &quot;landsea&quot;</span>
-<span class="n">area</span> <span class="o">&lt;-</span> <span class="s">&quot;land&quot;</span>
+<span class="n">area</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;land&quot;</span>
 <span class="c1"># Select reference regions.  Select the CORDEX domain to be considered</span>
-<span class="n">regions</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;ECA&quot;</span><span class="p">,</span> <span class="s">&quot;EAS&quot;</span><span class="p">);</span> <span class="n">cordex.domain</span> <span class="o">&lt;-</span> <span class="s">&quot;EAS&quot;</span>
+<span class="n">regions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;ECA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;EAS&quot;</span><span class="p">);</span><span class="w"> </span><span class="n">cordex.domain</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;EAS&quot;</span>
 </pre></div>
 </div>
 <p>Will result in the following boxplots and scatterplots:</p>
@@ -570,7 +570,7 @@ title="Print to PDF"
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
 <div class="docutils container" id="id2">
 <dl class="citation">
-<dt class="label" id="id42"><span class="brackets"><a class="fn-backref" href="#id1">IGutierrezA+20</a></span></dt>
+<dt class="label" id="id43"><span class="brackets"><a class="fn-backref" href="#id1">IGutierrezA+20</a></span></dt>
 <dd><p>Maialen Iturbide, José M. Gutiérrez, Lincoln M. Alves, Joaquín Bedia, Ruth Cerezo-Mota, Ezequiel Cimadevilla, Antonio S. Cofiño, Alejandro Di Luca, Sergio Henrique Faria, Irina V. Gorodetskaya, Mathias Hauser, Sixto Herrera, Kevin Hennessy, Helene T. Hewitt, Richard G. Jones, Svitlana Krakovska, Rodrigo Manzanas, Daniel Martínez-Castro, Gemma T. Narisma, Intan S. Nurhati, Izidine Pinto, Sonia I. Seneviratne, Bart van den Hurk, and Carolina S. Vera. An update of IPCC climate reference regions for subcontinental analysis of climate model data: definition and aggregated datasets. <em>Earth System Science Data</em>, 12(4):2959–2970, November 2020. <a class="reference external" href="https://doi.org/10.5194/essd-12-2959-2020">doi:10.5194/essd-12-2959-2020</a>.</p>
 </dd>
 </dl>

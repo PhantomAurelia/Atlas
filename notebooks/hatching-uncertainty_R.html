@@ -668,12 +668,12 @@ title="Print to PDF"
 <h2>Load libraries and functions<a class="headerlink" href="#load-libraries-and-functions" title="Permalink to this headline">#</a></h2>
 <p>We will use the following climate4R libraries:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">loadeR</span></code> to load data (<span id="id1">[<a class="reference internal" href="#id58" title="The R-based climate4R open framework for reproducible climate data access and post-processing - ScienceDirect. https://www.sciencedirect.com/science/article/abs/pii/S1364815218303049?via%3Dihub."><em>The R-based climate4R Open Framework for Reproducible Climate Data Access and Post-Processing - ScienceDirect</em>, n.d.</a>]</span>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">visualizeR</span></code> for data visualization (<span id="id2">[<a class="reference internal" href="#id58" title="The R-based climate4R open framework for reproducible climate data access and post-processing - ScienceDirect. https://www.sciencedirect.com/science/article/abs/pii/S1364815218303049?via%3Dihub."><em>The R-based climate4R Open Framework for Reproducible Climate Data Access and Post-Processing - ScienceDirect</em>, n.d.</a>]</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">loadeR</span></code> to load data (<span id="id1">[<a class="reference internal" href="#id59" title="The R-based climate4R open framework for reproducible climate data access and post-processing - ScienceDirect. https://www.sciencedirect.com/science/article/abs/pii/S1364815218303049?via%3Dihub."><em>The R-based climate4R Open Framework for Reproducible Climate Data Access and Post-Processing - ScienceDirect</em>, n.d.</a>]</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">visualizeR</span></code> for data visualization (<span id="id2">[<a class="reference internal" href="#id59" title="The R-based climate4R open framework for reproducible climate data access and post-processing - ScienceDirect. https://www.sciencedirect.com/science/article/abs/pii/S1364815218303049?via%3Dihub."><em>The R-based climate4R Open Framework for Reproducible Climate Data Access and Post-Processing - ScienceDirect</em>, n.d.</a>]</span>)</p></li>
 </ul>
 <p>We will also need:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">sp</span></code> to work with spatial data (<span id="id3">[<a class="reference internal" href="#id56" title="Pebesma and Bivand. Rnews 2005.">Pebesma and Bivand, n.d.</a>]</span>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sp</span></code> to work with spatial data (<span id="id3">[<a class="reference internal" href="#id57" title="Pebesma and Bivand. Rnews 2005.">Pebesma and Bivand, n.d.</a>]</span>)</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -771,19 +771,19 @@ title="Print to PDF"
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">dataInventory</span></code> function from <code class="docutils literal notranslate"><span class="pre">loadeR</span></code> to check basic data information, e.g.:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">di</span> <span class="o">&lt;-</span> <span class="nf">dataInventory</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_SAM_historical_JJA_pr_1850-1900_annual.nc&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">di</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">dataInventory</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_SAM_historical_JJA_pr_1850-1900_annual.nc&quot;</span><span class="p">)</span>
 <span class="nf">str</span><span class="p">(</span><span class="n">di</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:22] Doing inventory ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:07:51] Doing inventory ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:26] Retrieving info for &#39;pr&#39; (0 vars remaining)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:07:55] Retrieving info for &#39;pr&#39; (0 vars remaining)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:26] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:07:56] Done.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of 1
@@ -824,34 +824,34 @@ title="Print to PDF"
 <p>These data can be loaded into variables using <code class="docutils literal notranslate"><span class="pre">loadGridData</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ref</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_SAM_historical_JJA_pr_1850-1900_annual.nc&quot;</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;pr&quot;</span><span class="p">)</span>
-<span class="n">delta</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_SAM_ssp585_JJA_pr_2081-2100_delta.nc&quot;</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;pr&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ref</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_SAM_historical_JJA_pr_1850-1900_annual.nc&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pr&quot;</span><span class="p">)</span>
+<span class="n">delta</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_SAM_ssp585_JJA_pr_2081-2100_delta.nc&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pr&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:30] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:07:59] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:30] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:00] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:30] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:00] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:32] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:02] Done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:36] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:06] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:36] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:06] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:36] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:06] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:36] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:06] Done
 </pre></div>
 </div>
 </div>
@@ -860,9 +860,9 @@ title="Print to PDF"
 <p>Finally, additional arguments from the <code class="docutils literal notranslate"><span class="pre">spatialPlot</span></code> function can be also included to control graphical parameters, such as the color theme (e.g. <code class="docutils literal notranslate"><span class="pre">color.theme</span> <span class="pre">=</span> <span class="pre">&quot;BrBG&quot;</span></code>). A list of color themes to use from <code class="docutils literal notranslate"><span class="pre">RColorBrewer</span></code> package can be obtained by issuing <code class="docutils literal notranslate"><span class="pre">RColorBrewer::display.brewer.all()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pl.simple.sam</span> <span class="o">&lt;-</span> <span class="nf">AR6.WGI.hatching</span><span class="p">(</span><span class="n">delta</span> <span class="o">=</span> <span class="n">delta</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;simple&quot;</span><span class="p">,</span> 
-                                  <span class="n">map.hatching.args</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">density</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">1.2</span><span class="p">),</span> 
-                                  <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;BrBG&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pl.simple.sam</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">AR6.WGI.hatching</span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;simple&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                                  </span><span class="n">map.hatching.args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">density</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.2</span><span class="p">),</span><span class="w"> </span>
+<span class="w">                                  </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BrBG&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -880,24 +880,24 @@ title="Print to PDF"
 <p>To plot the relative delta, it needs to be explicitly provided. In this case, it is available in this repository as auxiliary material. Add more graphical parameters until the desired output is obtained. E.g. we can manually set the range of the color bar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rel.delta</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_SAM_ssp585_JJA_pr_2081-2100_relative_delta.nc&quot;</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;pr&quot;</span><span class="p">)</span>
-<span class="n">pl.simple.sam</span> <span class="o">&lt;-</span> <span class="nf">AR6.WGI.hatching</span><span class="p">(</span><span class="n">delta</span> <span class="o">=</span> <span class="n">delta</span><span class="p">,</span> <span class="n">relative.delta</span> <span class="o">=</span> <span class="n">rel.delta</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;simple&quot;</span><span class="p">,</span> 
-                                  <span class="n">map.hatching.args</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">density</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">1.2</span><span class="p">),</span> 
-                                  <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;BrBG&quot;</span><span class="p">,</span> <span class="n">set.max</span> <span class="o">=</span> <span class="m">50</span><span class="p">,</span> <span class="n">set.min</span> <span class="o">=</span> <span class="m">-50</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">rel.delta</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_SAM_ssp585_JJA_pr_2081-2100_relative_delta.nc&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pr&quot;</span><span class="p">)</span>
+<span class="n">pl.simple.sam</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">AR6.WGI.hatching</span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="n">relative.delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rel.delta</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;simple&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                                  </span><span class="n">map.hatching.args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">density</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.2</span><span class="p">),</span><span class="w"> </span>
+<span class="w">                                  </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BrBG&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">set.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="n">set.min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-50</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:40] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:11] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:40] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:11] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:40] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:11] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:40] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:11] Done
 </pre></div>
 </div>
 </div>
@@ -919,9 +919,9 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pl.advanced.sam</span> <span class="o">&lt;-</span> <span class="nf">AR6.WGI.hatching</span><span class="p">(</span><span class="n">delta</span> <span class="o">=</span> <span class="n">delta</span><span class="p">,</span> <span class="n">historical.ref</span> <span class="o">=</span> <span class="n">ref</span><span class="p">,</span> <span class="n">relative.delta</span> <span class="o">=</span> <span class="n">rel.delta</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;advanced&quot;</span><span class="p">,</span> 
-                                  <span class="n">map.hatching.args</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">density</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">lwd</span> <span class="o">=</span> <span class="m">0.7</span><span class="p">),</span> 
-                                  <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;BrBG&quot;</span><span class="p">,</span> <span class="n">set.max</span> <span class="o">=</span> <span class="m">50</span><span class="p">,</span> <span class="n">set.min</span> <span class="o">=</span> <span class="m">-50</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pl.advanced.sam</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">AR6.WGI.hatching</span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="n">historical.ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">,</span><span class="w"> </span><span class="n">relative.delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rel.delta</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;advanced&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                                  </span><span class="n">map.hatching.args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">density</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.7</span><span class="p">),</span><span class="w"> </span>
+<span class="w">                                  </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BrBG&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">set.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">,</span><span class="w"> </span><span class="n">set.min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-50</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -949,18 +949,18 @@ title="Print to PDF"
 <p>Use the <code class="docutils literal notranslate"><span class="pre">dataInventory</span></code> function from <code class="docutils literal notranslate"><span class="pre">loadeR</span></code> to check basic data information:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">di</span> <span class="o">&lt;-</span> <span class="nf">dataInventory</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_historical_JJA_pr_1995-2014.nc&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">di</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">dataInventory</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_historical_JJA_pr_1995-2014.nc&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:44] Doing inventory ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:16] Doing inventory ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:48] Retrieving info for &#39;pr&#39; (0 vars remaining)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:20] Retrieving info for &#39;pr&#39; (0 vars remaining)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:48] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:20] Done.
 </pre></div>
 </div>
 </div>
@@ -968,34 +968,34 @@ title="Print to PDF"
 <p>Load the data into variables using <code class="docutils literal notranslate"><span class="pre">loadGridData</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">hist</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_historical_JJA_pr_1995-2014.nc&quot;</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;pr&quot;</span><span class="p">)</span>
-<span class="n">scen</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_ssp585_JJA_pr_2081-2100.nc&quot;</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;pr&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">hist</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_historical_JJA_pr_1995-2014.nc&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pr&quot;</span><span class="p">)</span>
+<span class="n">scen</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_ssp585_JJA_pr_2081-2100.nc&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pr&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:52] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:24] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:52] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:24] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:52] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:24] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:52] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:24] Done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:56] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:28] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:56] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:28] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:56] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:28] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:56] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:29] Done
 </pre></div>
 </div>
 </div>
@@ -1005,47 +1005,47 @@ title="Print to PDF"
 <p>Future delta changes are the arithmetic difference between future and historical time slice climatologies. Relative deltas can also be calculated with respect to the multi-model mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">&lt;-</span> <span class="nf">gridArithmetics</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">scen</span><span class="p">),</span> <span class="nf">climatology</span><span class="p">(</span><span class="n">hist</span><span class="p">),</span> <span class="n">operator</span> <span class="o">=</span> <span class="s">&quot;-&quot;</span><span class="p">)</span>
-<span class="n">ensemble.mean</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span> <span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">aggr.mem</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="n">mean</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="bp">T</span><span class="p">))</span>
-<span class="n">delta.ens</span> <span class="o">&lt;-</span> <span class="nf">ensemble.mean</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
-<span class="n">hist.ens</span> <span class="o">&lt;-</span> <span class="nf">ensemble.mean</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">hist</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gridArithmetics</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">scen</span><span class="p">),</span><span class="w"> </span><span class="nf">climatology</span><span class="p">(</span><span class="n">hist</span><span class="p">),</span><span class="w"> </span><span class="n">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="p">)</span>
+<span class="n">ensemble.mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span><span class="w"> </span><span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">aggr.mem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">))</span>
+<span class="n">delta.ens</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ensemble.mean</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+<span class="n">hist.ens</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">ensemble.mean</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">hist</span><span class="p">))</span>
 <span class="c1"># Relative delta</span>
-<span class="n">rel.delta</span> <span class="o">&lt;-</span> <span class="nf">gridArithmetics</span><span class="p">(</span><span class="n">delta.ens</span><span class="p">,</span> 
-                             <span class="n">hist.ens</span><span class="p">,</span> 
-                             <span class="m">100</span><span class="p">,</span> 
-                             <span class="n">operator</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="s">&quot;*&quot;</span><span class="p">))</span>
+<span class="n">rel.delta</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gridArithmetics</span><span class="p">(</span><span class="n">delta.ens</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                             </span><span class="n">hist.ens</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                             </span><span class="m">100</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                             </span><span class="n">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;*&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:56] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:29] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:01] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:35] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:02] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:36] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:07] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:42] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:08] - Aggregating members...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:43] - Aggregating members...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:08] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:43] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:08] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:43] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:13] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:50] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:13] - Aggregating members...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:50] - Aggregating members...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:14] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:08:50] - Done.
 </pre></div>
 </div>
 </div>
@@ -1053,8 +1053,8 @@ title="Print to PDF"
 <p>Check the output with a first visualization of the delta change for each member of the ensemble.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;delta&quot;</span><span class="p">,</span> 
-           <span class="n">set.max</span> <span class="o">=</span> <span class="m">5</span><span class="p">,</span> <span class="n">set.min</span> <span class="o">=</span> <span class="m">-5</span><span class="p">,</span> <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;BrBG&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;delta&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">           </span><span class="n">set.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">set.min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-5</span><span class="p">,</span><span class="w"> </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BrBG&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1065,8 +1065,8 @@ title="Print to PDF"
 <p>And this would be the relative delta change for the ensemble mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">rel.delta</span><span class="p">,</span> <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;relative delta&quot;</span><span class="p">,</span> 
-           <span class="n">set.max</span> <span class="o">=</span> <span class="m">60</span><span class="p">,</span> <span class="n">set.min</span> <span class="o">=</span> <span class="m">-60</span><span class="p">,</span> <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;BrBG&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">rel.delta</span><span class="p">,</span><span class="w"> </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;relative delta&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">           </span><span class="n">set.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">60</span><span class="p">,</span><span class="w"> </span><span class="n">set.min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-60</span><span class="p">,</span><span class="w"> </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BrBG&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1080,16 +1080,16 @@ title="Print to PDF"
 <p>We compute now the simple uncertainty measure (<code class="docutils literal notranslate"><span class="pre">agreement</span></code> function) and check the result visually. Note that argument <code class="docutils literal notranslate"><span class="pre">th</span></code> allows to set the agreement threshold.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">simple</span> <span class="o">&lt;-</span> <span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">aggr.mem</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="n">agreement</span><span class="p">,</span> <span class="n">th</span> <span class="o">=</span> <span class="m">80</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">simple</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span><span class="w"> </span><span class="n">aggr.mem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agreement</span><span class="p">,</span><span class="w"> </span><span class="n">th</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">80</span><span class="p">))</span>
 <span class="nf">spatialPlot</span><span class="p">(</span><span class="n">simple</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:22] - Aggregating members...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:00] - Aggregating members...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:22] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:00] - Done.
 </pre></div>
 </div>
 <img alt="../_images/hatching-uncertainty_R_35_2.png" src="../_images/hatching-uncertainty_R_35_2.png" />
@@ -1099,18 +1099,18 @@ title="Print to PDF"
 <p>This binary mask can be used to create the spatial object of the hatches, which we will then overlay on the original plots, hatching the areas where there is not enough model agreement. Let’s obtain the hatching and check visually.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">simple.hatch</span> <span class="o">&lt;-</span> <span class="nf">map.hatching</span><span class="p">(</span><span class="n">clim</span> <span class="o">=</span> <span class="nf">climatology</span><span class="p">(</span><span class="n">simple</span><span class="p">),</span> <span class="n">threshold</span> <span class="o">=</span> <span class="s">&quot;0.5&quot;</span><span class="p">,</span> <span class="n">angle</span> <span class="o">=</span> <span class="s">&quot;-45&quot;</span><span class="p">,</span>
-                             <span class="n">condition</span> <span class="o">=</span> <span class="s">&quot;LT&quot;</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span>  <span class="n">lwd</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">,</span>
-                             <span class="n">upscaling.aggr.fun</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="n">mean</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">simple.hatch</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">map.hatching</span><span class="p">(</span><span class="n">clim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">climatology</span><span class="p">(</span><span class="n">simple</span><span class="p">),</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;0.5&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;-45&quot;</span><span class="p">,</span>
+<span class="w">                             </span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;LT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">density</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w">  </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">,</span>
+<span class="w">                             </span><span class="n">upscaling.aggr.fun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">))</span>
 <span class="nf">plot</span><span class="p">(</span><span class="n">simple.hatch</span><span class="p">[[</span><span class="m">2</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:22] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:00] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:22] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:01] - Done.
 </pre></div>
 </div>
 <img alt="../_images/hatching-uncertainty_R_37_2.png" src="../_images/hatching-uncertainty_R_37_2.png" />
@@ -1119,15 +1119,15 @@ title="Print to PDF"
 <p>We can overlay the hatching on the relative delta to produce the final figure (the hatches are passed to argument <code class="docutils literal notranslate"><span class="pre">sp.layout</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pl.simple</span> <span class="o">&lt;-</span> <span class="nf">spatialPlot</span><span class="p">(</span><span class="n">rel.delta</span><span class="p">,</span> 
-            <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;BrBG&quot;</span><span class="p">,</span> 
-            <span class="n">at</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-60</span><span class="p">,</span> <span class="m">60</span><span class="p">,</span> <span class="m">5</span><span class="p">),</span> 
-            <span class="n">set.max</span> <span class="o">=</span> <span class="m">60</span><span class="p">,</span> <span class="n">set.min</span> <span class="o">=</span> <span class="m">-60</span><span class="p">,</span>
-            <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span>
-            <span class="n">main</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;Mean delta change&quot;</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">),</span>
-            <span class="n">xlab</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;Period: 2081-2100, Season: JJA&quot;</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">),</span>
-            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">simple.hatch</span><span class="p">),</span>
-            <span class="n">par.settings</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">axis.line</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s">&#39;transparent&#39;</span><span class="p">)))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pl.simple</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">rel.delta</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BrBG&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">-60</span><span class="p">,</span><span class="w"> </span><span class="m">60</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">),</span><span class="w"> </span>
+<span class="w">            </span><span class="n">set.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">60</span><span class="p">,</span><span class="w"> </span><span class="n">set.min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-60</span><span class="p">,</span>
+<span class="w">            </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;Mean delta change&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">),</span>
+<span class="w">            </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;Period: 2081-2100, Season: JJA&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">),</span>
+<span class="w">            </span><span class="n">sp.layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">simple.hatch</span><span class="p">),</span>
+<span class="w">            </span><span class="n">par.settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">axis.line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;transparent&#39;</span><span class="p">)))</span>
 <span class="n">pl.simple</span>
 </pre></div>
 </div>
@@ -1145,31 +1145,31 @@ title="Print to PDF"
 <li><p>The areas with presence of signal but absence of model agreement are crossed.</p></li>
 </ul>
 <p>To calculate the signal we need the data of the delta change and anual data of the historical reference. Due to file size restrictions on GitHub we do not include the global historical reference. However it would be loaded as follows:</p>
-<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">ref</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_historical_JJA_1850-1900_annual.nc&quot;</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;pr&quot;</span><span class="p">)</span>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">ref</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_historical_JJA_1850-1900_annual.nc&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pr&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Then we would calculate the signal as follows:</p>
-<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">sign</span> <span class="o">&lt;-</span> <span class="nf">signal</span><span class="p">(</span><span class="n">h</span> <span class="o">=</span> <span class="n">ref</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">delta</span><span class="p">)</span>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">sign</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">signal</span><span class="p">(</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delta</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This repository includes the pre-calculated grid of the signal, load it by executing the following cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sign</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_ssp585_JJA_pr_2081-2100_signal.nc&quot;</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;pr_signal&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">sign</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6_ssp585_JJA_pr_2081-2100_signal.nc&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pr_signal&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:27] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:06] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:27] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:06] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:27] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:06] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:27] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:06] Done
 </pre></div>
 </div>
 </div>
@@ -1177,30 +1177,30 @@ title="Print to PDF"
 <p>To obtain the overall signal of the ensemble we use the auxiliary functions <code class="docutils literal notranslate"><span class="pre">signal.ens1</span></code> and <code class="docutils literal notranslate"><span class="pre">signal.ens2</span></code>, which apply a threshold to the ensemble mean signal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">advanced1</span> <span class="o">&lt;-</span> <span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">sign</span><span class="p">,</span> <span class="n">aggr.mem</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="n">signal.ens1</span><span class="p">,</span> <span class="n">th</span> <span class="o">=</span> <span class="m">66</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">advanced1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">sign</span><span class="p">,</span><span class="w"> </span><span class="n">aggr.mem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">signal.ens1</span><span class="p">,</span><span class="w"> </span><span class="n">th</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">66</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:28] - Aggregating members...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:06] - Aggregating members...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:28] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:06] - Done.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">advanced2.aux</span> <span class="o">&lt;-</span> <span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">sign</span><span class="p">,</span> <span class="n">aggr.mem</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="n">signal.ens2</span><span class="p">,</span> <span class="n">th</span> <span class="o">=</span> <span class="m">66</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">advanced2.aux</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">sign</span><span class="p">,</span><span class="w"> </span><span class="n">aggr.mem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">signal.ens2</span><span class="p">,</span><span class="w"> </span><span class="n">th</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">66</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:28] - Aggregating members...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:06] - Aggregating members...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:28] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:07] - Done.
 </pre></div>
 </div>
 </div>
@@ -1208,8 +1208,8 @@ title="Print to PDF"
 <p><code class="docutils literal notranslate"><span class="pre">signal.ens1</span></code> returns the first component of the advanced method (where 0 = absence of signal), while <code class="docutils literal notranslate"><span class="pre">signal.ens2</span></code> returns an intermediate grid (where 0 = presence of signal) to calculate the second component in an additional step.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">advanced1</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;no signal = 0&quot;</span><span class="p">)</span>
-<span class="nf">spatialPlot</span><span class="p">(</span><span class="n">advanced2.aux</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;no signal = 1&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">advanced1</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;no signal = 0&quot;</span><span class="p">)</span>
+<span class="nf">spatialPlot</span><span class="p">(</span><span class="n">advanced2.aux</span><span class="p">,</span><span class="w"> </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;no signal = 1&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1221,7 +1221,7 @@ title="Print to PDF"
 <p>The additional step consists on combining this map (<code class="docutils literal notranslate"><span class="pre">advanced2.aux</span></code>) with the map we obtained by the simple hatching approach (<code class="docutils literal notranslate"><span class="pre">simple</span></code>). As a result, we get a three-valued map.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">advanced2.aux</span> <span class="o">&lt;-</span> <span class="nf">gridArithmetics</span><span class="p">(</span><span class="n">advanced2.aux</span><span class="p">,</span> <span class="n">simple</span><span class="p">,</span> <span class="n">operator</span> <span class="o">=</span> <span class="s">&quot;+&quot;</span><span class="p">)</span> 
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">advanced2.aux</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">gridArithmetics</span><span class="p">(</span><span class="n">advanced2.aux</span><span class="p">,</span><span class="w"> </span><span class="n">simple</span><span class="p">,</span><span class="w"> </span><span class="n">operator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;+&quot;</span><span class="p">)</span><span class="w"> </span>
 <span class="nf">spatialPlot</span><span class="p">(</span><span class="n">advanced2.aux</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1240,7 +1240,7 @@ title="Print to PDF"
 <p>The second component of the advanced method hatches the forth outcome, i.e. the 0 value, where there is signal but there is no model agreement.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">advanced2</span> <span class="o">&lt;-</span> <span class="nf">binaryGrid</span><span class="p">(</span><span class="n">advanced2.aux</span><span class="p">,</span> <span class="n">condition</span> <span class="o">=</span> <span class="s">&quot;GT&quot;</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">advanced2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">binaryGrid</span><span class="p">(</span><span class="n">advanced2.aux</span><span class="p">,</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
 <span class="nf">spatialPlot</span><span class="p">(</span><span class="n">advanced2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1252,32 +1252,32 @@ title="Print to PDF"
 <p>We can now create the hatches for the two components (<code class="docutils literal notranslate"><span class="pre">advanced1</span></code> and <code class="docutils literal notranslate"><span class="pre">advanced2</span></code>) of the advanced hatching method. For the second component, we opted for using crosses to obscure the map. To do this, we simply apply again the <code class="docutils literal notranslate"><span class="pre">map.hatching</span></code> function, but using different angles (<code class="docutils literal notranslate"><span class="pre">angle</span> <span class="pre">=</span> <span class="pre">&quot;45&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">angle</span> <span class="pre">=</span> <span class="pre">&quot;-45&quot;</span></code>) each time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.hatching</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">angle</span><span class="p">)</span> <span class="nf">map.hatching</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">threshold</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span> <span class="n">angle</span> <span class="o">=</span> <span class="n">angle</span><span class="p">,</span>
-                                       <span class="n">condition</span> <span class="o">=</span> <span class="s">&quot;LT&quot;</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span>  <span class="n">lwd</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">,</span>
-                                       <span class="n">upscaling.aggr.fun</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="n">mean</span><span class="p">))</span>
-<span class="n">advanced1.hatch</span> <span class="o">&lt;-</span> <span class="nf">my.hatching</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">advanced1</span><span class="p">),</span> <span class="s">&quot;-45&quot;</span><span class="p">)</span>
-<span class="n">advanced2.hatch</span> <span class="o">&lt;-</span> <span class="nf">my.hatching</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">advanced2</span><span class="p">),</span>  <span class="s">&quot;45&quot;</span><span class="p">)</span>
-<span class="n">advanced2.hatch.bis</span> <span class="o">&lt;-</span> <span class="nf">my.hatching</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">advanced2</span><span class="p">),</span> <span class="s">&quot;-45&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my.hatching</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">angle</span><span class="p">)</span><span class="w"> </span><span class="nf">map.hatching</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">,</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">angle</span><span class="p">,</span>
+<span class="w">                                       </span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;LT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">density</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w">  </span><span class="n">lwd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">,</span>
+<span class="w">                                       </span><span class="n">upscaling.aggr.fun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">))</span>
+<span class="n">advanced1.hatch</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">my.hatching</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">advanced1</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;-45&quot;</span><span class="p">)</span>
+<span class="n">advanced2.hatch</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">my.hatching</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">advanced2</span><span class="p">),</span><span class="w">  </span><span class="s">&quot;45&quot;</span><span class="p">)</span>
+<span class="n">advanced2.hatch.bis</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">my.hatching</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">advanced2</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;-45&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:29] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:08] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:29] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:08] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:30] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:09] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:30] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:09] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:30] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:09] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:08:30] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:09] - Done.
 </pre></div>
 </div>
 </div>
@@ -1285,8 +1285,8 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">advanced1.hatch</span><span class="p">[[</span><span class="m">2</span><span class="p">]])</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">advanced2.hatch</span><span class="p">[[</span><span class="m">2</span><span class="p">]],</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">advanced2.hatch.bis</span><span class="p">[[</span><span class="m">2</span><span class="p">]],</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">advanced2.hatch</span><span class="p">[[</span><span class="m">2</span><span class="p">]],</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">advanced2.hatch.bis</span><span class="p">[[</span><span class="m">2</span><span class="p">]],</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1297,15 +1297,15 @@ title="Print to PDF"
 <p>We can overlay the hatching on the relative delta to produce the final figure (the hatches are passed to argument <code class="docutils literal notranslate"><span class="pre">sp.layout</span></code>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pl.advanced</span> <span class="o">&lt;-</span> <span class="nf">spatialPlot</span><span class="p">(</span><span class="n">rel.delta</span><span class="p">,</span> 
-            <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;BrBG&quot;</span><span class="p">,</span> 
-            <span class="n">at</span> <span class="o">=</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-60</span><span class="p">,</span> <span class="m">60</span><span class="p">,</span> <span class="m">5</span><span class="p">),</span> 
-            <span class="n">set.max</span> <span class="o">=</span> <span class="m">60</span><span class="p">,</span> <span class="n">set.min</span> <span class="o">=</span> <span class="m">-60</span><span class="p">,</span>
-            <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span>
-            <span class="n">main</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;Mean delta change&quot;</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">),</span>
-            <span class="n">xlab</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;Period: 2081-2100, Season: JJA&quot;</span><span class="p">,</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.8</span><span class="p">),</span>
-            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">advanced1.hatch</span><span class="p">,</span> <span class="n">advanced2.hatch</span><span class="p">,</span> <span class="n">advanced2.hatch.bis</span><span class="p">),</span>
-            <span class="n">par.settings</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">axis.line</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">col</span> <span class="o">=</span> <span class="s">&#39;transparent&#39;</span><span class="p">)))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">pl.advanced</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">spatialPlot</span><span class="p">(</span><span class="n">rel.delta</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;BrBG&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">at</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">seq</span><span class="p">(</span><span class="m">-60</span><span class="p">,</span><span class="w"> </span><span class="m">60</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">),</span><span class="w"> </span>
+<span class="w">            </span><span class="n">set.max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">60</span><span class="p">,</span><span class="w"> </span><span class="n">set.min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-60</span><span class="p">,</span>
+<span class="w">            </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;Mean delta change&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">),</span>
+<span class="w">            </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;Period: 2081-2100, Season: JJA&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.8</span><span class="p">),</span>
+<span class="w">            </span><span class="n">sp.layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">advanced1.hatch</span><span class="p">,</span><span class="w"> </span><span class="n">advanced2.hatch</span><span class="p">,</span><span class="w"> </span><span class="n">advanced2.hatch.bis</span><span class="p">),</span>
+<span class="w">            </span><span class="n">par.settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">axis.line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;transparent&#39;</span><span class="p">)))</span>
 <span class="n">pl.advanced</span>
 </pre></div>
 </div>
@@ -1315,14 +1315,14 @@ title="Print to PDF"
 </div>
 </div>
 <p>We could also add the hatching to the ensemble mean of the absolute deltas (instead of the relative ones) just replacing in the above code the first line by:</p>
-<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">&lt;-</span> <span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">ensemble.mean</span><span class="p">(</span><span class="n">delta</span><span class="p">),</span> <span class="kc">...</span>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">ensemble.mean</span><span class="p">(</span><span class="n">delta</span><span class="p">),</span><span class="w"> </span><span class="kc">...</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="session-information">
 <h2>Session Information<a class="headerlink" href="#session-information" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sessionInfo</span><span class="p">()</span>
 </pre></div>
@@ -1331,10 +1331,10 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Fedora Linux 36 (Workstation Edition)
+Running under: Fedora Linux 37 (Workstation Edition)
 
 Matrix products: default
-BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
+BLAS/LAPACK: /home/phanaur/mambaforge/envs/prueba/lib/libopenblasp-r0.3.21.so
 
 locale:
  [1] LC_CTYPE=es_ES.UTF-8          LC_NUMERIC=C                 
@@ -1387,10 +1387,10 @@ loaded via a namespace (and not attached):
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
 <div class="docutils container" id="id4">
 <dl class="citation">
-<dt class="label" id="id58"><span class="brackets">Rba</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dt class="label" id="id59"><span class="brackets">Rba</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
 <dd><p>The R-based climate4R open framework for reproducible climate data access and post-processing - ScienceDirect. https://www.sciencedirect.com/science/article/abs/pii/S1364815218303049?via%3Dihub.</p>
 </dd>
-<dt class="label" id="id56"><span class="brackets"><a class="fn-backref" href="#id3">PB</a></span></dt>
+<dt class="label" id="id57"><span class="brackets"><a class="fn-backref" href="#id3">PB</a></span></dt>
 <dd><p>Pebesma and Bivand. Rnews 2005.</p>
 </dd>
 </dl>

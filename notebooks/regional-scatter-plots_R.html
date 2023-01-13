@@ -688,7 +688,7 @@ title="Print to PDF"
 <p>We define next some parameters, such as the seasons to show in the Precipitation vs Temperature scatterplots. E.g. for boreal winter and summer define:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">scatter.seasons</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">12</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="m">6</span><span class="o">:</span><span class="m">8</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">scatter.seasons</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="m">6</span><span class="o">:</span><span class="m">8</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -696,7 +696,7 @@ title="Print to PDF"
 <p>Select baseline period (e.g. AR6 reference period in this example). Available years in the datasets are 1850-1900 and 1950-2100.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ref.period</span> <span class="o">&lt;-</span> <span class="m">1995</span><span class="o">:</span><span class="m">2014</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ref.period</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1995</span><span class="o">:</span><span class="m">2014</span>
 </pre></div>
 </div>
 </div>
@@ -704,7 +704,7 @@ title="Print to PDF"
 <p>Select the area, i.e. “land”, “sea” or “landsea”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">area</span> <span class="o">&lt;-</span> <span class="s">&quot;land&quot;</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">area</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;land&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -712,7 +712,7 @@ title="Print to PDF"
 <p>Select reference regions (see reference-regions in this repository). Use <code class="docutils literal notranslate"><span class="pre">world</span></code> to generate global results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regions</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;ECA&quot;</span><span class="p">,</span> <span class="s">&quot;EAS&quot;</span><span class="p">);</span> 
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;ECA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;EAS&quot;</span><span class="p">);</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
@@ -720,7 +720,7 @@ title="Print to PDF"
 <p>Select a CORDEX domain from the following options: SAM, CAM, NAM, AFR, WAS, EAS, AUS, ANT, ARC, SEA and EUR</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">cordex.domain</span> <span class="o">&lt;-</span> <span class="s">&quot;EAS&quot;</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">cordex.domain</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;EAS&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -729,8 +729,8 @@ title="Print to PDF"
 Leave it as NULL for automatic axes ranges</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ylim</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
-<span class="n">xlim</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ylim</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">NULL</span>
+<span class="n">xlim</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">NULL</span>
 </pre></div>
 </div>
 </div>
@@ -741,79 +741,63 @@ Leave it as NULL for automatic axes ranges</p>
 <p>We are ready to apply the <code class="docutils literal notranslate"><span class="pre">computeFigures</span></code> function.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">&lt;-</span> <span class="nf">computeFigures</span><span class="p">(</span><span class="n">regions</span> <span class="o">=</span> <span class="n">regions</span><span class="p">,</span>
-                      <span class="n">cordex.domain</span> <span class="o">=</span> <span class="n">cordex.domain</span><span class="p">,</span>
-                      <span class="n">area</span> <span class="o">=</span> <span class="n">area</span><span class="p">,</span> 
-                      <span class="n">ref.period</span> <span class="o">=</span> <span class="n">ref.period</span><span class="p">,</span> 
-                      <span class="n">scatter.seasons</span> <span class="o">=</span> <span class="n">scatter.seasons</span><span class="p">,</span>
-                      <span class="n">xlim</span> <span class="o">=</span> <span class="n">xlim</span><span class="p">,</span>
-                      <span class="n">ylim</span> <span class="o">=</span> <span class="n">ylim</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">computeFigures</span><span class="p">(</span><span class="n">regions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regions</span><span class="p">,</span>
+<span class="w">                      </span><span class="n">cordex.domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cordex.domain</span><span class="p">,</span>
+<span class="w">                      </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">area</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                      </span><span class="n">ref.period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref.period</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                      </span><span class="n">scatter.seasons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scatter.seasons</span><span class="p">,</span>
+<span class="w">                      </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xlim</span><span class="p">,</span>
+<span class="w">                      </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ylim</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:20:50] Computing annual delta changes for the Boxplot of region ECA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:21] Computing annual delta changes for the Boxplot of region ECA
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:20:50] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:21] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:20:52] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:23] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:20:54] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:26] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in order(as.numeric(x)):
-“NAs introducidos por coerción”
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:48] Computing seasonal delta changes for the Scatterplots of region ECA
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in diff(as.numeric(x[ord])):
-“NAs introducidos por coerción”
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:48] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:13] Computing seasonal delta changes for the Scatterplots of region ECA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:05:55] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:13] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:03] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:18] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:09] Computing annual delta changes for the Boxplot of region EAS
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:25] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:09] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:30] Computing annual delta changes for the Boxplot of region EAS
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:11] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:30] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:13] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:32] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:35] Computing seasonal delta changes for the Scatterplots of region EAS
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:34] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:35] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in order(as.numeric(x)):
-“NAs introducidos por coerción”
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:41] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in diff(as.numeric(x[ord])):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:54] Computing seasonal delta changes for the Scatterplots of region EAS
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:21:54] Computing CMIP5..
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:00] Computing CMIP6..
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:06] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:48] Computing CORDEX..
 </pre></div>
 </div>
 </div>
@@ -821,191 +805,83 @@ Leave it as NULL for automatic axes ranges</p>
 <p>The output of the above call (<code class="docutils literal notranslate"><span class="pre">fig</span></code>) is a list of <code class="docutils literal notranslate"><span class="pre">trellis</span></code> class objects that can be easily arranged and displayed using the <code class="docutils literal notranslate"><span class="pre">grid.arrange</span></code> function from the <code class="docutils literal notranslate"><span class="pre">gridExtra</span></code> library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">do.call</span><span class="p">(</span><span class="s">&quot;grid.arrange&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">do.call</span><span class="p">(</span><span class="s">&quot;grid.arrange&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in panel.xyplot(...):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in panel.xyplot(...):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<img alt="../_images/regional-scatter-plots_R_22_10.png" src="../_images/regional-scatter-plots_R_22_10.png" />
+<img alt="../_images/regional-scatter-plots_R_22_0.png" src="../_images/regional-scatter-plots_R_22_0.png" />
 </div>
 </div>
 <p>The legend and axis label information of these panels is the one shown in the AR6-WGI Atlas chapter figures. The first column shows the annual temperature delta changes. The second and third columns, the scatterplots of the seasonal temperature and precipitation changes. Each row corresponds to a different reference region (ECA and EAS in this worked example).</p>
 <p>We can now export the Figure as PDF. There are other export options such as <code class="docutils literal notranslate"><span class="pre">png</span></code> (type <code class="docutils literal notranslate"><span class="pre">?pdf</span></code> for help). The <code class="docutils literal notranslate"><span class="pre">Cairo</span></code> package provides other export options.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">outfilename</span> <span class="o">&lt;-</span> <span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;%s_%s_baseperiod_%s_ATvsAP.pdf&quot;</span><span class="p">,</span>
-  <span class="n">cordex.domain</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="nf">paste</span><span class="p">(</span><span class="nf">range</span><span class="p">(</span><span class="n">ref.period</span><span class="p">),</span> <span class="n">collapse</span> <span class="o">=</span> <span class="s">&quot;-&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">outfilename</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;%s_%s_baseperiod_%s_ATvsAP.pdf&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">cordex.domain</span><span class="p">,</span><span class="w"> </span><span class="n">area</span><span class="p">,</span><span class="w"> </span><span class="nf">paste</span><span class="p">(</span><span class="nf">range</span><span class="p">(</span><span class="n">ref.period</span><span class="p">),</span><span class="w"> </span><span class="n">collapse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 
-<span class="nf">pdf</span><span class="p">(</span><span class="n">outfilename</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">scatter.seasons</span><span class="p">)</span><span class="m">+1</span><span class="p">)</span><span class="o">*</span><span class="m">10</span><span class="o">/</span><span class="m">2</span><span class="o">*</span><span class="m">0.85</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">regions</span><span class="p">)</span><span class="o">*</span><span class="m">10</span><span class="o">/</span><span class="m">2</span><span class="o">*</span><span class="m">0.85</span><span class="p">)</span>
-  <span class="nf">do.call</span><span class="p">(</span><span class="s">&quot;grid.arrange&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">)</span>
+<span class="nf">pdf</span><span class="p">(</span><span class="n">outfilename</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">scatter.seasons</span><span class="p">)</span><span class="m">+1</span><span class="p">)</span><span class="o">*</span><span class="m">10</span><span class="o">/</span><span class="m">2</span><span class="o">*</span><span class="m">0.85</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">regions</span><span class="p">)</span><span class="o">*</span><span class="m">10</span><span class="o">/</span><span class="m">2</span><span class="o">*</span><span class="m">0.85</span><span class="p">)</span>
+<span class="w">  </span><span class="nf">do.call</span><span class="p">(</span><span class="s">&quot;grid.arrange&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fig</span><span class="p">)</span>
 <span class="nf">dev.off</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in panel.xyplot(...):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in panel.xyplot(...):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
 <div class="output text_html"><strong>png:</strong> 2</div></div>
 </div>
 <p>Play with arguments width and height to create different PDF sizes.</p>
 <p>Set the object <code class="docutils literal notranslate"><span class="pre">cordex.domain</span></code> as <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> to exclude CORDEX from the final figure. For example, in order to compute global delta changes, we can set:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regions</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">)</span>
-<span class="n">cordex.domain</span> <span class="o">&lt;-</span> <span class="kc">FALSE</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">)</span>
+<span class="n">cordex.domain</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">FALSE</span>
 
-<span class="n">fig.w</span> <span class="o">&lt;-</span> <span class="nf">computeFigures</span><span class="p">(</span><span class="n">regions</span> <span class="o">=</span> <span class="n">regions</span><span class="p">,</span>
-                      <span class="n">cordex.domain</span> <span class="o">=</span> <span class="n">cordex.domain</span><span class="p">,</span>
-                      <span class="n">area</span> <span class="o">=</span> <span class="n">area</span><span class="p">,</span> 
-                      <span class="n">ref.period</span> <span class="o">=</span> <span class="n">ref.period</span><span class="p">,</span> 
-                      <span class="n">scatter.seasons</span> <span class="o">=</span> <span class="n">scatter.seasons</span><span class="p">,</span>
-                      <span class="n">xlim</span> <span class="o">=</span> <span class="n">xlim</span><span class="p">,</span>
-                      <span class="n">ylim</span> <span class="o">=</span> <span class="n">ylim</span><span class="p">)</span>
+<span class="n">fig.w</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">computeFigures</span><span class="p">(</span><span class="n">regions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">regions</span><span class="p">,</span>
+<span class="w">                      </span><span class="n">cordex.domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cordex.domain</span><span class="p">,</span>
+<span class="w">                      </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">area</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                      </span><span class="n">ref.period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref.period</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                      </span><span class="n">scatter.seasons</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scatter.seasons</span><span class="p">,</span>
+<span class="w">                      </span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xlim</span><span class="p">,</span>
+<span class="w">                      </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ylim</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:12] Computing annual delta changes for the Boxplot of region world
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:54] Computing annual delta changes for the Boxplot of region world
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:12] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:54] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:14] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:56] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:16] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:06:58] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in order(as.numeric(x)):
-“NAs introducidos por coerción”
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:07:19] Computing seasonal delta changes for the Scatterplots of region world
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in diff(as.numeric(x[ord])):
-“NAs introducidos por coerción”
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:07:19] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:35] Computing seasonal delta changes for the Scatterplots of region world
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:07:25] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:35] Computing CMIP5..
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:41] Computing CMIP6..
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 12:22:48] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:07:33] Computing CORDEX..
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">do.call</span><span class="p">(</span><span class="s">&quot;grid.arrange&quot;</span><span class="p">,</span> <span class="n">fig.w</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">do.call</span><span class="p">(</span><span class="s">&quot;grid.arrange&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fig.w</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x0, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in unit(x1, default.units):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in panel.xyplot(...):
-“NAs introducidos por coerción”
-</pre></div>
-</div>
-<img alt="../_images/regional-scatter-plots_R_27_5.png" src="../_images/regional-scatter-plots_R_27_5.png" />
+<img alt="../_images/regional-scatter-plots_R_27_0.png" src="../_images/regional-scatter-plots_R_27_0.png" />
 </div>
 </div>
 <p>We have easily reproduced parts of the AR6-WGI Atlas chapter figures using the function <code class="docutils literal notranslate"><span class="pre">computeFigures</span></code>. To extend the results shown in the Atlas chapter, just use different parameter settings above, e.g. additional seasons, alternative baselines, etc.</p>
@@ -1016,25 +892,25 @@ Leave it as NULL for automatic axes ranges</p>
 <p>In this last example, we will compute CMIP5 annual temperature changes for different Global Warming Levels. Therefore, the following parameters are set.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">&lt;-</span> <span class="s">&quot;CMIP5&quot;</span> <span class="c1"># other options are CMIP6 and CORDEX</span>
-<span class="n">experiment</span> <span class="o">&lt;-</span> <span class="s">&quot;rcp85&quot;</span> 
-<span class="n">var</span> <span class="o">&lt;-</span> <span class="s">&quot;tas&quot;</span>
-<span class="n">season</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">12</span>
-<span class="n">ref.period</span> <span class="o">&lt;-</span> <span class="m">1986</span><span class="o">:</span><span class="m">2005</span>
-<span class="n">periods</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;1.5&quot;</span><span class="p">,</span> <span class="s">&quot;2&quot;</span><span class="p">,</span> <span class="s">&quot;3&quot;</span><span class="p">,</span> <span class="s">&quot;4&quot;</span><span class="p">)</span> 
-<span class="n">area</span> <span class="o">&lt;-</span> <span class="s">&quot;land&quot;</span>
-<span class="n">region</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSA&quot;</span><span class="p">,</span> <span class="s">&quot;SES&quot;</span><span class="p">)</span>
-<span class="n">cordex.domain</span> <span class="o">&lt;-</span> <span class="s">&quot;SAM&quot;</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;CMIP5&quot;</span><span class="w"> </span><span class="c1"># other options are CMIP6 and CORDEX</span>
+<span class="n">experiment</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;rcp85&quot;</span><span class="w"> </span>
+<span class="n">var</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;tas&quot;</span>
+<span class="n">season</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">12</span>
+<span class="n">ref.period</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">1986</span><span class="o">:</span><span class="m">2005</span>
+<span class="n">periods</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;1.5&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;4&quot;</span><span class="p">)</span><span class="w"> </span>
+<span class="n">area</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;land&quot;</span>
+<span class="n">region</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SES&quot;</span><span class="p">)</span>
+<span class="n">cordex.domain</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;SAM&quot;</span>
 
-<span class="n">WL.cmip5</span> <span class="o">&lt;-</span> <span class="nf">computeDeltas</span><span class="p">(</span><span class="n">project</span> <span class="o">=</span> <span class="n">project</span><span class="p">,</span> 
-                          <span class="n">var</span> <span class="o">=</span> <span class="n">var</span><span class="p">,</span> 
-                          <span class="n">experiment</span> <span class="o">=</span> <span class="n">experiment</span><span class="p">,</span> 
-                          <span class="n">season</span> <span class="o">=</span> <span class="n">season</span><span class="p">,</span> 
-                          <span class="n">ref.period</span> <span class="o">=</span> <span class="n">ref.period</span><span class="p">,</span> 
-                          <span class="n">periods</span> <span class="o">=</span> <span class="n">periods</span><span class="p">,</span> 
-                          <span class="n">area</span> <span class="o">=</span> <span class="n">area</span><span class="p">,</span> 
-                          <span class="n">region</span> <span class="o">=</span> <span class="n">region</span><span class="p">,</span> 
-                          <span class="n">cordex.domain</span> <span class="o">=</span> <span class="n">cordex.domain</span><span class="p">)</span>
+<span class="n">WL.cmip5</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">computeDeltas</span><span class="p">(</span><span class="n">project</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">project</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                          </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                          </span><span class="n">experiment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">experiment</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                          </span><span class="n">season</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">season</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                          </span><span class="n">ref.period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref.period</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                          </span><span class="n">periods</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">periods</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                          </span><span class="n">area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">area</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                          </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                          </span><span class="n">cordex.domain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cordex.domain</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1193,17 +1069,17 @@ Leave it as NULL for automatic axes ranges</p>
 <p>Let’s plot the results for this region and each CMIP5 model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">par</span><span class="p">(</span><span class="n">mar</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">15</span><span class="p">),</span> <span class="n">xpd</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> <span class="c1"># make room for the legend</span>
-<span class="nf">plot</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1.5</span><span class="p">,</span> <span class="m">4</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">4</span><span class="p">),</span> <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;GWL&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Temperature change in SES (deg. C)&quot;</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;n&quot;</span><span class="p">)</span>
-<span class="n">model.names</span> <span class="o">&lt;-</span> <span class="nf">row.names</span><span class="p">(</span><span class="n">WL.cmip5</span><span class="o">$</span><span class="n">SES</span><span class="p">)</span>
-<span class="n">n.models</span> <span class="o">&lt;-</span> <span class="nf">length</span><span class="p">(</span><span class="n">model.names</span><span class="p">)</span>
-<span class="n">line.colors</span> <span class="o">&lt;-</span> <span class="nf">rainbow</span><span class="p">(</span><span class="n">n.models</span><span class="p">)</span>
-<span class="n">gwls</span> <span class="o">&lt;-</span> <span class="nf">as.numeric</span><span class="p">(</span><span class="n">periods</span><span class="p">)</span>
-<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="n">n.models</span><span class="p">){</span>
-    <span class="nf">lines</span><span class="p">(</span><span class="n">gwls</span><span class="p">,</span> <span class="n">WL.cmip5</span><span class="o">$</span><span class="n">SES</span><span class="p">[</span><span class="n">i</span><span class="p">,],</span> <span class="n">col</span> <span class="o">=</span> <span class="n">line.colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="nf">points</span><span class="p">(</span><span class="n">gwls</span><span class="p">,</span> <span class="n">WL.cmip5</span><span class="o">$</span><span class="n">SES</span><span class="p">[</span><span class="n">i</span><span class="p">,],</span> <span class="n">col</span> <span class="o">=</span> <span class="n">line.colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">pch</span><span class="o">=</span><span class="m">16</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">par</span><span class="p">(</span><span class="n">mar</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">),</span><span class="w"> </span><span class="n">xpd</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="c1"># make room for the legend</span>
+<span class="nf">plot</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="n">xlim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1.5</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GWL&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Temperature change in SES (deg. C)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;n&quot;</span><span class="p">)</span>
+<span class="n">model.names</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">row.names</span><span class="p">(</span><span class="n">WL.cmip5</span><span class="o">$</span><span class="n">SES</span><span class="p">)</span>
+<span class="n">n.models</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="n">model.names</span><span class="p">)</span>
+<span class="n">line.colors</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rainbow</span><span class="p">(</span><span class="n">n.models</span><span class="p">)</span>
+<span class="n">gwls</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">periods</span><span class="p">)</span>
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="n">n.models</span><span class="p">){</span>
+<span class="w">    </span><span class="nf">lines</span><span class="p">(</span><span class="n">gwls</span><span class="p">,</span><span class="w"> </span><span class="n">WL.cmip5</span><span class="o">$</span><span class="n">SES</span><span class="p">[</span><span class="n">i</span><span class="p">,],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line.colors</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="w">    </span><span class="nf">points</span><span class="p">(</span><span class="n">gwls</span><span class="p">,</span><span class="w"> </span><span class="n">WL.cmip5</span><span class="o">$</span><span class="n">SES</span><span class="p">[</span><span class="n">i</span><span class="p">,],</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line.colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="m">16</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="n">model.names</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="m">16</span><span class="p">,</span> <span class="n">lty</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">line.colors</span><span class="p">,</span> <span class="n">inset</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="m">0</span><span class="p">))</span>
+<span class="nf">legend</span><span class="p">(</span><span class="s">&quot;topright&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">legend</span><span class="o">=</span><span class="n">model.names</span><span class="p">,</span><span class="w"> </span><span class="n">pch</span><span class="o">=</span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="n">lty</span><span class="o">=</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="o">=</span><span class="n">line.colors</span><span class="p">,</span><span class="w"> </span><span class="n">inset</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="m">0</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1214,8 +1090,8 @@ Leave it as NULL for automatic axes ranges</p>
 <p>Once the data is obtained, the user is free to apply any additional operations. For instance, in the next cell we will compute the ensemble mean for the SES region using the <code class="docutils literal notranslate"><span class="pre">apply</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">WL.cmip5.mean</span> <span class="o">&lt;-</span> <span class="nf">apply</span><span class="p">(</span><span class="n">WL.cmip5</span><span class="o">$</span><span class="n">SES</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">gwls</span><span class="p">,</span> <span class="n">WL.cmip5.mean</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;b&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">WL.cmip5.mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">WL.cmip5</span><span class="o">$</span><span class="n">SES</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">gwls</span><span class="p">,</span><span class="w"> </span><span class="n">WL.cmip5.mean</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1226,7 +1102,7 @@ Leave it as NULL for automatic axes ranges</p>
 <p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> or a <code class="docutils literal notranslate"><span class="pre">lapply</span></code> loop to apply the same operation for all available regions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">WL.cmip5.mean</span> <span class="o">&lt;-</span> <span class="nf">lapply</span><span class="p">(</span><span class="n">WL.cmip5</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">apply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="bp">T</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">WL.cmip5.mean</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lapply</span><span class="p">(</span><span class="n">WL.cmip5</span><span class="p">,</span><span class="w"> </span><span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">T</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1234,7 +1110,7 @@ Leave it as NULL for automatic axes ranges</p>
 <p>Convert from <code class="docutils literal notranslate"><span class="pre">list</span></code> to <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> and add WL names:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="s">&quot;WL&quot;</span> <span class="o">=</span> <span class="n">gwls</span><span class="p">,</span> <span class="n">WL.cmip5.mean</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="s">&quot;WL&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gwls</span><span class="p">,</span><span class="w"> </span><span class="n">WL.cmip5.mean</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
@@ -1258,10 +1134,10 @@ Leave it as NULL for automatic axes ranges</p>
 <p>We can use this data frame to illustrate the <code class="docutils literal notranslate"><span class="pre">lattice</span></code> plotting functionalities.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">xyplot</span><span class="p">(</span><span class="n">WL</span><span class="o">~</span><span class="n">SES</span> <span class="o">+</span> <span class="n">NSA</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span> 
-       <span class="n">xlab</span> <span class="o">=</span> <span class="s">&quot;Regional temperature change (deg. C)&quot;</span><span class="p">,</span> <span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;GWL&quot;</span><span class="p">,</span>
-       <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;b&quot;</span><span class="p">,</span>
-       <span class="n">auto.key</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">xyplot</span><span class="p">(</span><span class="n">WL</span><span class="o">~</span><span class="n">SES</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">NSA</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">df</span><span class="p">,</span><span class="w"> </span>
+<span class="w">       </span><span class="n">xlab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Regional temperature change (deg. C)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GWL&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span>
+<span class="w">       </span><span class="n">auto.key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1279,12 +1155,12 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 4.0.5 (2021-03-31)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Fedora Linux 36 (Workstation Edition)
+Running under: Fedora Linux 37 (Workstation Edition)
 
 Matrix products: default
-BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg2/lib/libopenblasp-r0.3.21.so
+BLAS/LAPACK: /home/phanaur/mambaforge/envs/prueba/lib/libopenblasp-r0.3.21.so
 
 locale:
  [1] LC_CTYPE=es_ES.UTF-8       LC_NUMERIC=C              
@@ -1302,13 +1178,13 @@ other attached packages:
 [4] httr_1.4.2          magrittr_2.0.1     
 
 loaded via a namespace (and not attached):
- [1] uuid_1.1-0         R6_2.5.1           jpeg_0.1-9         rlang_1.0.6       
- [5] fastmap_1.1.0      fansi_1.0.3        tools_4.0.5        grid_4.0.5        
- [9] gtable_0.3.1       png_0.1-7          utf8_1.2.2         cli_3.4.1         
-[13] htmltools_0.5.3    digest_0.6.29      lifecycle_1.0.2    crayon_1.5.1      
-[17] IRdisplay_1.1      RColorBrewer_1.1-3 repr_1.1.4         base64enc_0.1-3   
-[21] vctrs_0.4.1        IRkernel_1.2       glue_1.6.2         evaluate_0.16     
-[25] pbdZMQ_0.3-7       compiler_4.0.5     pillar_1.8.1       jsonlite_1.8.0    
+ [1] uuid_0.1-4         R6_2.5.0           jpeg_0.1-8.1       rlang_0.4.11      
+ [5] fansi_0.4.2        tools_3.6.3        grid_3.6.3         gtable_0.3.0      
+ [9] png_0.1-7          utf8_1.2.1         htmltools_0.5.1.1  ellipsis_0.3.2    
+[13] digest_0.6.27      lifecycle_1.0.0    crayon_1.4.1       IRdisplay_1.0     
+[17] RColorBrewer_1.1-2 repr_1.1.3         base64enc_0.1-3    vctrs_0.3.8       
+[21] IRkernel_1.2       evaluate_0.14      pbdZMQ_0.3-5       compiler_3.6.3    
+[25] pillar_1.6.1       jsonlite_1.7.2    
 </pre></div>
 </div>
 </div>

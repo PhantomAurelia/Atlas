@@ -685,7 +685,7 @@ title="Print to PDF"
 <span id="reference-regions-r"></span><h1>Using the 4th version of the IPCC WGI reference regions in R<a class="headerlink" href="#using-the-4th-version-of-the-ipcc-wgi-reference-regions-in-r" title="Permalink to this headline">#</a></h1>
 <p>30/6/2021</p>
 <p><strong>M. Iturbide</strong> (<a class="reference external" href="http://www.meteo.unican.es">Santander Meteorology Group</a>. Institute of Physics of Cantabria. CSIC-University of Cantabria, Santander, Spain)</p>
-<p><code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is the new set of reference regions that update the IPCC AR5 reference regions <span id="id1">[<a class="reference internal" href="#id7" title="ipcc AR5. AR5 Regions. https://www.ipcc-data.org/guidelines/pages/ar5_regions.html.">AR5, n.d.</a>]</span> for reporting sub-continental climate information (e.g. CMIP6 projections). This tutorial shows how the standard R packages for spatial data can be used to manipulate and plot these regions, and how these capabilities can be further extended for climate data processing using the <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> framework <span id="id2">[<a class="reference internal" href="#id19" title="SantanderMetGroup/climate4R. Santander Meteorology Group (UC-CSIC), July 2022."><em>SantanderMetGroup/climate4R</em>, 2022</a>]</span>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is the new set of reference regions that update the IPCC AR5 reference regions <span id="id1">[<a class="reference internal" href="#id7" title="ipcc AR5. AR5 Regions. https://www.ipcc-data.org/guidelines/pages/ar5_regions.html.">AR5, n.d.</a>]</span> for reporting sub-continental climate information (e.g. CMIP6 projections). This tutorial shows how the standard R packages for spatial data can be used to manipulate and plot these regions, and how these capabilities can be further extended for climate data processing using the <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> framework <span id="id2">[<a class="reference internal" href="#id20" title="SantanderMetGroup/climate4R. Santander Meteorology Group (UC-CSIC), July 2022."><em>SantanderMetGroup/climate4R</em>, 2022</a>]</span>.</p>
 <section id="requirements">
 <h2>Requirements:<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h2>
 <p>The following R packages are used to work with spatial data:</p>
@@ -709,10 +709,10 @@ title="Print to PDF"
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rgdal: version: 1.5-16, (SVN revision 1050)
 Geospatial Data Abstraction Library extensions to R successfully loaded
 Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
-Path to GDAL shared files: /home/phanaur/mambaforge/envs/tfg/share/gdal
+Path to GDAL shared files: /home/phanaur/mambaforge/envs/prueba/share/gdal
 GDAL binary built with GEOS: TRUE 
 Loaded PROJ runtime: Rel. 7.2.0, November 1st, 2020, [PJ_VERSION: 720]
-Path to PROJ shared files: /home/phanaur/mambaforge/envs/tfg/share/proj
+Path to PROJ shared files: /home/phanaur/mambaforge/envs/prueba/share/proj
 PROJ CDN enabled: TRUE
 Linking to sp version:1.4-5
 To mute warnings of possible GDAL/OSR exportToProj4() degradation,
@@ -738,15 +738,15 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 <p>Function <code class="docutils literal notranslate"><span class="pre">readOGR</span></code> from package <code class="docutils literal notranslate"><span class="pre">rgdal</span></code> loads shapefiles into the R environment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tmpdir</span> <span class="o">&lt;-</span> <span class="nf">tempdir</span><span class="p">()</span>
-<span class="nf">unzip</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_shapefile.zip&quot;</span><span class="p">,</span> <span class="n">exdir</span> <span class="o">=</span> <span class="n">tmpdir</span><span class="p">)</span>
-<span class="n">refregions</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="n">dsn</span> <span class="o">=</span> <span class="n">tmpdir</span><span class="p">,</span> <span class="n">layer</span> <span class="o">=</span> <span class="s">&quot;IPCC-WGI-reference-regions-v4&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tmpdir</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">tempdir</span><span class="p">()</span>
+<span class="nf">unzip</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_shapefile.zip&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">exdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmpdir</span><span class="p">)</span>
+<span class="n">refregions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">readOGR</span><span class="p">(</span><span class="n">dsn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmpdir</span><span class="p">,</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;IPCC-WGI-reference-regions-v4&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OGR data source with driver: ESRI Shapefile 
-Source: &quot;/tmp/Rtmp144E7W&quot;, layer: &quot;IPCC-WGI-reference-regions-v4&quot;
+Source: &quot;/tmp/RtmpafVYnF&quot;, layer: &quot;IPCC-WGI-reference-regions-v4&quot;
 with 58 features
 It has 4 fields
 </pre></div>
@@ -768,7 +768,7 @@ It has 4 fields
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">load</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_R.rda&quot;</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">load</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_R.rda&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -782,7 +782,7 @@ It has 4 fields
 <p>We can simplify this object by converting it to a <code class="docutils literal notranslate"><span class="pre">SpatialPolygons</span></code> class object (i.e., only the polygons are retained and their attributes discarded):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">refregions</span> <span class="o">&lt;-</span> <span class="nf">as</span><span class="p">(</span><span class="n">IPCC_WGI_reference_regions_v4</span><span class="p">,</span> <span class="s">&quot;SpatialPolygons&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">refregions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as</span><span class="p">(</span><span class="n">IPCC_WGI_reference_regions_v4</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SpatialPolygons&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -802,18 +802,18 @@ It has 4 fields
 <img alt="../_images/reference-regions_R_13_0.png" src="../_images/reference-regions_R_13_0.png" />
 </div>
 </div>
-<p>The R basic plotting functions allow adding layers to the plot. Here the region names and coastline are added. Shapefiles such as global coastlines and other physical features or administrative boundaries can be either read from local or obtained from the Internet. In this example, a world coastline layer is used from the <em>Natural Earth</em> <span id="id4">[<a class="reference internal" href="#id55" title="Natural Earth - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales."><em>Natural Earth - Free Vector and Raster Map Data at 1:10m, 1:50m, and 1:110m Scales</em>, n.d.</a>]</span> public repository of digital cartography.</p>
+<p>The R basic plotting functions allow adding layers to the plot. Here the region names and coastline are added. Shapefiles such as global coastlines and other physical features or administrative boundaries can be either read from local or obtained from the Internet. In this example, a world coastline layer is used from the <em>Natural Earth</em> <span id="id4">[<a class="reference internal" href="#id56" title="Natural Earth - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales."><em>Natural Earth - Free Vector and Raster Map Data at 1:10m, 1:50m, and 1:110m Scales</em>, n.d.</a>]</span> public repository of digital cartography.</p>
 <hr class="docutils" />
 <p><em>(begin example)</em></p>
 <p>An example follows on how to download and load the vector layer. However, note that <strong>this step can be skipped</strong> and read the layer directly from the <code class="docutils literal notranslate"><span class="pre">auxiliary-material</span></code> subdir.</p>
 <p>The target vector layer (<em>shapefile</em> format) is next downloaded from Natural Earth download site to a temporary file and extracted:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">temp.dir</span> <span class="o">&lt;-</span> <span class="nf">tempdir</span><span class="p">()</span>
-<span class="n">zipfile</span> <span class="o">&lt;-</span> <span class="nf">file.path</span><span class="p">(</span><span class="n">temp.dir</span><span class="p">,</span> <span class="s">&quot;world.zip&quot;</span><span class="p">)</span>
-<span class="nf">download.file</span><span class="p">(</span><span class="n">url</span> <span class="o">=</span> <span class="s">&quot;https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/physical/ne_110m_coastline.zip&quot;</span><span class="p">,</span>
-              <span class="n">destfile</span> <span class="o">=</span> <span class="n">zipfile</span><span class="p">)</span>
-<span class="nf">unzip</span><span class="p">(</span><span class="n">zipfile</span><span class="p">,</span> <span class="n">exdir</span> <span class="o">=</span> <span class="n">temp.dir</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">temp.dir</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">tempdir</span><span class="p">()</span>
+<span class="n">zipfile</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">file.path</span><span class="p">(</span><span class="n">temp.dir</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;world.zip&quot;</span><span class="p">)</span>
+<span class="nf">download.file</span><span class="p">(</span><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/physical/ne_110m_coastline.zip&quot;</span><span class="p">,</span>
+<span class="w">              </span><span class="n">destfile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zipfile</span><span class="p">)</span>
+<span class="nf">unzip</span><span class="p">(</span><span class="n">zipfile</span><span class="p">,</span><span class="w"> </span><span class="n">exdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp.dir</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -821,13 +821,13 @@ It has 4 fields
 <p>and next imported into R:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">coastLines</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="n">dsn</span> <span class="o">=</span> <span class="n">temp.dir</span><span class="p">,</span> <span class="n">layer</span> <span class="o">=</span> <span class="s">&quot;ne_110m_coastline&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">coastLines</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">readOGR</span><span class="p">(</span><span class="n">dsn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp.dir</span><span class="p">,</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ne_110m_coastline&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OGR data source with driver: ESRI Shapefile 
-Source: &quot;/tmp/Rtmp144E7W&quot;, layer: &quot;ne_110m_coastline&quot;
+Source: &quot;/tmp/RtmpafVYnF&quot;, layer: &quot;ne_110m_coastline&quot;
 with 134 features
 It has 3 fields
 Integer64 fields read as strings:  scalerank 
@@ -850,7 +850,7 @@ Integer64 fields read as strings:  scalerank
 <p>However, for better reproducibility, the vector layer is already stored in the <code class="docutils literal notranslate"><span class="pre">auxiliary-material</span></code> subdirectory:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">coastLines</span> <span class="o">&lt;-</span> <span class="nf">readOGR</span><span class="p">(</span><span class="n">dsn</span> <span class="o">=</span> <span class="s">&quot;./auxiliary-material/&quot;</span><span class="p">,</span> <span class="n">layer</span> <span class="o">=</span> <span class="s">&quot;WORLD_coastline&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">coastLines</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">readOGR</span><span class="p">(</span><span class="n">dsn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;./auxiliary-material/&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;WORLD_coastline&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -865,11 +865,11 @@ It has 2 fields
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;grey&quot;</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">refregions</span><span class="p">,</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
-<span class="nf">text</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">refregions</span><span class="p">)[</span> <span class="p">,</span><span class="m">1</span><span class="p">],</span>
-     <span class="n">y</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">refregions</span><span class="p">)[</span> <span class="p">,</span><span class="m">2</span><span class="p">],</span>
-     <span class="n">labels</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">refregions</span><span class="p">),</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">0.6</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;grey&quot;</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">refregions</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">coordinates</span><span class="p">(</span><span class="n">refregions</span><span class="p">)[</span><span class="w"> </span><span class="p">,</span><span class="m">1</span><span class="p">],</span>
+<span class="w">     </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">coordinates</span><span class="p">(</span><span class="n">refregions</span><span class="p">)[</span><span class="w"> </span><span class="p">,</span><span class="m">2</span><span class="p">],</span>
+<span class="w">     </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">refregions</span><span class="p">),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -898,12 +898,12 @@ It has 2 fields
 <p>For instance, in order to extract one single region (e.g., New Zealand, NZ):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">newzealand</span> <span class="o">&lt;-</span> <span class="n">refregions</span><span class="p">[</span><span class="s">&quot;NZ&quot;</span><span class="p">]</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">newzealand</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">refregions</span><span class="p">[</span><span class="s">&quot;NZ&quot;</span><span class="p">]</span>
 <span class="nf">plot</span><span class="p">(</span><span class="n">newzealand</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;grey&quot;</span><span class="p">,</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
-<span class="nf">text</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">newzealand</span><span class="p">)[,</span><span class="m">1</span><span class="p">],</span>
-     <span class="n">y</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">newzealand</span><span class="p">)[,</span><span class="m">2</span><span class="p">],</span>
-     <span class="n">labels</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">newzealand</span><span class="p">),</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;grey&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">coordinates</span><span class="p">(</span><span class="n">newzealand</span><span class="p">)[,</span><span class="m">1</span><span class="p">],</span>
+<span class="w">     </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">coordinates</span><span class="p">(</span><span class="n">newzealand</span><span class="p">)[,</span><span class="m">2</span><span class="p">],</span>
+<span class="w">     </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">newzealand</span><span class="p">),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -914,13 +914,13 @@ It has 2 fields
 <p>or several regions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">australasia</span> <span class="o">&lt;-</span> <span class="n">refregions</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NZ&quot;</span><span class="p">,</span> <span class="s">&quot;SEA&quot;</span><span class="p">,</span> <span class="s">&quot;NAU&quot;</span><span class="p">,</span> <span class="s">&quot;CAU&quot;</span><span class="p">,</span> <span class="s">&quot;EAU&quot;</span><span class="p">,</span> <span class="s">&quot;SAU&quot;</span><span class="p">)]</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">australasia</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">refregions</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NZ&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SEA&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;NAU&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CAU&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;EAU&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SAU&quot;</span><span class="p">)]</span>
 
 <span class="nf">plot</span><span class="p">(</span><span class="n">australasia</span><span class="p">)</span>
-<span class="nf">plot</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="nf">rgb</span><span class="p">(</span><span class="m">0.85</span><span class="p">,</span><span class="m">0.85</span><span class="p">,</span><span class="m">0.85</span><span class="p">,</span><span class="m">0.7</span><span class="p">),</span> <span class="n">add</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
-<span class="nf">text</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">australasia</span><span class="p">)[,</span><span class="m">1</span><span class="p">],</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">australasia</span><span class="p">)[,</span><span class="m">2</span><span class="p">],</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="nf">names</span><span class="p">(</span><span class="n">australasia</span><span class="p">),</span> <span class="n">cex</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rgb</span><span class="p">(</span><span class="m">0.85</span><span class="p">,</span><span class="m">0.85</span><span class="p">,</span><span class="m">0.85</span><span class="p">,</span><span class="m">0.7</span><span class="p">),</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">text</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">coordinates</span><span class="p">(</span><span class="n">australasia</span><span class="p">)[,</span><span class="m">1</span><span class="p">],</span>
+<span class="w">    </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">coordinates</span><span class="p">(</span><span class="n">australasia</span><span class="p">)[,</span><span class="m">2</span><span class="p">],</span>
+<span class="w">    </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">australasia</span><span class="p">),</span><span class="w"> </span><span class="n">cex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1024,19 +1024,19 @@ It has 2 fields
 <p>First, <code class="docutils literal notranslate"><span class="pre">dataInventory</span></code> provides basic information about the variables available in the file/dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">di</span> <span class="o">&lt;-</span> <span class="nf">dataInventory</span><span class="p">(</span><span class="s">&quot;./auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">di</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">dataInventory</span><span class="p">(</span><span class="s">&quot;./auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">)</span>
 <span class="nf">str</span><span class="p">(</span><span class="n">di</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:11] Doing inventory ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:28] Doing inventory ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:11] Retrieving info for &#39;tas&#39; (0 vars remaining)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:28] Retrieving info for &#39;tas&#39; (0 vars remaining)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:11] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:28] Done.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of 1
@@ -1072,22 +1072,22 @@ It has 2 fields
 <p>As we can see from the inventory output, it contains a single variable (‘tas’, 2 meters air temperature). To load this data, the function <code class="docutils literal notranslate"><span class="pre">loadGridData</span></code> from package <code class="docutils literal notranslate"><span class="pre">loadeR</span></code> is used:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1</span> <span class="o">&lt;-</span> <span class="nf">loadGridData</span><span class="p">(</span><span class="n">dataset</span> <span class="o">=</span> <span class="s">&quot;./auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">,</span>
-                      <span class="n">var</span> <span class="o">=</span> <span class="s">&quot;tas&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="n">dataset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;./auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">,</span>
+<span class="w">                      </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tas&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:11] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:28] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:11] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:28] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:11] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:29] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:15] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:33] Done
 </pre></div>
 </div>
 </div>
@@ -1095,7 +1095,7 @@ It has 2 fields
 <p>The example data is the temperature field for the period 1850-2014. In order to plot the first time step, we extract the data for January 1850 with the function <code class="docutils literal notranslate"><span class="pre">subsetGrid</span></code> (package <code class="docutils literal notranslate"><span class="pre">transformeR</span></code>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid185001</span> <span class="o">&lt;-</span> <span class="nf">subsetGrid</span><span class="p">(</span><span class="n">grid1</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="m">1850</span><span class="p">,</span> <span class="n">season</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">drop</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid185001</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">subsetGrid</span><span class="p">(</span><span class="n">grid1</span><span class="p">,</span><span class="w"> </span><span class="n">years</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1850</span><span class="p">,</span><span class="w"> </span><span class="n">season</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">drop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1103,11 +1103,11 @@ It has 2 fields
 <p><code class="docutils literal notranslate"><span class="pre">spatialPlot</span></code> from package <code class="docutils literal notranslate"><span class="pre">visualizeR</span></code> is the main map plotting function in <code class="docutils literal notranslate"><span class="pre">climate4R</span></code>. It is a wrapper of the powerful <code class="docutils literal notranslate"><span class="pre">spplot</span></code> method from package <code class="docutils literal notranslate"><span class="pre">sp</span></code>, thus accepting all possible optional parameters from lattice graphics. In addition, it also incorporates some additional arguments for straightforward fulfillment of commonplace requirements in climate data visualization (e.g. <code class="docutils literal notranslate"><span class="pre">backdrop.theme</span></code>, <code class="docutils literal notranslate"><span class="pre">set.min</span></code>, <code class="docutils literal notranslate"><span class="pre">set.max</span></code>, <code class="docutils literal notranslate"><span class="pre">lonCenter</span></code>, <code class="docutils literal notranslate"><span class="pre">color.theme</span></code>, <code class="docutils literal notranslate"><span class="pre">rev.colors</span></code> etc.).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regnameslayer</span> <span class="o">&lt;-</span> <span class="nf">list</span><span class="p">(</span><span class="s">&quot;sp.text&quot;</span><span class="p">,</span> <span class="nf">coordinates</span><span class="p">(</span><span class="n">refregions</span><span class="p">),</span> <span class="nf">names</span><span class="p">(</span><span class="n">refregions</span><span class="p">))</span>
-<span class="nf">spatialPlot</span><span class="p">(</span><span class="n">grid185001</span><span class="p">,</span> <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span> 
-            <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
-            <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">refregions</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">),</span> <span class="n">regnameslayer</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regnameslayer</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="s">&quot;sp.text&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">coordinates</span><span class="p">(</span><span class="n">refregions</span><span class="p">),</span><span class="w"> </span><span class="nf">names</span><span class="p">(</span><span class="n">refregions</span><span class="p">))</span>
+<span class="nf">spatialPlot</span><span class="p">(</span><span class="n">grid185001</span><span class="p">,</span><span class="w"> </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span>
+<span class="w">            </span><span class="n">sp.layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">refregions</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">regnameslayer</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1118,26 +1118,26 @@ It has 2 fields
 <p>We could also get the annual values using function <code class="docutils literal notranslate"><span class="pre">aggregateGrid</span></code> and plot the annual climatology:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.ann</span> <span class="o">&lt;-</span> <span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">grid1</span><span class="p">,</span> <span class="n">aggr.y</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
-<span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid1.ann</span><span class="p">),</span> <span class="n">backdrop.theme</span> <span class="o">=</span> <span class="s">&quot;coastline&quot;</span><span class="p">,</span> 
-            <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
-            <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-            <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Annual mean surface temperature (K)&quot;</span><span class="p">,</span>
-            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">refregions</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;blue&quot;</span><span class="p">),</span> <span class="n">regnameslayer</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.ann</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">aggregateGrid</span><span class="p">(</span><span class="n">grid1</span><span class="p">,</span><span class="w"> </span><span class="n">aggr.y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mean&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">))</span>
+<span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid1.ann</span><span class="p">),</span><span class="w"> </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span>
+<span class="w">            </span><span class="n">main</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Annual mean surface temperature (K)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">sp.layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">refregions</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;blue&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">regnameslayer</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:16] Performing annual aggregation...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:34] Performing annual aggregation...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:19] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:38] Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:19] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:38] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:19] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:38] - Done.
 </pre></div>
 </div>
 <img alt="../_images/reference-regions_R_43_4.png" src="../_images/reference-regions_R_43_4.png" />
@@ -1162,7 +1162,7 @@ It has 2 fields
 <p>An appropriate definition of the current coordinates projection will be later needed to ensure spatial consistency of geospatial operations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.ann</span> <span class="o">&lt;-</span> <span class="nf">setGridProj</span><span class="p">(</span><span class="n">grid</span> <span class="o">=</span> <span class="n">grid1.ann</span><span class="p">,</span> <span class="n">proj</span> <span class="o">=</span> <span class="nf">proj4string</span><span class="p">(</span><span class="n">refregions</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.ann</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">setGridProj</span><span class="p">(</span><span class="n">grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">grid1.ann</span><span class="p">,</span><span class="w"> </span><span class="n">proj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">proj4string</span><span class="p">(</span><span class="n">refregions</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1176,7 +1176,7 @@ It has 2 fields
 <p>Once the spatial reference is defined, the spatial overlay is done:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.au</span> <span class="o">&lt;-</span> <span class="nf">overGrid</span><span class="p">(</span><span class="n">grid1.ann</span><span class="p">,</span> <span class="n">australasia</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.au</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">overGrid</span><span class="p">(</span><span class="n">grid1.ann</span><span class="p">,</span><span class="w"> </span><span class="n">australasia</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1189,18 +1189,18 @@ It has 2 fields
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid1.au</span><span class="p">),</span> 
-            <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
-            <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid1.au</span><span class="p">),</span><span class="w"> </span>
+<span class="w">            </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span>
+<span class="w">            </span><span class="n">sp.layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:19] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:38] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:19] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:38] - Done.
 </pre></div>
 </div>
 <img alt="../_images/reference-regions_R_50_2.png" src="../_images/reference-regions_R_50_2.png" />
@@ -1209,7 +1209,7 @@ It has 2 fields
 <p>Setting the argument <code class="docutils literal notranslate"><span class="pre">subset</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> the spatial object is cropped to the region extent:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.au</span> <span class="o">&lt;-</span> <span class="nf">overGrid</span><span class="p">(</span><span class="n">grid1.ann</span><span class="p">,</span> <span class="n">australasia</span><span class="p">,</span> <span class="n">subset</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1.au</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">overGrid</span><span class="p">(</span><span class="n">grid1.ann</span><span class="p">,</span><span class="w"> </span><span class="n">australasia</span><span class="p">,</span><span class="w"> </span><span class="n">subset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1222,18 +1222,18 @@ It has 2 fields
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid1.au</span><span class="p">),</span> 
-            <span class="n">color.theme</span> <span class="o">=</span> <span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
-            <span class="n">rev.colors</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span>
-            <span class="n">sp.layout</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">grid1.au</span><span class="p">),</span><span class="w"> </span>
+<span class="w">            </span><span class="n">color.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;RdBu&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span>
+<span class="w">            </span><span class="n">sp.layout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">coastLines</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:20] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:39] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2022-10-13 10:07:20] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-12 14:09:39] - Done.
 </pre></div>
 </div>
 <img alt="../_images/reference-regions_R_53_2.png" src="../_images/reference-regions_R_53_2.png" />
@@ -1242,7 +1242,7 @@ It has 2 fields
 <p>Let’s calculate the regional average and visualize the yearly time series with <code class="docutils literal notranslate"><span class="pre">temporalPlot</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">temporalPlot</span><span class="p">(</span><span class="n">grid1.au</span><span class="p">,</span> <span class="n">aggr.spatial</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">FUN</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span> <span class="n">xyplot.custom</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="n">ylab</span> <span class="o">=</span> <span class="s">&quot;Annual mean surface temperature (K)&quot;</span><span class="p">))</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">temporalPlot</span><span class="p">(</span><span class="n">grid1.au</span><span class="p">,</span><span class="w"> </span><span class="n">aggr.spatial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">FUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mean&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">na.rm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">),</span><span class="w"> </span><span class="n">xyplot.custom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">ylab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Annual mean surface temperature (K)&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1266,7 +1266,7 @@ It has 2 fields
 </section>
 <section id="session-information">
 <h2>Session information<a class="headerlink" href="#session-information" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sessionInfo</span><span class="p">()</span>
 </pre></div>
@@ -1275,10 +1275,10 @@ It has 2 fields
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Fedora Linux 36 (Workstation Edition)
+Running under: Fedora Linux 37 (Workstation Edition)
 
 Matrix products: default
-BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
+BLAS/LAPACK: /home/phanaur/mambaforge/envs/prueba/lib/libopenblasp-r0.3.21.so
 
 locale:
  [1] LC_CTYPE=es_ES.UTF-8          LC_NUMERIC=C                 
@@ -1334,13 +1334,13 @@ loaded via a namespace (and not attached):
 <h2>References<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
 <div class="docutils container" id="id6">
 <dl class="citation">
-<dt class="label" id="id55"><span class="brackets"><a class="fn-backref" href="#id4">Nat</a></span></dt>
+<dt class="label" id="id56"><span class="brackets"><a class="fn-backref" href="#id4">Nat</a></span></dt>
 <dd><p>Natural Earth - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales.</p>
 </dd>
 <dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id3">atl22</a></span></dt>
 <dd><p>Repository supporting the implementation of FAIR principles in the IPCC-WGI Atlas. IPCC-WG1, November 2022.</p>
 </dd>
-<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id2">cli22</a></span></dt>
+<dt class="label" id="id20"><span class="brackets"><a class="fn-backref" href="#id2">cli22</a></span></dt>
 <dd><p>SantanderMetGroup/climate4R. Santander Meteorology Group (UC-CSIC), July 2022.</p>
 </dd>
 <dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id1">AR5</a></span></dt>
