@@ -655,7 +655,7 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">lattice</span></code> and <code class="docutils literal notranslate"><span class="pre">latticeExtra</span></code> to produce the figures</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">gridExtra</span></code> to produce the final panel of plots</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">magrittr</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">httr</span><span class="p">)</span>
@@ -667,7 +667,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>The main function to generate the boxplots and scatterplots is <code class="docutils literal notranslate"><span class="pre">computeFigures</span></code>, which internally uses functions <code class="docutils literal notranslate"><span class="pre">computeDeltas</span></code> and <code class="docutils literal notranslate"><span class="pre">computeOffset</span></code>, all available in this repository. To load these functions in the working environment use the <code class="docutils literal notranslate"><span class="pre">source</span></code> R base function as follows.</p>
-<div class="cell tag_hide-cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">source</span><span class="p">(</span><span class="s">&quot;../datasets-aggregated-regionally/scripts/computeDeltas.R&quot;</span><span class="p">)</span>
 <span class="nf">source</span><span class="p">(</span><span class="s">&quot;../datasets-aggregated-regionally/scripts/computeFigures.R&quot;</span><span class="p">)</span>
@@ -752,52 +752,52 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:16] Computing annual delta changes for the Boxplot of region ECA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:45:45] Computing annual delta changes for the Boxplot of region ECA
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:16] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:45:45] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:18] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:45:47] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:19] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:45:49] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:35] Computing seasonal delta changes for the Scatterplots of region ECA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:05] Computing seasonal delta changes for the Scatterplots of region ECA
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:35] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:05] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:40] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:11] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:45] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:17] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:50] Computing annual delta changes for the Boxplot of region EAS
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:22] Computing annual delta changes for the Boxplot of region EAS
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:50] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:22] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:51] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:23] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:19:53] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:25] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:09] Computing seasonal delta changes for the Scatterplots of region EAS
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:41] Computing seasonal delta changes for the Scatterplots of region EAS
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:09] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:41] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:14] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:46] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:20] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:52] Computing CORDEX..
 </pre></div>
 </div>
 </div>
@@ -848,28 +848,28 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:25] Computing annual delta changes for the Boxplot of region world
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:57] Computing annual delta changes for the Boxplot of region world
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:25] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:57] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:26] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:46:59] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:28] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:01] Computing CORDEX..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:44] Computing seasonal delta changes for the Scatterplots of region world
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:17] Computing seasonal delta changes for the Scatterplots of region world
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:44] Computing CMIP5..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:17] Computing CMIP5..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:49] Computing CMIP6..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:22] Computing CMIP6..
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:20:55] Computing CORDEX..
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:28] Computing CORDEX..
 </pre></div>
 </div>
 </div>
@@ -1021,7 +1021,7 @@ Leave it as NULL for automatic axes ranges</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">cordex.domain</span></code> parameter will be ignored unless the project is CORDEX (<code class="docutils literal notranslate"><span class="pre">project</span> <span class="pre">&lt;-</span> <span class="pre">&quot;CORDEX&quot;</span></code>).</p>
 <p>The output of the <code class="docutils literal notranslate"><span class="pre">computeDeltas</span></code> function is a list of matrices, each corresponding to a different reference region. Each column of the matrix corresponds to the warming levels set before. E.g. for the SES region:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">WL.cmip5</span><span class="o">$</span><span class="n">SES</span>
 </pre></div>

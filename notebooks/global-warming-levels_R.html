@@ -674,7 +674,7 @@ title="Print to PDF"
 <p>The function (warming-levels/scripts/getGWL.R) performs the key task of GWL determination. It is an atomic function to compute the timing of a user-defined transient Global Warming Level, that uses as input a numeric vector of mean global annual temperature projections for a given GCM. This numeric vector must be named, using the corresponding years as names. Both pre-industrial baseline (default to 1850-1900) and transient period (usually up to year 2100) are concatenated in a single input vector.</p>
 <p>The following example is intended to work with the global mean (land+sea) 2-m temperature data stored as <em>.csv</em> files in the <em>datasets-aggregated-regionally</em> directory.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">getGWL</span></code> function is loaded by issuing:</p>
-<div class="cell tag_hide-cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">source</span><span class="p">(</span><span class="s">&quot;../warming-levels/scripts/getGWL.R&quot;</span><span class="p">)</span>
 </pre></div>
@@ -709,7 +709,7 @@ title="Print to PDF"
 </div>
 <p>The target GCM (and/or ensemble member, if it applies) can be directly chosen using the appropriate <code class="docutils literal notranslate"><span class="pre">target</span></code> pattern string, as in the example code above. Note that CMIP5 and CMIP6 datasets live in different directories, following the same reference syntax.</p>
 <p>First, the historical experiment is read. It will provide the baseline for the GWL calculation.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">hist.regions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">grep</span><span class="p">(</span><span class="s">&quot;historical&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">modelfiles</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
 <span class="w">                </span><span class="nf">read.table</span><span class="p">(</span><span class="n">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">sep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">comment.char</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;#&quot;</span><span class="p">)</span><span class="w"> </span>
@@ -855,7 +855,7 @@ title="Print to PDF"
 <p>For the IPCC WGI Interactive Atlas, the time periods for which +1.5, +2, +3 and +4 degree transient Global Warming Levels (GWLs) are reached (with respect to pre-industrial 1850-1900 mean value) are computed for CMIP5 and CMIP6 data using a 20-year moving window.</p>
 <p>The default output of <code class="docutils literal notranslate"><span class="pre">getGWL</span></code> corresponds to the <strong>central year (n) of the 20-year period</strong> when the warming is first reached (the GWL period is thus <strong>[n-9, n+10]</strong>). This function will return <strong>‘NA’</strong> when the GWL is not reached before (the central year) 2100. Note that the 20-year window width can be adjusted by the user to other arbitrary lengths. In that case, the interval will adapt accordingly.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">tas</span></code> time series depicted in the previous time-series plot will serve as input for the <code class="docutils literal notranslate"><span class="pre">getGWL</span></code> function. In the next code chunk, the +1.5 degC GWL is calculated, considering the default baseline, pre-industrial period (1850-1900) and moving window width (20 years) used in the IPCC WG1 Atlas:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">gwl_1.5</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">getGWL</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tas</span><span class="p">,</span><span class="w"> </span>
 <span class="w">                   </span><span class="n">base.period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1850</span><span class="p">,</span><span class="w"> </span><span class="m">1900</span><span class="p">),</span>
@@ -874,7 +874,7 @@ attr(,&quot;interval&quot;)
 </div>
 </div>
 <p>In this particular example, the function returns an integer value (<strong>2018</strong>), corresponding to the <em>central year (n) of the 20-year window</em> for the selected GWL period.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">gwl_1.5</span>
 </pre></div>
@@ -884,7 +884,7 @@ attr(,&quot;interval&quot;)
 <div class="output text_html">2018</div></div>
 </div>
 <p>In addition, the period intervals (calculated in this case as <em>[n-9, n+10]</em>) are indicated by the <code class="docutils literal notranslate"><span class="pre">interval</span></code> attribute (<strong>2009-2028</strong>) and can be retrieved by:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">attr</span><span class="p">(</span><span class="n">gwl_1.5</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;interval&quot;</span><span class="p">)</span>
 </pre></div>

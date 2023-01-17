@@ -660,7 +660,7 @@ title="Print to PDF"
 <p>This notebook illustrates a few steps to obtain a given spatial subset from a GeoTIFF file downloaded from the Interactive Atlas using <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> and <code class="docutils literal notranslate"><span class="pre">rgdal</span></code>.</p>
 <section id="load-libraries">
 <h2>Load libraries<a class="headerlink" href="#load-libraries" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">transformeR</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">loadeR</span><span class="p">)</span>
@@ -760,7 +760,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 <h2>Load GeoTIFF data<a class="headerlink" href="#load-geotiff-data" title="Permalink to this headline">#</a></h2>
 <p>GeoTIFF is a public domain standard to embed georeferencing information into TIFF image files. This image format is provided by the Interactive Atlas and it can be read with the <code class="docutils literal notranslate"><span class="pre">rgdal</span></code> library. Here, we use the CMIP5 Mean temperature Change (deg C) for RCP 8.5. To obtain the file loaded here, or any other, select the Download as GeoTIFF option in the Interactive Atlas.
 <img alt="GeoTIFF access" src="../_images/geotiff-access-ia.png" /></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">map</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">readGDAL</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP5 - Mean temperature (T) Change deg C - Long Term (2081-2100) RCP 8.5 1986-2005 - Annual (mean of 29 models).tiff&quot;</span><span class="p">)</span>
 </pre></div>
@@ -774,7 +774,7 @@ and has 90 rows and 180 columns
 </div>
 </div>
 <p>In order to continue with climate4R, first, we need to convert <code class="docutils literal notranslate"><span class="pre">map</span></code> to a <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> grid object.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">sgdf2clim</span><span class="p">(</span><span class="n">map</span><span class="p">)</span>
 </pre></div>
@@ -803,7 +803,7 @@ and has 90 rows and 180 columns
 <section id="mask-land">
 <h3>Mask land<a class="headerlink" href="#mask-land" title="Permalink to this headline">#</a></h3>
 <p>We can now combine this information with other available in the repository. For instance, the masking surface for this example is provided as a NetCDF in the <a class="reference internal" href="../reference-grids/reference-grids.html"><span class="doc std std-doc">reference-grids</span></a> folder. Therefore, we can load the corresponding mask (2 degrees for this CMIP5 example), and use it to select land-only data.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;../reference-grids/land_sea_mask_2degree.nc4&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;sftlf&quot;</span><span class="p">)</span>
 <span class="n">mask.land</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">binaryGrid</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;GT&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.999</span><span class="p">,</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">))</span>
@@ -811,19 +811,19 @@ and has 90 rows and 180 columns
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:46] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:46] Defining time selection parameters
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NOTE: Undefined Dataset Time Axis (static variable)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:46] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:46] Done
 </pre></div>
 </div>
 </div>
@@ -856,7 +856,7 @@ and has 90 rows and 180 columns
 </div>
 </div>
 <p>Or using the IPCC WGI <a class="reference internal" href="../reference-regions/reference-regions.html"><span class="doc std std-doc">reference regions</span></a>.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">regions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="nf">load</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_R.rda&quot;</span><span class="p">))</span>
 <span class="n">regions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as</span><span class="p">(</span><span class="n">regions</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SpatialPolygons&quot;</span><span class="p">)</span>
@@ -894,7 +894,7 @@ For reprojection, use function spTransform”
 “CAUTION! Grid with previusly defined projection: +proj=longlat +datum=WGS84 +no_defs”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] Arguments of the original projection defined as +proj=longlat +datum=WGS84 +no_defs
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:46] Arguments of the original projection defined as +proj=longlat +datum=WGS84 +no_defs
 </pre></div>
 </div>
 </div>
@@ -951,37 +951,37 @@ For reprojection, use function spTransform”
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] - Aggregating spatially...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:21:13] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Aggregating spatially...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Done.
 </pre></div>
 </div>
 </div>

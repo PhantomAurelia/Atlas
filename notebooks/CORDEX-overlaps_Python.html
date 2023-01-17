@@ -657,7 +657,7 @@ title="Print to PDF"
 <section id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">#</a></h2>
 <p>This script requires regionmask version 0.6.1 or later and xarray version 0.15.1 or later. Check the documentation of regionmask for details.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">regionmask</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
@@ -673,7 +673,7 @@ title="Print to PDF"
 <section id="loading-the-reference-regions">
 <h2>Loading the reference regions<a class="headerlink" href="#loading-the-reference-regions" title="Permalink to this headline">#</a></h2>
 <p>The regions are available at regionmask.defined_regions.ar6. The whole set of 58 regions is available under (ar6.all). In addition the land (ar6.land) and ocean (ar6.ocean) regions are given separately. The numbering is kept consistent between the categories. Note that some regions are in the land and in the ocean categories (e.g. the Mediterranean).</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar6_all</span> <span class="o">=</span> <span class="n">regionmask</span><span class="o">.</span><span class="n">defined_regions</span><span class="o">.</span><span class="n">ar6</span><span class="o">.</span><span class="n">all</span>
 <span class="n">ar6_all</span>
@@ -721,7 +721,7 @@ Regions:
 <h2>Loading reference grids (0.5 degree)<a class="headerlink" href="#loading-reference-grids-0-5-degree" title="Permalink to this headline">#</a></h2>
 <p>Global longitude and latitude, at the same resoluction as aggregated results for CORDEX domain (0.5 degree), is obtained from the WFDE5 dataset in order to compare the total area covered for every reference region with those overlapped with each CORDEX domains.</p>
 <p>Bellow we calculate the number of grid boxes that fall in every reference regions. We use cos(lat) as proxy of the grid area. This works well for the rectangular grid in our example. In general, it is better to the model’s own grid area.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;../reference-grids/land_sea_mask_05degree.nc4&quot;</span><span class="p">)</span>
 <span class="n">XX_WORLD</span><span class="p">,</span> <span class="n">YY_WORLD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">ds</span><span class="o">.</span><span class="n">lat</span><span class="p">)</span>
@@ -736,14 +736,14 @@ Regions:
 <section id="defining-cordex-domains">
 <h2>Defining CORDEX domains<a class="headerlink" href="#defining-cordex-domains" title="Permalink to this headline">#</a></h2>
 <p>Regular geographic grids for every CORDEX domain are obtained from Table 2 in the CORDEX specification archive <span id="id2">[<a class="reference internal" href="#id14" title="O.B. Christensen, W.J. Gutowski, G. Nikulin, and S. Legutke. CORDEX Archive Design.">Christensen <em>et al.</em>, n.d.</a>]</span>. Note that CORDEX corner definition can present some differences among simulations. Note also that native rotated-pole projections occupy a smaller area than regular grids.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regular_CORDEX_grids</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;auxiliary-material/regular-CORDEX-grids.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regular_CORDEX_grids</span>
 </pre></div>
@@ -971,7 +971,7 @@ Regions:
 </div></div></div>
 </div>
 <p>Selecting CORDEX domains</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CORDEX_doms</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;NAM-44i&#39;</span><span class="p">,</span><span class="s1">&#39;CAM-44i&#39;</span><span class="p">,</span><span class="s1">&#39;SAM-44i&#39;</span><span class="p">,</span><span class="s1">&#39;ARC-44i&#39;</span><span class="p">,</span><span class="s1">&#39;AFR-44i&#39;</span><span class="p">,</span><span class="s1">&#39;EUR-44i&#39;</span><span class="p">,</span><span class="s1">&#39;MED-44i&#39;</span><span class="p">,</span>
                   <span class="s1">&#39;MNA-44i&#39;</span><span class="p">,</span><span class="s1">&#39;SEA-22i&#39;</span><span class="p">,</span><span class="s1">&#39;EAS-44i&#39;</span><span class="p">,</span><span class="s1">&#39;WAS-44i&#39;</span><span class="p">,</span><span class="s1">&#39;CAS-44i&#39;</span><span class="p">,</span><span class="s1">&#39;ANT-44i&#39;</span><span class="p">,</span><span class="s1">&#39;AUS-44i&#39;</span><span class="p">]</span> 
@@ -983,7 +983,7 @@ Regions:
 <section id="calculating-overlaps">
 <h2>Calculating overlaps<a class="headerlink" href="#calculating-overlaps" title="Permalink to this headline">#</a></h2>
 <p>Empty dataframe to add the results on the percentage of overlapping area:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Overlaps_CORDEX_ReferenceRegions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">CORDEX_doms</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ar6_all</span><span class="p">)))</span>
 </pre></div>
@@ -991,7 +991,7 @@ Regions:
 </div>
 </div>
 <p>Overlap calculation comparing the number of cells that fall inside every reference region, using the coordinates lon and lat from the file land_sea_mask_05degree.nc4, with those that fall inside the regular grid for every CORDEX domain.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">dom</span> <span class="ow">in</span> <span class="n">CORDEX_doms</span><span class="p">:</span>
     <span class="n">lon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">regular_CORDEX_grids</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dom</span><span class="p">][</span><span class="s1">&#39;West&#39;</span><span class="p">],</span> <span class="n">regular_CORDEX_grids</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dom</span><span class="p">][</span><span class="s1">&#39;East&#39;</span><span class="p">]</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
@@ -1009,7 +1009,7 @@ Regions:
 </div>
 </div>
 <p>Set the name for the reference regions, convert nan to 0 and transpose matrix</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Overlaps_CORDEX_ReferenceRegions</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">ar6_all</span><span class="o">.</span><span class="n">regions</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">abbrev</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">Overlaps_CORDEX_ReferenceRegions</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
 <span class="n">Overlaps_CORDEX_ReferenceRegions</span> <span class="o">=</span> <span class="n">Overlaps_CORDEX_ReferenceRegions</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
@@ -1018,7 +1018,7 @@ Regions:
 </div>
 </div>
 <p>Overlap results (as %)</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Overlaps_CORDEX_ReferenceRegions</span>
 </pre></div>
@@ -2054,14 +2054,14 @@ Regions:
 <section id="selecting-those-reference-regions-that-overlap-larger-than-80-for-every-cordex-domain">
 <h2>Selecting those reference regions that overlap larger than 80% for every CORDEX domain<a class="headerlink" href="#selecting-those-reference-regions-that-overlap-larger-than-80-for-every-cordex-domain" title="Permalink to this headline">#</a></h2>
 <p>Select those regions that overlap larger than 80%</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="mi">80</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">dom</span> <span class="ow">in</span> <span class="n">CORDEX_doms</span><span class="p">:</span>
     <span class="n">AR6_dom</span> <span class="o">=</span> <span class="n">Overlaps_CORDEX_ReferenceRegions</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;`</span><span class="si">{</span><span class="n">dom</span><span class="si">}</span><span class="s1">`&gt;80&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>    

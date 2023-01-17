@@ -694,7 +694,7 @@ title="Print to PDF"
 <li><p>sp (Bivand et al., 2013): <a class="reference external" href="https://cran.r-project.org/web/packages/sp/index.html">https://cran.r-project.org/web/packages/sp/index.html</a></p></li>
 <li><p>RColorBrewer (Neuwirth, 2014): <a class="reference external" href="https://cran.r-project.org/web/packages/RColorBrewer/index.html">https://cran.r-project.org/web/packages/RColorBrewer/index.html</a></p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">rgdal</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
@@ -736,7 +736,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 <h3>Import the reference regions:<a class="headerlink" href="#import-the-reference-regions" title="Permalink to this headline">#</a></h3>
 <p><strong>From shapefile</strong>: the shapefile of <code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is available for download at the <em>Atlas GitHub repository</em> <span id="id3">[<a class="reference internal" href="#id9" title="Repository supporting the implementation of FAIR principles in the IPCC-WGI Atlas. IPCC-WG1, November 2022."><em>Repository Supporting the Implementation of FAIR Principles in the IPCC-WGI Atlas</em>, 2022</a>]</span>, within the <code class="docutils literal notranslate"><span class="pre">reference-regions</span></code> subdirectory stored in a <em>.zip</em> file (shapefiles consist of a number of complementary files storing geo-reference information, geometries, the associated database etc.). In this example, we first extract the <em>zip</em> contents into a temporary directory for data import.</p>
 <p>Function <code class="docutils literal notranslate"><span class="pre">readOGR</span></code> from package <code class="docutils literal notranslate"><span class="pre">rgdal</span></code> loads shapefiles into the R environment.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tmpdir</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">tempdir</span><span class="p">()</span>
 <span class="nf">unzip</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_shapefile.zip&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">exdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmpdir</span><span class="p">)</span>
@@ -746,7 +746,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OGR data source with driver: ESRI Shapefile 
-Source: &quot;/tmp/Rtmp8DpMVo&quot;, layer: &quot;IPCC-WGI-reference-regions-v4&quot;
+Source: &quot;/tmp/RtmpnCfODb&quot;, layer: &quot;IPCC-WGI-reference-regions-v4&quot;
 with 58 features
 It has 4 fields
 </pre></div>
@@ -766,7 +766,7 @@ It has 4 fields
 <ul class="simple">
 <li><p><strong>From R object</strong>: the <code class="docutils literal notranslate"><span class="pre">refregions</span></code> R object is also available in the same repo directory, thus, the Spatial object of the regions can be directly loaded into R as follows:</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">load</span><span class="p">(</span><span class="s">&quot;../reference-regions/IPCC-WGI-reference-regions-v4_R.rda&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
@@ -827,7 +827,7 @@ It has 4 fields
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OGR data source with driver: ESRI Shapefile 
-Source: &quot;/tmp/Rtmp8DpMVo&quot;, layer: &quot;ne_110m_coastline&quot;
+Source: &quot;/tmp/RtmpnCfODb&quot;, layer: &quot;ne_110m_coastline&quot;
 with 134 features
 It has 3 fields
 Integer64 fields read as strings:  scalerank 
@@ -1022,7 +1022,7 @@ It has 2 fields
 </div>
 </div>
 <p>First, <code class="docutils literal notranslate"><span class="pre">dataInventory</span></code> provides basic information about the variables available in the file/dataset:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">di</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">dataInventory</span><span class="p">(</span><span class="s">&quot;./auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">)</span>
 <span class="nf">str</span><span class="p">(</span><span class="n">di</span><span class="p">)</span>
@@ -1030,13 +1030,13 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:50] Doing inventory ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Doing inventory ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:50] Retrieving info for &#39;tas&#39; (0 vars remaining)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Retrieving info for &#39;tas&#39; (0 vars remaining)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:50] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Done.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of 1
@@ -1070,7 +1070,7 @@ It has 2 fields
 </div>
 </div>
 <p>As we can see from the inventory output, it contains a single variable (‘tas’, 2 meters air temperature). To load this data, the function <code class="docutils literal notranslate"><span class="pre">loadGridData</span></code> from package <code class="docutils literal notranslate"><span class="pre">loadeR</span></code> is used:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">grid1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="n">dataset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;./auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">,</span>
 <span class="w">                      </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tas&quot;</span><span class="p">)</span>
@@ -1078,16 +1078,16 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:50] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:50] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:50] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:55] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:28] Done
 </pre></div>
 </div>
 </div>
@@ -1128,16 +1128,16 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:55] Performing annual aggregation...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:28] Performing annual aggregation...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:58] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:31] Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:58] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:31] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:58] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:31] - Done.
 </pre></div>
 </div>
 <img alt="../_images/reference-regions_R_43_4.png" src="../_images/reference-regions_R_43_4.png" />
@@ -1197,10 +1197,10 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:59] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:32] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:59] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:32] - Done.
 </pre></div>
 </div>
 <img alt="../_images/reference-regions_R_50_2.png" src="../_images/reference-regions_R_50_2.png" />
@@ -1230,10 +1230,10 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:59] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:32] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-16 11:23:59] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:32] - Done.
 </pre></div>
 </div>
 <img alt="../_images/reference-regions_R_53_2.png" src="../_images/reference-regions_R_53_2.png" />
