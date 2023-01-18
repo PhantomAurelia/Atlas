@@ -573,17 +573,12 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#session-information">
    Session information
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
+  <a class="reference internal nav-link" href="#references">
    References
   </a>
  </li>
@@ -648,17 +643,12 @@ title="Print to PDF"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#session-information">
    Session information
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id5">
+  <a class="reference internal nav-link" href="#references">
    References
   </a>
  </li>
@@ -685,14 +675,14 @@ title="Print to PDF"
 <span id="reference-regions-r"></span><h1>Using the 4th version of the IPCC WGI reference regions in R<a class="headerlink" href="#using-the-4th-version-of-the-ipcc-wgi-reference-regions-in-r" title="Permalink to this headline">#</a></h1>
 <p>30/6/2021</p>
 <p><strong>M. Iturbide</strong> (<a class="reference external" href="http://www.meteo.unican.es">Santander Meteorology Group</a>. Institute of Physics of Cantabria. CSIC-University of Cantabria, Santander, Spain)</p>
-<p><code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is the new set of reference regions that update the IPCC AR5 reference regions <span id="id1">[<a class="reference internal" href="#id7" title="ipcc AR5. AR5 Regions. https://www.ipcc-data.org/guidelines/pages/ar5_regions.html.">AR5, n.d.</a>]</span> for reporting sub-continental climate information (e.g. CMIP6 projections). This tutorial shows how the standard R packages for spatial data can be used to manipulate and plot these regions, and how these capabilities can be further extended for climate data processing using the <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> framework <span id="id2">[<a class="reference internal" href="#id20" title="SantanderMetGroup/climate4R. Santander Meteorology Group (UC-CSIC), July 2022."><em>SantanderMetGroup/climate4R</em>, 2022</a>]</span>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is the new set of reference regions that update the IPCC AR5 reference regions <span id="id1">[<a class="reference internal" href="#id11" title="ipcc AR5. AR5 Regions. https://www.ipcc-data.org/guidelines/pages/ar5_regions.html.">AR5, n.d.</a>]</span> for reporting sub-continental climate information (e.g. CMIP6 projections). This tutorial shows how the standard R packages for spatial data can be used to manipulate and plot these regions, and how these capabilities can be further extended for climate data processing using the <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> framework <span id="id2">[<a class="reference internal" href="#id69" title="The R-based climate4R open framework for reproducible climate data access and post-processing - ScienceDirect. https://doi.org/10.1016/j.envsoft.2018.09.009."><em>The R-based climate4R Open Framework for Reproducible Climate Data Access and Post-Processing - ScienceDirect</em>, n.d.</a>]</span>.</p>
 <section id="requirements">
 <h2>Requirements:<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h2>
 <p>The following R packages are used to work with spatial data:</p>
 <ul class="simple">
-<li><p>rgdal (Bivand et al., 2018): <a class="reference external" href="https://cran.r-project.org/web/packages/rgdal/index.html">https://cran.r-project.org/web/packages/rgdal/index.html</a></p></li>
-<li><p>sp (Bivand et al., 2013): <a class="reference external" href="https://cran.r-project.org/web/packages/sp/index.html">https://cran.r-project.org/web/packages/sp/index.html</a></p></li>
-<li><p>RColorBrewer (Neuwirth, 2014): <a class="reference external" href="https://cran.r-project.org/web/packages/RColorBrewer/index.html">https://cran.r-project.org/web/packages/RColorBrewer/index.html</a></p></li>
+<li><p>rgdal <span id="id3">[<a class="reference internal" href="#id32" title="CRAN - Package rgdal. https://cran.r-project.org/web/packages/rgdal/index.html."><em>CRAN - Package Rgdal</em></a>]</span>: <a class="reference external" href="https://cran.r-project.org/web/packages/rgdal/index.html">https://cran.r-project.org/web/packages/rgdal/index.html</a></p></li>
+<li><p>sp <span id="id4">[<a class="reference internal" href="#id10" title="Applied Spatial Data Analysis with R. https://asdar-book.org/."><em>Applied Spatial Data Analysis with R</em></a>]</span>: <a class="reference external" href="https://cran.r-project.org/web/packages/sp/index.html">https://cran.r-project.org/web/packages/sp/index.html</a></p></li>
+<li><p>RColorBrewer <span id="id5">[<a class="reference internal" href="#id63" title="Erich Neuwirth. RColorBrewer: ColorBrewer Palettes. April 2022.">Neuwirth, 2022</a>]</span>: <a class="reference external" href="https://cran.r-project.org/web/packages/RColorBrewer/index.html">https://cran.r-project.org/web/packages/RColorBrewer/index.html</a></p></li>
 </ul>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
@@ -709,10 +699,10 @@ title="Print to PDF"
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rgdal: version: 1.5-16, (SVN revision 1050)
 Geospatial Data Abstraction Library extensions to R successfully loaded
 Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
-Path to GDAL shared files: /home/phanaur/mambaforge/envs/prueba/share/gdal
+Path to GDAL shared files: /home/phanaur/mambaforge/envs/tfg/share/gdal
 GDAL binary built with GEOS: TRUE 
 Loaded PROJ runtime: Rel. 7.2.0, November 1st, 2020, [PJ_VERSION: 720]
-Path to PROJ shared files: /home/phanaur/mambaforge/envs/prueba/share/proj
+Path to PROJ shared files: /home/phanaur/mambaforge/envs/tfg/share/proj
 PROJ CDN enabled: TRUE
 Linking to sp version:1.4-5
 To mute warnings of possible GDAL/OSR exportToProj4() degradation,
@@ -723,10 +713,10 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 </div>
 <p>and the <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> components used to load, analyse and visualize climate data:</p>
 <ul class="simple">
-<li><p>loadeR (Iturbide et al., 2019): <a class="reference external" href="https://github.com/SantanderMetGroup/loadeR/wiki">https://github.com/SantanderMetGroup/loadeR/wiki</a></p></li>
-<li><p>visualizeR (Frías et al. 2018): <a class="reference external" href="https://github.com/SantanderMetGroup/visualizeR">https://github.com/SantanderMetGroup/visualizeR</a></p></li>
-<li><p>transformeR (Iturbide et al., 2019): <a class="reference external" href="https://github.com/SantanderMetGroup/transformeR">https://github.com/SantanderMetGroup/transformeR</a></p></li>
-<li><p>geoprocessoR (Iturbide et al., 2019): <a class="reference external" href="https://github.com/SantanderMetGroup/geoprocessoR">https://github.com/SantanderMetGroup/geoprocessoR</a></p></li>
+<li><p>loadeR <span id="id6">[<a class="reference internal" href="#id65" title="An R package to visualize and communicate uncertainty in seasonal climate prediction - ScienceDirect. https://doi.org/10.1016/j.envsoft.2017.09.008."><em>An R Package to Visualize and Communicate Uncertainty in Seasonal Climate Prediction - ScienceDirect</em></a>]</span>: <a class="reference external" href="https://github.com/SantanderMetGroup/loadeR/wiki">https://github.com/SantanderMetGroup/loadeR/wiki</a></p></li>
+<li><p>visualizeR: <a class="reference external" href="https://github.com/SantanderMetGroup/visualizeR">https://github.com/SantanderMetGroup/visualizeR</a></p></li>
+<li><p>transformeR: <a class="reference external" href="https://github.com/SantanderMetGroup/transformeR">https://github.com/SantanderMetGroup/transformeR</a></p></li>
+<li><p>geoprocessoR: <a class="reference external" href="https://github.com/SantanderMetGroup/geoprocessoR">https://github.com/SantanderMetGroup/geoprocessoR</a></p></li>
 </ul>
 <p>See installation details and options, including a conda recipe, in the <a class="reference external" href="https://github.com/SantanderMetGroup/climate4R">climate4R main repository</a>.</p>
 </section>
@@ -734,7 +724,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 <h2>Using the updated IPCC regions:<a class="headerlink" href="#using-the-updated-ipcc-regions" title="Permalink to this headline">#</a></h2>
 <section id="import-the-reference-regions">
 <h3>Import the reference regions:<a class="headerlink" href="#import-the-reference-regions" title="Permalink to this headline">#</a></h3>
-<p><strong>From shapefile</strong>: the shapefile of <code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is available for download at the <em>Atlas GitHub repository</em> <span id="id3">[<a class="reference internal" href="#id9" title="Repository supporting the implementation of FAIR principles in the IPCC-WGI Atlas. IPCC-WG1, November 2022."><em>Repository Supporting the Implementation of FAIR Principles in the IPCC-WGI Atlas</em>, 2022</a>]</span>, within the <code class="docutils literal notranslate"><span class="pre">reference-regions</span></code> subdirectory stored in a <em>.zip</em> file (shapefiles consist of a number of complementary files storing geo-reference information, geometries, the associated database etc.). In this example, we first extract the <em>zip</em> contents into a temporary directory for data import.</p>
+<p><strong>From shapefile</strong>: the shapefile of <code class="docutils literal notranslate"><span class="pre">IPCC-WGI-reference-regions-v4</span></code> is available for download at the <em>Atlas GitHub repository</em> <span id="id7">[<a class="reference internal" href="#id13" title="Repository supporting the implementation of FAIR principles in the IPCC-WGI Atlas. IPCC-WG1, November 2022."><em>Repository Supporting the Implementation of FAIR Principles in the IPCC-WGI Atlas</em>, 2022</a>]</span>, within the <code class="docutils literal notranslate"><span class="pre">reference-regions</span></code> subdirectory stored in a <em>.zip</em> file (shapefiles consist of a number of complementary files storing geo-reference information, geometries, the associated database etc.). In this example, we first extract the <em>zip</em> contents into a temporary directory for data import.</p>
 <p>Function <code class="docutils literal notranslate"><span class="pre">readOGR</span></code> from package <code class="docutils literal notranslate"><span class="pre">rgdal</span></code> loads shapefiles into the R environment.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
@@ -746,7 +736,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OGR data source with driver: ESRI Shapefile 
-Source: &quot;/tmp/RtmpnCfODb&quot;, layer: &quot;IPCC-WGI-reference-regions-v4&quot;
+Source: &quot;/tmp/Rtmp7pvQjf&quot;, layer: &quot;IPCC-WGI-reference-regions-v4&quot;
 with 58 features
 It has 4 fields
 </pre></div>
@@ -802,7 +792,7 @@ It has 4 fields
 <img alt="../_images/reference-regions_R_13_0.png" src="../_images/reference-regions_R_13_0.png" />
 </div>
 </div>
-<p>The R basic plotting functions allow adding layers to the plot. Here the region names and coastline are added. Shapefiles such as global coastlines and other physical features or administrative boundaries can be either read from local or obtained from the Internet. In this example, a world coastline layer is used from the <em>Natural Earth</em> <span id="id4">[<a class="reference internal" href="#id56" title="Natural Earth - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales."><em>Natural Earth - Free Vector and Raster Map Data at 1:10m, 1:50m, and 1:110m Scales</em>, n.d.</a>]</span> public repository of digital cartography.</p>
+<p>The R basic plotting functions allow adding layers to the plot. Here the region names and coastline are added. Shapefiles such as global coastlines and other physical features or administrative boundaries can be either read from local or obtained from the Internet. In this example, a world coastline layer is used from the <em>Natural Earth</em> <span id="id8">[<a class="reference internal" href="#id62" title="Natural Earth - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales."><em>Natural Earth - Free Vector and Raster Map Data at 1:10m, 1:50m, and 1:110m Scales</em>, n.d.</a>]</span> public repository of digital cartography.</p>
 <hr class="docutils" />
 <p><em>(begin example)</em></p>
 <p>An example follows on how to download and load the vector layer. However, note that <strong>this step can be skipped</strong> and read the layer directly from the <code class="docutils literal notranslate"><span class="pre">auxiliary-material</span></code> subdir.</p>
@@ -827,7 +817,7 @@ It has 4 fields
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OGR data source with driver: ESRI Shapefile 
-Source: &quot;/tmp/RtmpnCfODb&quot;, layer: &quot;ne_110m_coastline&quot;
+Source: &quot;/tmp/Rtmp7pvQjf&quot;, layer: &quot;ne_110m_coastline&quot;
 with 134 features
 It has 3 fields
 Integer64 fields read as strings:  scalerank 
@@ -1030,13 +1020,13 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Doing inventory ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:23] Doing inventory ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Retrieving info for &#39;tas&#39; (0 vars remaining)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:23] Retrieving info for &#39;tas&#39; (0 vars remaining)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:23] Done.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of 1
@@ -1078,16 +1068,16 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:23] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:23] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:23] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:23] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:28] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:28] Done
 </pre></div>
 </div>
 </div>
@@ -1128,16 +1118,16 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:28] Performing annual aggregation...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:28] Performing annual aggregation...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:31] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:32] Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:31] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:32] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:31] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:32] - Done.
 </pre></div>
 </div>
 <img alt="../_images/reference-regions_R_43_4.png" src="../_images/reference-regions_R_43_4.png" />
@@ -1197,10 +1187,10 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:32] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:32] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:32] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:32] - Done.
 </pre></div>
 </div>
 <img alt="../_images/reference-regions_R_50_2.png" src="../_images/reference-regions_R_50_2.png" />
@@ -1230,10 +1220,10 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:32] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:33] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:50:32] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:33] - Done.
 </pre></div>
 </div>
 <img alt="../_images/reference-regions_R_53_2.png" src="../_images/reference-regions_R_53_2.png" />
@@ -1255,15 +1245,6 @@ It has 2 fields
 </div>
 </section>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
-<p>Bivand R.S., Pebesma E.J., Gomez-Rubio V. (2013). Applied spatial data analysis with R, Second edition. Springer, NY. <a class="reference external" href="http://www.asdar-book.org/">http://www.asdar-book.org/</a></p>
-<p>Bivand R.S., Keitt T., Rowlingson B. (2018). rgdal: Bindings for the ‘Geospatial’ Data Abstraction Library. R package version 1.3-6. <a class="reference external" href="https://CRAN.R-project.org/package=rgdal">https://CRAN.R-project.org/package=rgdal</a></p>
-<p>Frías M.D., Iturbide M., Manzanas R., Bedia J., Fernández J., Herrera S., Cofiño A.S., Gutiérrez J.M. (2018). An R package to visualize and communicate uncertainty in seasonal climate prediction. Environmental Modelling and Software, 99, 101-110, <a class="reference external" href="http://doi.org/10.1016/j.envsoft.2017.09.008">http://doi.org/10.1016/j.envsoft.2017.09.008</a></p>
-<p>Iturbide M., Bedia J., Herrera S., Baño-Medina J., Fernández J., Frías M., Manzanas R., San-Martín D., Cimadevilla E., Cofiño A., Gutiérrez J. (2019). The R-based climate4R open framework for reproducible climate data access and post-processing. Environmental Modelling &amp; Software. doi: <a class="reference external" href="https://doi.org/10.1016/j.envsoft.2018.09.009">https://doi.org/10.1016/j.envsoft.2018.09.009</a></p>
-<p>Neuwirth E. (2014). RColorBrewer: ColorBrewer Palettes. R package version 1.1-2. <a class="reference external" href="https://CRAN.R-project.org/package=RColorBrewer">https://CRAN.R-project.org/package=RColorBrewer</a></p>
-<p>Sarkar D. (2008) Lattice: Multivariate Data Visualization with R. Springer, NY. ISBN 978-0-387-75968-5</p>
-</section>
 <section id="session-information">
 <h2>Session information<a class="headerlink" href="#session-information" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_hide-output docutils container">
@@ -1278,7 +1259,7 @@ Platform: x86_64-conda-linux-gnu (64-bit)
 Running under: Fedora Linux 37 (Workstation Edition)
 
 Matrix products: default
-BLAS/LAPACK: /home/phanaur/mambaforge/envs/prueba/lib/libopenblasp-r0.3.21.so
+BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
 
 locale:
  [1] LC_CTYPE=es_ES.UTF-8          LC_NUMERIC=C                 
@@ -1301,50 +1282,63 @@ loaded via a namespace (and not attached):
  [1] viridis_0.6.1           maps_3.3.0              foreach_1.5.1          
  [4] jsonlite_1.7.2          viridisLite_0.4.0       R.utils_2.10.1         
  [7] SpecsVerification_0.5-3 dotCall64_1.0-1         kohonen_3.0.10         
-[10] sm_2.2-5.6              assertthat_0.2.1        latticeExtra_0.6-29    
-[13] pillar_1.6.1            lattice_0.20-44         glue_1.4.2             
-[16] RcppEigen_0.3.3.9.1     uuid_0.1-4              digest_0.6.27          
-[19] colorspace_2.0-1        R.oo_1.24.0             htmltools_0.5.1.1      
-[22] Matrix_1.3-3            pkgconfig_2.0.3         raster_3.4-10          
-[25] padr_0.5.3              purrr_0.3.4             scales_1.1.1           
-[28] jpeg_0.1-8.1            CircStats_0.2-6         dtw_1.22-3             
-[31] tibble_3.1.2            proxy_0.4-25            generics_0.1.0         
-[34] ggplot2_3.3.3           ellipsis_0.3.2          repr_1.1.3             
-[37] pbapply_1.4-3           verification_1.42       gdalUtils_2.0.3.2      
-[40] easyVerification_0.4.4  magrittr_2.0.1          crayon_1.4.1           
-[43] evaluate_0.14           R.methodsS3_1.8.1       fansi_0.4.2            
-[46] MASS_7.3-54             tools_3.6.3             data.table_1.14.0      
-[49] lifecycle_1.0.0         munsell_0.5.0           akima_0.6-2.1          
-[52] compiler_3.6.3          mapplots_1.5.1          rlang_0.4.11           
-[55] grid_3.6.3              RCurl_1.98-1.3          iterators_1.0.13       
-[58] pbdZMQ_0.3-5            IRkernel_1.2            spam_2.6-0             
-[61] bitops_1.0-7            tcltk_3.6.3             base64enc_0.1-3        
-[64] boot_1.3-28             vioplot_0.3.6           codetools_0.2-18       
-[67] gtable_0.3.0            abind_1.4-5             DBI_1.1.1              
-[70] R6_2.5.0                gridExtra_2.3           zoo_1.8-9              
-[73] dplyr_1.0.6             utf8_1.2.1              parallel_3.6.3         
-[76] IRdisplay_1.0           Rcpp_1.0.6              fields_12.3            
-[79] vctrs_0.3.8             png_0.1-7               tidyselect_1.1.1       
+[10] sm_2.2-5.6              latticeExtra_0.6-29     pillar_1.6.1           
+[13] lattice_0.20-44         glue_1.4.2              RcppEigen_0.3.3.9.1    
+[16] uuid_0.1-4              digest_0.6.27           colorspace_2.0-1       
+[19] R.oo_1.24.0             htmltools_0.5.1.1       Matrix_1.3-3           
+[22] pkgconfig_2.0.3         raster_3.4-10           padr_0.5.3             
+[25] purrr_0.3.4             scales_1.1.1            jpeg_0.1-8.1           
+[28] CircStats_0.2-6         dtw_1.22-3              tibble_3.1.2           
+[31] proxy_0.4-25            generics_0.1.0          ggplot2_3.3.3          
+[34] ellipsis_0.3.2          repr_1.1.3              pbapply_1.4-3          
+[37] verification_1.42       gdalUtils_2.0.3.2       magrittr_2.0.1         
+[40] crayon_1.4.1            easyVerification_0.4.4  evaluate_0.14          
+[43] R.methodsS3_1.8.1       fansi_0.4.2             MASS_7.3-54            
+[46] tools_3.6.3             data.table_1.14.0       lifecycle_1.0.0        
+[49] munsell_0.5.0           akima_0.6-2.1           compiler_3.6.3         
+[52] mapplots_1.5.1          rlang_0.4.11            grid_3.6.3             
+[55] RCurl_1.98-1.3          iterators_1.0.13        pbdZMQ_0.3-5           
+[58] IRkernel_1.2            spam_2.6-0              bitops_1.0-7           
+[61] tcltk_3.6.3             base64enc_0.1-3         boot_1.3-28            
+[64] vioplot_0.3.6           codetools_0.2-18        gtable_0.3.0           
+[67] abind_1.4-5             R6_2.5.0                gridExtra_2.3          
+[70] zoo_1.8-9               dplyr_1.0.6             utf8_1.2.1             
+[73] parallel_3.6.3          IRdisplay_1.0           Rcpp_1.0.6             
+[76] fields_12.3             vctrs_0.3.8             png_0.1-7              
+[79] tidyselect_1.1.1       
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="id5">
-<h2>References<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
-<div class="docutils container" id="id6">
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<p>Sarkar D. (2008) Lattice: Multivariate Data Visualization with R. Springer, NY. ISBN 978-0-387-75968-5</p>
+<div class="docutils container" id="id9">
 <dl class="citation">
-<dt class="label" id="id56"><span class="brackets"><a class="fn-backref" href="#id4">Nat</a></span></dt>
+<dt class="label" id="id65"><span class="brackets"><a class="fn-backref" href="#id6">Pac</a></span></dt>
+<dd><p>An R package to visualize and communicate uncertainty in seasonal climate prediction - ScienceDirect. https://doi.org/10.1016/j.envsoft.2017.09.008.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id4">App</a></span></dt>
+<dd><p>Applied Spatial Data Analysis with R. https://asdar-book.org/.</p>
+</dd>
+<dt class="label" id="id62"><span class="brackets"><a class="fn-backref" href="#id8">Nat</a></span></dt>
 <dd><p>Natural Earth - Free vector and raster map data at 1:10m, 1:50m, and 1:110m scales.</p>
 </dd>
-<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id3">atl22</a></span></dt>
+<dt class="label" id="id69"><span class="brackets"><a class="fn-backref" href="#id2">Rba</a></span></dt>
+<dd><p>The R-based climate4R open framework for reproducible climate data access and post-processing - ScienceDirect. https://doi.org/10.1016/j.envsoft.2018.09.009.</p>
+</dd>
+<dt class="label" id="id32"><span class="brackets"><a class="fn-backref" href="#id3">CRA</a></span></dt>
+<dd><p>CRAN - Package rgdal. https://cran.r-project.org/web/packages/rgdal/index.html.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id7">atl22</a></span></dt>
 <dd><p>Repository supporting the implementation of FAIR principles in the IPCC-WGI Atlas. IPCC-WG1, November 2022.</p>
 </dd>
-<dt class="label" id="id20"><span class="brackets"><a class="fn-backref" href="#id2">cli22</a></span></dt>
-<dd><p>SantanderMetGroup/climate4R. Santander Meteorology Group (UC-CSIC), July 2022.</p>
-</dd>
-<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id1">AR5</a></span></dt>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id1">AR5</a></span></dt>
 <dd><p>ipcc AR5. AR5 Regions. https://www.ipcc-data.org/guidelines/pages/ar5_regions.html.</p>
+</dd>
+<dt class="label" id="id63"><span class="brackets"><a class="fn-backref" href="#id5">Neu22</a></span></dt>
+<dd><p>Erich Neuwirth. RColorBrewer: ColorBrewer Palettes. April 2022.</p>
 </dd>
 </dl>
 </div>

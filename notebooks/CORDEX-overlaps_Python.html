@@ -653,7 +653,7 @@ title="Print to PDF"
 <span id="cordex-overlaps-python"></span><h1>Selecting reference regions used for every CORDEX domain<a class="headerlink" href="#selecting-reference-regions-used-for-every-cordex-domain" title="Permalink to this headline">#</a></h1>
 <p>12/07/2021</p>
 <p><strong>J. Diez-Sierra</strong> (<a class="reference external" href="http://meteo.unican.es">Santander Meteorology Group</a>, Instituto de Física de Cantabria, CSIC-UC, Santander, Spain)</p>
-<p>For the different CORDEX domains, aggregated results are calculated only in those reference regions (Iturbide et al. 2020) with overlap larger than 80%. Reference overlapped regions resulting for every CORDEX domain are calculated with the present script. Regular geographic grids for every CORDEX domain are obtained from Table 2 in the CORDEX specification archive: <span id="id1">[<a class="reference internal" href="#id14" title="O.B. Christensen, W.J. Gutowski, G. Nikulin, and S. Legutke. CORDEX Archive Design.">Christensen <em>et al.</em>, n.d.</a>]</span>.</p>
+<p>For the different CORDEX domains, aggregated results are calculated only in those reference regions (Iturbide et al. 2020) with overlap larger than 80%. Reference overlapped regions resulting for every CORDEX domain are calculated with the present script. Regular geographic grids for every CORDEX domain are obtained from Table 2 in the CORDEX specification archive: <span id="id1">[<a class="reference internal" href="#id15" title="O.B. Christensen, W.J. Gutowski, G. Nikulin, and S. Legutke. CORDEX Archive Design.">Christensen <em>et al.</em></a>]</span>.</p>
 <section id="load-packages">
 <h2>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">#</a></h2>
 <p>This script requires regionmask version 0.6.1 or later and xarray version 0.15.1 or later. Check the documentation of regionmask for details.</p>
@@ -735,7 +735,7 @@ Regions:
 </section>
 <section id="defining-cordex-domains">
 <h2>Defining CORDEX domains<a class="headerlink" href="#defining-cordex-domains" title="Permalink to this headline">#</a></h2>
-<p>Regular geographic grids for every CORDEX domain are obtained from Table 2 in the CORDEX specification archive <span id="id2">[<a class="reference internal" href="#id14" title="O.B. Christensen, W.J. Gutowski, G. Nikulin, and S. Legutke. CORDEX Archive Design.">Christensen <em>et al.</em>, n.d.</a>]</span>. Note that CORDEX corner definition can present some differences among simulations. Note also that native rotated-pole projections occupy a smaller area than regular grids.</p>
+<p>Regular geographic grids for every CORDEX domain are obtained from Table 2 in the CORDEX specification archive <span id="id2">[<a class="reference internal" href="#id15" title="O.B. Christensen, W.J. Gutowski, G. Nikulin, and S. Legutke. CORDEX Archive Design.">Christensen <em>et al.</em></a>]</span>. Note that CORDEX corner definition can present some differences among simulations. Note also that native rotated-pole projections occupy a smaller area than regular grids.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regular_CORDEX_grids</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;auxiliary-material/regular-CORDEX-grids.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
@@ -2788,7 +2788,7 @@ zstd                      1.4.9                ha95c52a_0    conda-forge
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
 <div class="docutils container" id="id3">
 <dl class="citation">
-<dt class="label" id="id14"><span class="brackets">CGNL</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dt class="label" id="id15"><span class="brackets">CGNL</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
 <dd><p>O.B. Christensen, W.J. Gutowski, G. Nikulin, and S. Legutke. CORDEX Archive Design.</p>
 </dd>
 </dl>

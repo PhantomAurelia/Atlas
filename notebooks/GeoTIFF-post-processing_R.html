@@ -657,7 +657,7 @@ title="Print to PDF"
 <span id="geotiff"></span><h1>GeoTIFF file post-processing: Spatial operations<a class="headerlink" href="#geotiff-file-post-processing-spatial-operations" title="Permalink to this headline">#</a></h1>
 <p>22/09/2020</p>
 <p><strong>M. Iturbide</strong> (<a class="reference external" href="http://meteo.unican.es">Santander Meteorology Group</a>, Instituto de Física de Cantabria, CSIC-UC, Santander, Spain)</p>
-<p>This notebook illustrates a few steps to obtain a given spatial subset from a GeoTIFF file downloaded from the Interactive Atlas using <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> and <code class="docutils literal notranslate"><span class="pre">rgdal</span></code>.</p>
+<p>This notebook illustrates a few steps to obtain a given spatial subset from a GeoTIFF file downloaded from the Interactive Atlas using <code class="docutils literal notranslate"><span class="pre">climate4R</span></code> <span id="id1">[<a class="reference internal" href="bias-adjustment_R.html#id30" title="SantanderMetGroup/climate4R. https://github.com/SantanderMetGroup/climate4R, July 2022."><em>SantanderMetGroup/climate4R</em></a>]</span>and <code class="docutils literal notranslate"><span class="pre">rgdal</span></code> <span id="id2">[<a class="reference internal" href="reference-regions_R.html#id32" title="CRAN - Package rgdal. https://cran.r-project.org/web/packages/rgdal/index.html."><em>CRAN - Package Rgdal</em></a>]</span>.</p>
 <section id="load-libraries">
 <h2>Load libraries<a class="headerlink" href="#load-libraries" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_hide-output docutils container">
@@ -743,10 +743,10 @@ title="Print to PDF"
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rgdal: version: 1.5-16, (SVN revision 1050)
 Geospatial Data Abstraction Library extensions to R successfully loaded
 Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
-Path to GDAL shared files: /home/phanaur/mambaforge/envs/prueba/share/gdal
+Path to GDAL shared files: /home/phanaur/mambaforge/envs/tfg/share/gdal
 GDAL binary built with GEOS: TRUE 
 Loaded PROJ runtime: Rel. 7.2.0, November 1st, 2020, [PJ_VERSION: 720]
-Path to PROJ shared files: /home/phanaur/mambaforge/envs/prueba/share/proj
+Path to PROJ shared files: /home/phanaur/mambaforge/envs/tfg/share/proj
 PROJ CDN enabled: TRUE
 Linking to sp version:1.4-5
 To mute warnings of possible GDAL/OSR exportToProj4() degradation,
@@ -811,19 +811,19 @@ and has 90 rows and 180 columns
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:46] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:26] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:46] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:26] Defining time selection parameters
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NOTE: Undefined Dataset Time Axis (static variable)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:46] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:26] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:46] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:26] Done
 </pre></div>
 </div>
 </div>
@@ -894,7 +894,7 @@ For reprojection, use function spTransform”
 “CAUTION! Grid with previusly defined projection: +proj=longlat +datum=WGS84 +no_defs”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:46] Arguments of the original projection defined as +proj=longlat +datum=WGS84 +no_defs
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:27] Arguments of the original projection defined as +proj=longlat +datum=WGS84 +no_defs
 </pre></div>
 </div>
 </div>
@@ -951,37 +951,37 @@ For reprojection, use function spTransform”
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:27] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Aggregating spatially...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:27] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:27] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:27] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:27] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-17 08:47:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:27] - Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:27] - Aggregating spatially...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:45:27] - Done.
 </pre></div>
 </div>
 </div>
@@ -1017,7 +1017,7 @@ Platform: x86_64-conda-linux-gnu (64-bit)
 Running under: Fedora Linux 37 (Workstation Edition)
 
 Matrix products: default
-BLAS/LAPACK: /home/phanaur/mambaforge/envs/prueba/lib/libopenblasp-r0.3.21.so
+BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
 
 locale:
  [1] LC_CTYPE=es_ES.UTF-8          LC_NUMERIC=C                 
@@ -1040,31 +1040,30 @@ loaded via a namespace (and not attached):
  [1] viridis_0.6.1           maps_3.3.0              jsonlite_1.7.2         
  [4] viridisLite_0.4.0       foreach_1.5.1           SpecsVerification_0.5-3
  [7] R.utils_2.10.1          dotCall64_1.0-1         kohonen_3.0.10         
-[10] sm_2.2-5.6              assertthat_0.2.1        latticeExtra_0.6-29    
-[13] pillar_1.6.1            lattice_0.20-44         glue_1.4.2             
-[16] RcppEigen_0.3.3.9.1     uuid_0.1-4              digest_0.6.27          
-[19] colorspace_2.0-1        htmltools_0.5.1.1       Matrix_1.3-3           
-[22] R.oo_1.24.0             pkgconfig_2.0.3         raster_3.4-10          
-[25] padr_0.5.3              purrr_0.3.4             scales_1.1.1           
-[28] CircStats_0.2-6         jpeg_0.1-8.1            proxy_0.4-25           
-[31] dtw_1.22-3              tibble_3.1.2            generics_0.1.0         
-[34] ggplot2_3.3.3           ellipsis_0.3.2          repr_1.1.3             
-[37] pbapply_1.4-3           verification_1.42       gdalUtils_2.0.3.2      
-[40] easyVerification_0.4.4  magrittr_2.0.1          crayon_1.4.1           
-[43] evaluate_0.14           R.methodsS3_1.8.1       ncdf4_1.17             
-[46] fansi_0.4.2             MASS_7.3-54             data.table_1.14.0      
-[49] tools_3.6.3             lifecycle_1.0.0         munsell_0.5.0          
-[52] akima_0.6-2.1           compiler_3.6.3          mapplots_1.5.1         
-[55] rlang_0.4.11            grid_3.6.3              RCurl_1.98-1.3         
-[58] pbdZMQ_0.3-5            iterators_1.0.13        IRkernel_1.2           
-[61] spam_2.6-0              bitops_1.0-7            tcltk_3.6.3            
-[64] base64enc_0.1-3         vioplot_0.3.6           boot_1.3-28            
-[67] gtable_0.3.0            codetools_0.2-18        abind_1.4-5            
-[70] DBI_1.1.1               R6_2.5.0                zoo_1.8-9              
-[73] gridExtra_2.3           dplyr_1.0.6             utf8_1.2.1             
-[76] parallel_3.6.3          IRdisplay_1.0           Rcpp_1.0.6             
-[79] fields_12.3             vctrs_0.3.8             png_0.1-7              
-[82] tidyselect_1.1.1       
+[10] sm_2.2-5.6              latticeExtra_0.6-29     pillar_1.6.1           
+[13] lattice_0.20-44         glue_1.4.2              RcppEigen_0.3.3.9.1    
+[16] uuid_0.1-4              digest_0.6.27           colorspace_2.0-1       
+[19] htmltools_0.5.1.1       Matrix_1.3-3            R.oo_1.24.0            
+[22] pkgconfig_2.0.3         raster_3.4-10           padr_0.5.3             
+[25] purrr_0.3.4             scales_1.1.1            CircStats_0.2-6        
+[28] jpeg_0.1-8.1            proxy_0.4-25            dtw_1.22-3             
+[31] tibble_3.1.2            generics_0.1.0          ggplot2_3.3.3          
+[34] ellipsis_0.3.2          repr_1.1.3              pbapply_1.4-3          
+[37] verification_1.42       gdalUtils_2.0.3.2       easyVerification_0.4.4 
+[40] magrittr_2.0.1          crayon_1.4.1            evaluate_0.14          
+[43] R.methodsS3_1.8.1       ncdf4_1.17              fansi_0.4.2            
+[46] MASS_7.3-54             data.table_1.14.0       tools_3.6.3            
+[49] lifecycle_1.0.0         munsell_0.5.0           akima_0.6-2.1          
+[52] compiler_3.6.3          mapplots_1.5.1          rlang_0.4.11           
+[55] grid_3.6.3              RCurl_1.98-1.3          pbdZMQ_0.3-5           
+[58] iterators_1.0.13        IRkernel_1.2            spam_2.6-0             
+[61] bitops_1.0-7            tcltk_3.6.3             base64enc_0.1-3        
+[64] vioplot_0.3.6           boot_1.3-28             gtable_0.3.0           
+[67] codetools_0.2-18        abind_1.4-5             R6_2.5.0               
+[70] zoo_1.8-9               gridExtra_2.3           dplyr_1.0.6            
+[73] utf8_1.2.1              parallel_3.6.3          IRdisplay_1.0          
+[76] Rcpp_1.0.6              fields_12.3             vctrs_0.3.8            
+[79] png_0.1-7               tidyselect_1.1.1       
 </pre></div>
 </div>
 </div>
@@ -1072,7 +1071,17 @@ loaded via a namespace (and not attached):
 </section>
 <section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
-<span class="target" id="id1"></span><script src="https://utteranc.es/client.js"
+<div class="docutils container" id="id3">
+<dl class="citation">
+<dt class="label" id="id26"><span class="brackets"><a class="fn-backref" href="#id2">CRA</a></span></dt>
+<dd><p>CRAN - Package rgdal. https://cran.r-project.org/web/packages/rgdal/index.html.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets"><a class="fn-backref" href="#id1">cli22</a></span></dt>
+<dd><p>SantanderMetGroup/climate4R. https://github.com/SantanderMetGroup/climate4R, July 2022.</p>
+</dd>
+</dl>
+</div>
+<script src="https://utteranc.es/client.js"
         repo="PhantomAurelia/Atlas"
         issue-term="pathname"
         theme="preferred-color-scheme"
