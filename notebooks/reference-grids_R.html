@@ -1,35 +1,45 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Using the Atlas reference grids in R &#8212; IPCC-ATLAS Jupyter Book</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -37,7 +47,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -77,7 +87,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -85,61 +95,95 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/reference-grids_R';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Using the 4th version of the IPCC WGI reference regions in Python" href="reference-regions_Python.html" />
     <link rel="prev" title="Computing and visualization of precipitation linear trends during the observed period (1980-2014)" href="linear-trends_R.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">IPCC-ATLAS Jupyter Book</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -148,498 +192,270 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Information
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Information</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../warming-levels/warming-levels.html">
-   Global Warming Levels
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../data-sources/data-sources.html">
-   Data sources used in the Atlas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference-grids/reference-grids.html">
-   Sets of reference grids
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets-interactive-atlas/datasets-interactive-atlas.html">
-   Code for reproducibility of the Interactive Atlas Dataset
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference-regions/reference-regions.html">
-   Sets of regions for regional synthesis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets-aggregated-regionally/datasets-aggregated-regionally.html">
-   Aggregated datasets
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../warming-levels/warming-levels.html">Global Warming Levels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-sources/data-sources.html">Data sources used in the Atlas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-grids/reference-grids.html">Sets of reference grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets-interactive-atlas/datasets-interactive-atlas.html">Code for reproducibility of the Interactive Atlas Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-regions/reference-regions.html">Sets of regions for regional synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets-aggregated-regionally/datasets-aggregated-regionally.html">Aggregated datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Notebooks</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Notebooks
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="regional-scatter-plots_R.html">
-   Atlas notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="global-warming-levels_R.html">
-   Computing and visualizing transient global warming levels
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bias-adjustment_R.html">
-   Bias adjustment of model temperatures for the calculation of extreme indices
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="CORDEX-overlaps_Python.html">
-   Selecting reference regions used for every CORDEX domain
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="GeoTIFF-post-processing_R.html">
-   GeoTIFF file post-processing: Spatial operations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="hatching-uncertainty_R.html">
-   Calculation and hatching of the uncertainty in projected delta changes.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="linear-trends_R.html">
-   Computing and visualization of precipitation linear trends during the observed period (1980-2014)
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Using the Atlas reference grids in
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     R
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="reference-regions_Python.html">
-   Using the 4th version of the IPCC WGI reference regions in Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="reference-regions_R.html">
-   Using the 4th version of the IPCC WGI reference regions in R
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="stripes-plots_R.html">
-   Create stripes of anual temperature and precipitation mean values.
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="regional-scatter-plots_R.html">Computing and visualizing regional climate change (temperature vs precipitation) for reference regions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="global-warming-levels_R.html">Computing and visualizing transient global warming levels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias-adjustment_R.html">Bias adjustment of model temperatures for the calculation of extreme indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CORDEX-overlaps_Python.html">Selecting reference regions used for every CORDEX domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GeoTIFF-post-processing_R.html">GeoTIFF file post-processing: Spatial operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hatching-uncertainty_R.html">Calculation and hatching of the uncertainty in projected delta changes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear-trends_R.html">Computing and visualization of precipitation linear trends during the observed period (1980-2014)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using the Atlas reference grids in <code class="docutils literal notranslate"><span class="pre">R</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-regions_Python.html">Using the 4th version of the IPCC WGI reference regions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-regions_R.html">Using the 4th version of the IPCC WGI reference regions in R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stripes-plots_R.html">Create stripes of anual temperature and precipitation mean values.</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Anexos
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anexos</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../ERRATA.html">
-   Errata and problem reporting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reproducibility/reproducibility.html">
-   Reproducibility scripts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="auxiliary-material/auxiliary-material.html">
-   Auxiliary Materials for Notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../binder/binder.html">
-   Binder image deployment
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reproducibility/maps/maps.html">
-   Code for reproducibility of the Atlas Map figures of model projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reproducibility/observations/observations.html">
-   Code for reproducibility of the ATLAS spatial maps of the observed linear trends
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reproducibility/projections/projections.html">
-   Code for reproducibility of the ATLAS boxplots and scatterplots of model projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/bash-interpolation-scripts.html">
-   Bash interpolation scripts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/AtlasCDOremappeR_CORDEX/atlasCDOremappeR.html">
-   AtlasCDOremappeR for CORDEX RCM simulations
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../ERRATA.html">Errata and problem reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/reproducibility.html">Reproducibility scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auxiliary-material/auxiliary-material.html">Auxiliary Materials for Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binder/binder.html">Binder image deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/maps/maps.html">Code for reproducibility of the Atlas Map figures of model projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/observations/observations.html">Code for reproducibility of the ATLAS spatial maps of the observed linear trends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/projections/projections.html">Code for reproducibility of the ATLAS boxplots and scatterplots of model projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/bash-interpolation-scripts.html">Bash interpolation scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/AtlasCDOremappeR_CORDEX/atlasCDOremappeR.html">AtlasCDOremappeR for CORDEX RCM simulations</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/PhantomAurelia/Atlas/jb-test?urlpath=tree/./notebooks/reference-grids_R.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/PhantomAurelia/Atlas" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/PhantomAurelia/Atlas/edit/jb-test/./notebooks/reference-grids_R.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/PhantomAurelia/Atlas/issues/new?title=Issue%20on%20page%20%2Fnotebooks/reference-grids_R.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/reference-grids_R.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/PhantomAurelia/Atlas"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/PhantomAurelia/Atlas/issues/new?title=Issue%20on%20page%20%2Fnotebooks/reference-grids_R.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/PhantomAurelia/Atlas/edit/jb-test/./notebooks/reference-grids_R.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/notebooks/reference-grids_R.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-libraries">
-   Load libraries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-the-reference-land-sea-mask">
-   Load the reference land/sea mask
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-model-data">
-   Load model data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#interpolation">
-   Interpolation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apply-the-mask-to-the-data">
-   Apply the mask to the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#masked-vs-non-masked-time-series">
-   Masked vs. non masked time-series
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#session-info">
-   Session info
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Using the Atlas reference grids in R</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-libraries">
-   Load libraries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-the-reference-land-sea-mask">
-   Load the reference land/sea mask
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-model-data">
-   Load model data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#interpolation">
-   Interpolation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#apply-the-mask-to-the-data">
-   Apply the mask to the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#masked-vs-non-masked-time-series">
-   Masked vs. non masked time-series
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#session-info">
-   Session info
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   References
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Using the Atlas reference grids in R</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-libraries">Load libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-reference-land-sea-mask">Load the reference land/sea mask</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-model-data">Load model data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-the-mask-to-the-data">Apply the mask to the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#masked-vs-non-masked-time-series">Masked vs. non masked time-series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-info">Session info</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Atlas notebooks
 
 ***
@@ -663,13 +479,18 @@ title="Print to PDF"
 <li><p><code class="docutils literal notranslate"><span class="pre">convertR</span></code> to change units</p></li>
 </ul>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">loadeR</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">visualizeR</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">convertR</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading required package: rJava
 </pre></div>
@@ -755,6 +576,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="load-the-reference-land-sea-mask">
@@ -794,7 +616,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-grids_R_7_0.png" src="../_images/reference-grids_R_7_0.png" />
+<img alt="../_images/949d69e58f0525c3b11f06017c4221ecd1ba66d412430dc831cd7f35ad64db5d.png" src="../_images/949d69e58f0525c3b11f06017c4221ecd1ba66d412430dc831cd7f35ad64db5d.png" />
 </div>
 </div>
 </section>
@@ -802,13 +624,18 @@ title="Print to PDF"
 <h2>Load model data<a class="headerlink" href="#load-model-data" title="Permalink to this headline">#</a></h2>
 <p>For this example we will use the global mean temperature from the CanESM5 model, which is provided at a monthly time resolution in a netCDF file in the <code class="docutils literal notranslate"><span class="pre">auxiliary-material</span></code> folder. In particular, we focus on the 2000-2010 period, which can be specified with the <code class="docutils literal notranslate"><span class="pre">years</span></code> argument in the <code class="docutils literal notranslate"><span class="pre">loadGridData</span></code> function:</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># loading global mean temperature</span>
 <span class="n">tas</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">loadGridData</span><span class="p">(</span><span class="s">&quot;auxiliary-material/CMIP6Amon_tas_CanESM5_r1i1p1f1_historical_gn_185001-201412.nc&quot;</span><span class="p">,</span><span class="w"> </span>
 <span class="w">                    </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;tas&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">years</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2000</span><span class="o">:</span><span class="m">2010</span><span class="p">)</span><span class="w"> </span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:03] Defining geo-location parameters
 </pre></div>
@@ -823,15 +650,21 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Let’s plot the climatology for the analyzed period:</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># plotting climatology</span>
 <span class="nf">spatialPlot</span><span class="p">(</span><span class="nf">climatology</span><span class="p">(</span><span class="n">tas</span><span class="p">),</span><span class="w"> </span><span class="n">backdrop.theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;coastline&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rev.colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:03] - Computing climatology...
 </pre></div>
@@ -839,8 +672,9 @@ title="Print to PDF"
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:03] - Done.
 </pre></div>
 </div>
-<img alt="../_images/reference-grids_R_11_2.png" src="../_images/reference-grids_R_11_2.png" />
+<img alt="../_images/f123828e129978bc8a5acb309a6bdcd3c7f2c3eaf1b8a710035bc8b0b9793984.png" src="../_images/f123828e129978bc8a5acb309a6bdcd3c7f2c3eaf1b8a710035bc8b0b9793984.png" />
 </div>
+</details>
 </div>
 </section>
 <section id="interpolation">
@@ -904,7 +738,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-grids_R_18_0.png" src="../_images/reference-grids_R_18_0.png" />
+<img alt="../_images/7b557ab35ca21b96555375bac3eef1db448dc4b4a332f8e0581fa4834a5148c8.png" src="../_images/7b557ab35ca21b96555375bac3eef1db448dc4b4a332f8e0581fa4834a5148c8.png" />
 </div>
 </div>
 <p>In order to apply this binary mask to our temperature data, we need that both C4R grid objects have the same dimensions. Therefore, we resize the binary mask to match the time dimension of <code class="docutils literal notranslate"><span class="pre">tas.i</span></code>:</p>
@@ -939,7 +773,7 @@ title="Print to PDF"
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-01-18 09:46:13] - Done.
 </pre></div>
 </div>
-<img alt="../_images/reference-grids_R_22_2.png" src="../_images/reference-grids_R_22_2.png" />
+<img alt="../_images/ac66e5a597ed036c414552c2eba42b266cdaa57db9567b9099188a00704d3795.png" src="../_images/ac66e5a597ed036c414552c2eba42b266cdaa57db9567b9099188a00704d3795.png" />
 </div>
 </div>
 </section>
@@ -954,7 +788,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-grids_R_24_0.png" src="../_images/reference-grids_R_24_0.png" />
+<img alt="../_images/520308c5bb0b99be335cc56631dd3cc7b2305a0089ca7efef9f5ea59bddb9841.png" src="../_images/520308c5bb0b99be335cc56631dd3cc7b2305a0089ca7efef9f5ea59bddb9841.png" />
 </div>
 </div>
 <p>Note that temperature is in K units. The <code class="docutils literal notranslate"><span class="pre">udConvertGrid</span></code> function from the <code class="docutils literal notranslate"><span class="pre">convertR</span></code> package allows for easily passing from K to Celsius degrees:</p>
@@ -968,18 +802,23 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-grids_R_26_0.png" src="../_images/reference-grids_R_26_0.png" />
+<img alt="../_images/90e22dacd59701a36cad5411e8e1e6c39d008fc0b8b4d551ce892ba7989893b5.png" src="../_images/90e22dacd59701a36cad5411e8e1e6c39d008fc0b8b4d551ce892ba7989893b5.png" />
 </div>
 </div>
 </section>
 <section id="session-info">
 <h2>Session info<a class="headerlink" href="#session-info" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">sessionInfo</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
@@ -1033,6 +872,7 @@ loaded via a namespace (and not attached):
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="references">
@@ -1065,7 +905,7 @@ loaded via a namespace (and not attached):
             mode: "r"
         },
         kernelOptions: {
-            kernelName: "ir",
+            name: "ir",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -1073,50 +913,112 @@ loaded via a namespace (and not attached):
     </script>
     <script>kernelName = 'ir'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="linear-trends_R.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Computing and visualization of precipitation linear trends during the observed period (1980-2014)</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="linear-trends_R.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Computing and visualization of precipitation linear trends during the observed period (1980-2014)</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="reference-regions_Python.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="reference-regions_Python.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Using the 4th version of the IPCC WGI reference regions in Python</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By David Domínguez Román<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-libraries">Load libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-reference-land-sea-mask">Load the reference land/sea mask</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-model-data">Load model data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpolation">Interpolation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-the-mask-to-the-data">Apply the mask to the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#masked-vs-non-masked-time-series">Masked vs. non masked time-series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-info">Session info</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Domínguez Román
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

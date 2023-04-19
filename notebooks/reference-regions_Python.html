@@ -1,35 +1,45 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Using the 4th version of the IPCC WGI reference regions in Python &#8212; IPCC-ATLAS Jupyter Book</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -37,7 +47,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -77,7 +87,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -85,61 +95,93 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/reference-regions_Python';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Using the 4th version of the IPCC WGI reference regions in R" href="reference-regions_R.html" />
     <link rel="prev" title="Using the Atlas reference grids in R" href="reference-grids_R.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">IPCC-ATLAS Jupyter Book</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -148,566 +190,280 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Information
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Information</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../warming-levels/warming-levels.html">
-   Global Warming Levels
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../data-sources/data-sources.html">
-   Data sources used in the Atlas
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference-grids/reference-grids.html">
-   Sets of reference grids
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets-interactive-atlas/datasets-interactive-atlas.html">
-   Code for reproducibility of the Interactive Atlas Dataset
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reference-regions/reference-regions.html">
-   Sets of regions for regional synthesis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets-aggregated-regionally/datasets-aggregated-regionally.html">
-   Aggregated datasets
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../warming-levels/warming-levels.html">Global Warming Levels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-sources/data-sources.html">Data sources used in the Atlas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-grids/reference-grids.html">Sets of reference grids</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets-interactive-atlas/datasets-interactive-atlas.html">Code for reproducibility of the Interactive Atlas Dataset</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference-regions/reference-regions.html">Sets of regions for regional synthesis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets-aggregated-regionally/datasets-aggregated-regionally.html">Aggregated datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Notebooks</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Notebooks
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Notebooks</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="notebooks.html">
-   Notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="regional-scatter-plots_R.html">
-   Atlas notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="global-warming-levels_R.html">
-   Computing and visualizing transient global warming levels
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="bias-adjustment_R.html">
-   Bias adjustment of model temperatures for the calculation of extreme indices
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="CORDEX-overlaps_Python.html">
-   Selecting reference regions used for every CORDEX domain
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="GeoTIFF-post-processing_R.html">
-   GeoTIFF file post-processing: Spatial operations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="hatching-uncertainty_R.html">
-   Calculation and hatching of the uncertainty in projected delta changes.
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="linear-trends_R.html">
-   Computing and visualization of precipitation linear trends during the observed period (1980-2014)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="reference-grids_R.html">
-   Using the Atlas reference grids in
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     R
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Using the 4th version of the IPCC WGI reference regions in Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="reference-regions_R.html">
-   Using the 4th version of the IPCC WGI reference regions in R
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="stripes-plots_R.html">
-   Create stripes of anual temperature and precipitation mean values.
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="regional-scatter-plots_R.html">Computing and visualizing regional climate change (temperature vs precipitation) for reference regions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="global-warming-levels_R.html">Computing and visualizing transient global warming levels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bias-adjustment_R.html">Bias adjustment of model temperatures for the calculation of extreme indices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CORDEX-overlaps_Python.html">Selecting reference regions used for every CORDEX domain</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GeoTIFF-post-processing_R.html">GeoTIFF file post-processing: Spatial operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hatching-uncertainty_R.html">Calculation and hatching of the uncertainty in projected delta changes.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear-trends_R.html">Computing and visualization of precipitation linear trends during the observed period (1980-2014)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-grids_R.html">Using the Atlas reference grids in <code class="docutils literal notranslate"><span class="pre">R</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Using the 4th version of the IPCC WGI reference regions in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference-regions_R.html">Using the 4th version of the IPCC WGI reference regions in R</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stripes-plots_R.html">Create stripes of anual temperature and precipitation mean values.</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Anexos
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anexos</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../ERRATA.html">
-   Errata and problem reporting
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reproducibility/reproducibility.html">
-   Reproducibility scripts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="auxiliary-material/auxiliary-material.html">
-   Auxiliary Materials for Notebooks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../binder/binder.html">
-   Binder image deployment
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reproducibility/maps/maps.html">
-   Code for reproducibility of the Atlas Map figures of model projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reproducibility/observations/observations.html">
-   Code for reproducibility of the ATLAS spatial maps of the observed linear trends
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../reproducibility/projections/projections.html">
-   Code for reproducibility of the ATLAS boxplots and scatterplots of model projections
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/bash-interpolation-scripts.html">
-   Bash interpolation scripts
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/AtlasCDOremappeR_CORDEX/atlasCDOremappeR.html">
-   AtlasCDOremappeR for CORDEX RCM simulations
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../ERRATA.html">Errata and problem reporting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/reproducibility.html">Reproducibility scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auxiliary-material/auxiliary-material.html">Auxiliary Materials for Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binder/binder.html">Binder image deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/maps/maps.html">Code for reproducibility of the Atlas Map figures of model projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/observations/observations.html">Code for reproducibility of the ATLAS spatial maps of the observed linear trends</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reproducibility/projections/projections.html">Code for reproducibility of the ATLAS boxplots and scatterplots of model projections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/bash-interpolation-scripts.html">Bash interpolation scripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datasets-interactive-atlas/bash-interpolation-scripts/AtlasCDOremappeR_CORDEX/atlasCDOremappeR.html">AtlasCDOremappeR for CORDEX RCM simulations</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/PhantomAurelia/Atlas/jb-test?urlpath=tree/./notebooks/reference-regions_Python.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/PhantomAurelia/Atlas" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/PhantomAurelia/Atlas/edit/jb-test/./notebooks/reference-regions_Python.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/PhantomAurelia/Atlas/issues/new?title=Issue%20on%20page%20%2Fnotebooks/reference-regions_Python.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/reference-regions_Python.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/PhantomAurelia/Atlas"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/PhantomAurelia/Atlas/issues/new?title=Issue%20on%20page%20%2Fnotebooks/reference-regions_Python.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/PhantomAurelia/Atlas/edit/jb-test/./notebooks/reference-regions_Python.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/notebooks/reference-regions_Python.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#imports">
-   Imports
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loading-the-reference-regions">
-   Loading the reference regions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plotting">
-   Plotting
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#selecting-regions">
-   Selecting Regions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-dataset">
-   Example Dataset
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-a-2d-integer-mask">
-   Creating a 2D integer mask
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-a-3d-boolean-mask">
-   Creating a 3D boolean mask
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#select-a-region-of-a-3d-mask">
-     Select a region of a 3D mask
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mask-out-a-region">
-   Mask out a region
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculate-weighted-regional-averages">
-   Calculate weighted regional averages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#restrict-the-mask-to-land-points">
-   Restrict the mask to land points
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculating-weighed-averages-in-xarray-prior-to-version-0-15-1">
-   Calculating weighed averages in xarray prior to version 0.15.1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#requirements">
-   Requirements
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     References
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Using the 4th version of the IPCC WGI reference regions in Python</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#imports">
-   Imports
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loading-the-reference-regions">
-   Loading the reference regions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plotting">
-   Plotting
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#selecting-regions">
-   Selecting Regions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#example-dataset">
-   Example Dataset
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-a-2d-integer-mask">
-   Creating a 2D integer mask
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-a-3d-boolean-mask">
-   Creating a 3D boolean mask
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#select-a-region-of-a-3d-mask">
-     Select a region of a 3D mask
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mask-out-a-region">
-   Mask out a region
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculate-weighted-regional-averages">
-   Calculate weighted regional averages
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#restrict-the-mask-to-land-points">
-   Restrict the mask to land points
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculating-weighed-averages-in-xarray-prior-to-version-0-15-1">
-   Calculating weighed averages in xarray prior to version 0.15.1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#requirements">
-   Requirements
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     References
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Using the 4th version of the IPCC WGI reference regions in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-reference-regions">Loading the reference regions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-regions">Selecting Regions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-dataset">Example Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-2d-integer-mask">Creating a 2D integer mask</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-3d-boolean-mask">Creating a 3D boolean mask</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-a-region-of-a-3d-mask">Select a region of a 3D mask</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-out-a-region">Mask out a region</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-weighted-regional-averages">Calculate weighted regional averages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restrict-the-mask-to-land-points">Restrict the mask to land points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-weighed-averages-in-xarray-prior-to-version-0-15-1">Calculating weighed averages in xarray prior to version 0.15.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Atlas notebooks
 
 ***
@@ -727,32 +483,44 @@ title="Print to PDF"
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
 <p>Import <code class="docutils literal notranslate"><span class="pre">regionmask</span></code> and check the version:</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">regionmask</span>
 <span class="n">regionmask</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.7.0&#39;
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Import <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and check the version:</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="n">xr</span><span class="o">.</span><span class="n">set_options</span><span class="p">(</span><span class="n">display_style</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
 <span class="n">xr</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.19.0&#39;
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Import additional packages</p>
 <div class="cell docutils container">
@@ -845,7 +613,7 @@ Regions:
   coords = _polygons_coords(polygons)
 </pre></div>
 </div>
-<img alt="../_images/reference-regions_Python_12_1.png" src="../_images/reference-regions_Python_12_1.png" />
+<img alt="../_images/31338b9ecc442f2cba2a41512ddb3cf1f87de9ccb1e082b6b791f504bcf10a8d.png" src="../_images/31338b9ecc442f2cba2a41512ddb3cf1f87de9ccb1e082b6b791f504bcf10a8d.png" />
 </div>
 </div>
 <p>The plot can also be customized:</p>
@@ -876,7 +644,7 @@ Regions:
   if len(p_mline) &gt; 0:
 </pre></div>
 </div>
-<img alt="../_images/reference-regions_Python_14_1.png" src="../_images/reference-regions_Python_14_1.png" />
+<img alt="../_images/81f3f3aaddf541155f31bcc91c34bb8990603549894f9b59251dbbb96cc82236.png" src="../_images/81f3f3aaddf541155f31bcc91c34bb8990603549894f9b59251dbbb96cc82236.png" />
 </div>
 </div>
 </section>
@@ -933,7 +701,7 @@ Regions:
   line_strings.extend(multi_line_string)
 </pre></div>
 </div>
-<img alt="../_images/reference-regions_Python_18_1.png" src="../_images/reference-regions_Python_18_1.png" />
+<img alt="../_images/109d5556f6c58ffa7f28faa2c90859f5901e033f4bef88e6a4d24ecc4bee6dd3.png" src="../_images/109d5556f6c58ffa7f28faa2c90859f5901e033f4bef88e6a4d24ecc4bee6dd3.png" />
 </div>
 </div>
 <p>Regions can also be selected by their abbreviation or name, let’s select several regions at once:</p>
@@ -946,7 +714,7 @@ Regions:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_20_0.png" src="../_images/reference-regions_Python_20_0.png" />
+<img alt="../_images/3921e21c331427a5d1244e4919bc827898f5a052c2eaf7cfe208c012bb7e8979.png" src="../_images/3921e21c331427a5d1244e4919bc827898f5a052c2eaf7cfe208c012bb7e8979.png" />
 </div>
 </div>
 </section>
@@ -985,7 +753,7 @@ Regions:
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert to celsius</span>
 <span class="n">tas</span> <span class="o">=</span> <span class="n">tas</span> <span class="o">-</span> <span class="mf">273.15</span>
 
@@ -993,6 +761,11 @@ Regions:
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><pre>&lt;xarray.DataArray &#x27;tas&#x27; (time: 165, lat: 64, lon: 128)&gt;
 array([[[-45.430008, -45.761246, ..., -44.75174 , -45.091705],
@@ -1026,6 +799,7 @@ Coordinates:
   * lon      (lon) float64 0.0 2.812 5.625 8.438 ... 348.8 351.6 354.4 357.2
     height   float64 ...
   * time     (time) int64 1850 1851 1852 1853 1854 ... 2010 2011 2012 2013 2014</pre></div></div>
+</details>
 </div>
 <p>The example data is a temperature field. Let’s plot the first time step:</p>
 <div class="cell docutils container">
@@ -1059,7 +833,7 @@ Coordinates:
   line_strings.extend(multi_line_string)
 </pre></div>
 </div>
-<img alt="../_images/reference-regions_Python_25_1.png" src="../_images/reference-regions_Python_25_1.png" />
+<img alt="../_images/6c4cd9348a45ba6fb65ee01a34c4fed1529d840d32676cbafd30eba3094d3bb9.png" src="../_images/6c4cd9348a45ba6fb65ee01a34c4fed1529d840d32676cbafd30eba3094d3bb9.png" />
 </div>
 </div>
 </section>
@@ -1124,7 +898,7 @@ Coordinates:
   coords = _polygons_coords(polygons)
 </pre></div>
 </div>
-<img alt="../_images/reference-regions_Python_31_1.png" src="../_images/reference-regions_Python_31_1.png" />
+<img alt="../_images/39ed583ce6c5c0334eb30ef6b8bfa893773f0529e7e457a80a7e8b735821e0b9.png" src="../_images/39ed583ce6c5c0334eb30ef6b8bfa893773f0529e7e457a80a7e8b735821e0b9.png" />
 </div>
 </div>
 </section>
@@ -1132,12 +906,17 @@ Coordinates:
 <h2>Creating a 3D boolean mask<a class="headerlink" href="#creating-a-3d-boolean-mask" title="Permalink to this headline">#</a></h2>
 <p>2D masks are good for plotting. However, to calculate weighted regional averages 3D boolean masks are more convenient. 3D masks are created as follows:</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask_3D</span> <span class="o">=</span> <span class="n">ar6_land</span><span class="o">.</span><span class="n">mask_3D</span><span class="p">(</span><span class="n">tas</span><span class="p">)</span>
 <span class="n">mask_3D</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><pre>&lt;xarray.DataArray &#x27;region&#x27; (region: 46, lat: 64, lon: 128)&gt;
 array([[[False, False, ..., False, False],
@@ -1171,6 +950,7 @@ Coordinates:
   * region   (region) int64 0 1 2 3 4 5 6 7 8 9 ... 37 38 39 40 41 42 43 44 45
     abbrevs  (region) &lt;U4 &#x27;GIC&#x27; &#x27;NWN&#x27; &#x27;NEN&#x27; &#x27;WNA&#x27; ... &#x27;SAU&#x27; &#x27;NZ&#x27; &#x27;EAN&#x27; &#x27;WAN&#x27;
     names    (region) &lt;U22 &#x27;Greenland/Iceland&#x27; ... &#x27;W.Antarctica&#x27;</pre></div></div>
+</details>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ar6_land.mask_3D</span></code> uses the same algorithm to determine if a gridpoint is in a region as for the 2D mask. However, it returns a <code class="docutils literal notranslate"><span class="pre">xarray.Dataset</span></code> with shape <code class="docutils literal notranslate"><span class="pre">region</span> <span class="pre">x</span> <span class="pre">lat</span> <span class="pre">x</span> <span class="pre">lon</span></code>. Gridpoints that belong to a region are <code class="docutils literal notranslate"><span class="pre">True</span></code>, all others are <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <p>The first two regions look as follows:</p>
@@ -1214,7 +994,7 @@ Coordinates:
   line_strings.extend(multi_line_string)
 </pre></div>
 </div>
-<img alt="../_images/reference-regions_Python_35_1.png" src="../_images/reference-regions_Python_35_1.png" />
+<img alt="../_images/fa4c37084c2615e6e6d5e7d286c9c655babc535bdce4098c7d9d5c6fd14d9e6e.png" src="../_images/fa4c37084c2615e6e6d5e7d286c9c655babc535bdce4098c7d9d5c6fd14d9e6e.png" />
 </div>
 </div>
 <section id="select-a-region-of-a-3d-mask">
@@ -1264,7 +1044,7 @@ Coordinates:
   if len(p_mline) &gt; 0:
 </pre></div>
 </div>
-<img alt="../_images/reference-regions_Python_39_1.png" src="../_images/reference-regions_Python_39_1.png" />
+<img alt="../_images/516ff201bda6e298931c6c47d3fdcc34a9974019aa7551f8ea22eaf9e66d359a.png" src="../_images/516ff201bda6e298931c6c47d3fdcc34a9974019aa7551f8ea22eaf9e66d359a.png" />
 </div>
 </div>
 <p>Note this also works with a 2D mask, using <code class="docutils literal notranslate"><span class="pre">tas.where(mask_2D</span> <span class="pre">==</span> <span class="pre">2)</span></code>.</p>
@@ -1283,11 +1063,16 @@ Coordinates:
 </div>
 <p>Let’s break down what happens here. By multiplying <code class="docutils literal notranslate"><span class="pre">mask_3D</span> <span class="pre">*</span> <span class="pre">weights</span></code> we get a DataArray where gridpoints within a region get a weight proportional to the gridcell area and all others get a weight of 0. <code class="docutils literal notranslate"><span class="pre">airtemps.weighted(mask_3D</span> <span class="pre">*</span> <span class="pre">weights)</span></code> creates an xarray object which can be used for weighted operations. From this we calculate the weighted mean over the lat and lon dimensions. The resulting dataarray has the dimensions <code class="docutils literal notranslate"><span class="pre">region</span> <span class="pre">x</span> <span class="pre">time</span></code>:</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tas_regional</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><pre>&lt;xarray.DataArray &#x27;tas&#x27; (time: 165, region: 46)&gt;
 array([[-14.34435989,  -4.57573997, ..., -32.31694793, -20.89343577],
@@ -1301,6 +1086,7 @@ Coordinates:
   * region   (region) int64 0 1 2 3 4 5 6 7 8 9 ... 37 38 39 40 41 42 43 44 45
     abbrevs  (region) &lt;U4 &#x27;GIC&#x27; &#x27;NWN&#x27; &#x27;NEN&#x27; &#x27;WNA&#x27; ... &#x27;SAU&#x27; &#x27;NZ&#x27; &#x27;EAN&#x27; &#x27;WAN&#x27;
     names    (region) &lt;U22 &#x27;Greenland/Iceland&#x27; ... &#x27;W.Antarctica&#x27;</pre></div></div>
+</details>
 </div>
 <p>The regionally-averaged time series can be plotted:</p>
 <div class="cell docutils container">
@@ -1310,7 +1096,7 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_45_0.png" src="../_images/reference-regions_Python_45_0.png" />
+<img alt="../_images/720a2cc116944acd2b7b72cb631bf7c78835f40783f6ffc2a7b87ce0e0e0396a.png" src="../_images/720a2cc116944acd2b7b72cb631bf7c78835f40783f6ffc2a7b87ce0e0e0396a.png" />
 </div>
 </div>
 </section>
@@ -1349,7 +1135,7 @@ Coordinates:
   line_strings.extend(multi_line_string)
 </pre></div>
 </div>
-<img alt="../_images/reference-regions_Python_47_1.png" src="../_images/reference-regions_Python_47_1.png" />
+<img alt="../_images/a07d4ee9be44a951aaf6a5027c74b34afe419391b875970603ad91125157caeb.png" src="../_images/a07d4ee9be44a951aaf6a5027c74b34afe419391b875970603ad91125157caeb.png" />
 </div>
 </div>
 <p>To create the combined mask we multiply the two:</p>
@@ -1393,7 +1179,7 @@ Coordinates:
   line_strings.extend(multi_line_string)
 </pre></div>
 </div>
-<img alt="../_images/reference-regions_Python_51_1.png" src="../_images/reference-regions_Python_51_1.png" />
+<img alt="../_images/140a3b8ea7433f5b37c083f7ebe9e80d5e5dc4fed3c2eeeeaf8635fd547f6dd7.png" src="../_images/140a3b8ea7433f5b37c083f7ebe9e80d5e5dc4fed3c2eeeeaf8635fd547f6dd7.png" />
 </div>
 </div>
 <p>We can now again calculate the regional mean temperature for all land points:</p>
@@ -1428,7 +1214,7 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/reference-regions_Python_55_0.png" src="../_images/reference-regions_Python_55_0.png" />
+<img alt="../_images/339217aaa64421aa585cf90bf0ec7b82782bd4122c9931fcb7e812ac2eb6a4c7.png" src="../_images/339217aaa64421aa585cf90bf0ec7b82782bd4122c9931fcb7e812ac2eb6a4c7.png" />
 </div>
 </div>
 </section>
@@ -1518,7 +1304,7 @@ Coordinates:
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks"
         },
         predefinedOutput: true
@@ -1526,50 +1312,122 @@ Coordinates:
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="reference-grids_R.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Using the Atlas reference grids in <code class="docutils literal notranslate"><span class="pre">R</span></code></p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="reference-grids_R.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Using the Atlas reference grids in <code class="docutils literal notranslate"><span class="pre">R</span></code></p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="reference-regions_R.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="reference-regions_R.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Using the 4th version of the IPCC WGI reference regions in R</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By David Domínguez Román<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-reference-regions">Loading the reference regions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-regions">Selecting Regions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-dataset">Example Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-2d-integer-mask">Creating a 2D integer mask</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-3d-boolean-mask">Creating a 3D boolean mask</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-a-region-of-a-3d-mask">Select a region of a 3D mask</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mask-out-a-region">Mask out a region</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-weighted-regional-averages">Calculate weighted regional averages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#restrict-the-mask-to-land-points">Restrict the mask to land points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-weighed-averages-in-xarray-prior-to-version-0-15-1">Calculating weighed averages in xarray prior to version 0.15.1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Domínguez Román
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
