@@ -214,7 +214,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="reference-regions_R.html">Using the 4th version of the IPCC WGI reference regions in R</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Create stripes of anual temperature and precipitation mean values.</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anexos</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ERRATA.html">Errata and problem reporting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reproducibility/reproducibility.html">Reproducibility scripts</a></li>
@@ -266,6 +266,55 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/PhantomAurelia/Atlas/jb-test?urlpath=lab/tree/./notebooks/stripes-plots_R.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -535,7 +584,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2d53bbb9da88bcb2d90f42bd1882d0f1cf642407fcbb2f6ef8f236b922fd77bf.png" src="../_images/2d53bbb9da88bcb2d90f42bd1882d0f1cf642407fcbb2f6ef8f236b922fd77bf.png" />
+<img alt="../_images/c83eacec33866ba9da40e21010e40d3015ed716060fc7ad3657d56788f09c84d.png" src="../_images/c83eacec33866ba9da40e21010e40d3015ed716060fc7ad3657d56788f09c84d.png" />
 </div>
 </div>
 <p>Play with the parameter options for different configurations. For instance, change the variable (<code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">=</span> <span class="pre">&quot;tas&quot;</span></code>) or use additional graphical parameters (type <code class="docutils literal notranslate"><span class="pre">?levelplot</span></code> to check available parameters) to, for instance, change the title (<code class="docutils literal notranslate"><span class="pre">main</span> <span class="pre">=</span> <span class="pre">list(&quot;Stripes</span> <span class="pre">of</span> <span class="pre">Mediterranean</span> <span class="pre">mean</span> <span class="pre">temperature</span> <span class="pre">for</span> <span class="pre">CMIP6&quot;,</span> <span class="pre">cex</span> <span class="pre">=</span> <span class="pre">1.5)</span></code>) or the width of the colorkey (<code class="docutils literal notranslate"><span class="pre">colorkey</span> <span class="pre">=</span> <span class="pre">list(width</span> <span class="pre">=</span> <span class="pre">2)</span></code>).</p>
@@ -556,7 +605,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7bccb53b3faf55c940e81d8c6d74d82ee0b2070a6373919cbdc96d0eb91b90fe.png" src="../_images/7bccb53b3faf55c940e81d8c6d74d82ee0b2070a6373919cbdc96d0eb91b90fe.png" />
+<img alt="../_images/21d1212db5fc3db2b669aa038657cc126739a137dcff829be9c382f58a6bb602.png" src="../_images/21d1212db5fc3db2b669aa038657cc126739a137dcff829be9c382f58a6bb602.png" />
 </div>
 </div>
 </section>
@@ -578,7 +627,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7f31186cce778febe279efe563e6462c44b804c127660453e92d6d6238561125.png" src="../_images/7f31186cce778febe279efe563e6462c44b804c127660453e92d6d6238561125.png" />
+<img alt="../_images/8dc7ade9028142f1d6c0da01585acac2709d5259b3e9129e660cd39fa79a0b87.png" src="../_images/8dc7ade9028142f1d6c0da01585acac2709d5259b3e9129e660cd39fa79a0b87.png" />
 </div>
 </div>
 <p>Lets consider summer values for CORDEX (<code class="docutils literal notranslate"><span class="pre">season</span> <span class="pre">=</span> <span class="pre">6:8</span></code> and <code class="docutils literal notranslate"><span class="pre">project</span> <span class="pre">=</span> <span class="pre">&quot;CORDEX&quot;</span></code>). We need to specify a CORDEX domain, for instance <code class="docutils literal notranslate"><span class="pre">cordex.domain</span> <span class="pre">=</span> <span class="pre">&quot;AFR&quot;</span></code> (we could also select “EUR”, as both domains cover the MED region). We will also change the color palette (<code class="docutils literal notranslate"><span class="pre">brewer.pal.name</span> <span class="pre">=</span> <span class="pre">&quot;RdGy&quot;</span></code>)</p>
@@ -597,7 +646,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4472b3c79ebe5f40e723d8df197cc9a20b44bdb934322bd8a3e07dc7593a9f05.png" src="../_images/4472b3c79ebe5f40e723d8df197cc9a20b44bdb934322bd8a3e07dc7593a9f05.png" />
+<img alt="../_images/a7009eaffe0adab602ca8210b24ceaa0da31dc729535211ca98815e211cb92d9.png" src="../_images/a7009eaffe0adab602ca8210b24ceaa0da31dc729535211ca98815e211cb92d9.png" />
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
@@ -614,7 +663,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Fedora Linux 37 (Workstation Edition)
+Running under: Fedora Linux 38 (Workstation Edition)
 
 Matrix products: default
 BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
@@ -654,8 +703,8 @@ loaded via a namespace (and not attached):
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "PhantomAurelia/Atlas",
+            ref: "jb-test",
         },
         codeMirrorConfig: {
             theme: "abcdef",

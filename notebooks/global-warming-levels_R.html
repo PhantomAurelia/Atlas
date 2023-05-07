@@ -216,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="reference-regions_R.html">Using the 4th version of the IPCC WGI reference regions in R</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stripes-plots_R.html">Create stripes of anual temperature and precipitation mean values.</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anexos</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ERRATA.html">Errata and problem reporting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reproducibility/reproducibility.html">Reproducibility scripts</a></li>
@@ -268,6 +268,55 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/PhantomAurelia/Atlas/jb-test?urlpath=lab/tree/./notebooks/global-warming-levels_R.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -628,7 +677,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5d4f3f5bcf22a4fd581646fe00bae0141fa1fd737497adc90e3816042bfad3fa.png" src="../_images/5d4f3f5bcf22a4fd581646fe00bae0141fa1fd737497adc90e3816042bfad3fa.png" />
+<img alt="../_images/00f662bce7bfb8dfd7ea3b30d699fa9c1ac5822b04e1ad743120886348d4ea35.png" src="../_images/00f662bce7bfb8dfd7ea3b30d699fa9c1ac5822b04e1ad743120886348d4ea35.png" />
 </div>
 </div>
 <p>The same procedure is next carried out with the RCP 8.5 experiment data, adapting the pattern used in the regular expression to retrieve the corresponding data and repeating the rest of the steps:</p>
@@ -650,7 +699,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2e343fb20297d323d33c3aeacb020c2c36828ea6471c733db2c00d3b269b11dd.png" src="../_images/2e343fb20297d323d33c3aeacb020c2c36828ea6471c733db2c00d3b269b11dd.png" />
+<img alt="../_images/bba4a74dcd62a459adea2ae2965425a3acbe1e2684a4e4d5616cb9abc29d559a.png" src="../_images/bba4a74dcd62a459adea2ae2965425a3acbe1e2684a4e4d5616cb9abc29d559a.png" />
 </div>
 </div>
 <p>We can now also plot the concatenated historical + RCP85 time series. A vertical dashed line is added to differentiate both experiments.</p>
@@ -668,7 +717,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bcb5d0d0e428773f058b0930dc1251991f761e10eac5d3bcbd299d3fb999f8b2.png" src="../_images/bcb5d0d0e428773f058b0930dc1251991f761e10eac5d3bcbd299d3fb999f8b2.png" />
+<img alt="../_images/28986fa47598734af3d8cb949402aa1a14eaf7289a5af90f1a243217c0e86e41.png" src="../_images/28986fa47598734af3d8cb949402aa1a14eaf7289a5af90f1a243217c0e86e41.png" />
 </div>
 </div>
 </section>
@@ -776,7 +825,7 @@ attr(,&quot;interval&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8ef1579eb3b713489b88ea853287d387b415b4d1f80150d034b23e3cd013f9ab.png" src="../_images/8ef1579eb3b713489b88ea853287d387b415b4d1f80150d034b23e3cd013f9ab.png" />
+<img alt="../_images/d06b9abd2592bacafa60ec48c59733c4c1e3538448f92b44d9738040b5fad121.png" src="../_images/d06b9abd2592bacafa60ec48c59733c4c1e3538448f92b44d9738040b5fad121.png" />
 </div>
 </div>
 <p>A more detailed script <a class="reference download internal" download="" href="../_downloads/2724a26e8b24c2e2bf3dfc50a70eaa7a/gwl_time_series_plots.R"><code class="xref download docutils literal notranslate"><span class="pre">gwl_time_series_plots.R</span></code></a> for representing the GWL spread of CMIP5 and CMIP6 multimodel ensembles with a flexible parameter setting is provided in the <code class="docutils literal notranslate"><span class="pre">warming-levels/scripts</span></code> directory.</p>
@@ -798,7 +847,7 @@ attr(,&quot;interval&quot;)
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Fedora Linux 37 (Workstation Edition)
+Running under: Fedora Linux 38 (Workstation Edition)
 
 Matrix products: default
 BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
@@ -835,8 +884,8 @@ loaded via a namespace (and not attached):
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "PhantomAurelia/Atlas",
+            ref: "jb-test",
         },
         codeMirrorConfig: {
             theme: "abcdef",

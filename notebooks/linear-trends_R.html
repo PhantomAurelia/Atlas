@@ -216,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="reference-regions_R.html">Using the 4th version of the IPCC WGI reference regions in R</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stripes-plots_R.html">Create stripes of anual temperature and precipitation mean values.</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anexos</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ERRATA.html">Errata and problem reporting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reproducibility/reproducibility.html">Reproducibility scripts</a></li>
@@ -268,6 +268,55 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/PhantomAurelia/Atlas/jb-test?urlpath=lab/tree/./notebooks/linear-trends_R.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -758,16 +807,16 @@ It has 2 fields
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:38] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:33] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:38] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:33] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:38] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:33] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:39] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:34] Done
 </pre></div>
 </div>
 </div>
@@ -806,13 +855,13 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:39] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:34] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:39] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:34] - Done.
 </pre></div>
 </div>
-<img alt="../_images/6b4483995b46be81cf6f7e4baf0516b38d93eec354b43d874e99393d5a761006.png" src="../_images/6b4483995b46be81cf6f7e4baf0516b38d93eec354b43d874e99393d5a761006.png" />
+<img alt="../_images/e499ba2464cb322977e179cbbd3fe0724a9c18455c700a1e99458e8524bb5ebd.png" src="../_images/e499ba2464cb322977e179cbbd3fe0724a9c18455c700a1e99458e8524bb5ebd.png" />
 </div>
 </div>
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">overGrid</span></code> function to mask the values outside the IPCC regions of interest to this use-case.</p>
@@ -847,13 +896,13 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:40] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:35] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:40] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:35] - Done.
 </pre></div>
 </div>
-<img alt="../_images/ce61b3f9923ea13c9fd4a68d2a0d2f6bfa6b5395eea4c8101c50dddcfb0268af.png" src="../_images/ce61b3f9923ea13c9fd4a68d2a0d2f6bfa6b5395eea4c8101c50dddcfb0268af.png" />
+<img alt="../_images/ac2b470a128d652a9cc6653add5f861a57d9e204c91e1ba5ab53a433779e8639.png" src="../_images/ac2b470a128d652a9cc6653add5f861a57d9e204c91e1ba5ab53a433779e8639.png" />
 </div>
 </div>
 </section>
@@ -870,10 +919,10 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:40] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:35] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:40] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:35] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -904,7 +953,7 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0004a368b0e3b3a617c962d0df52583e73156b12103cfb0b32fae5f1667d6380.png" src="../_images/0004a368b0e3b3a617c962d0df52583e73156b12103cfb0b32fae5f1667d6380.png" />
+<img alt="../_images/8ed7812e5d331db7e1da609265a660051d4d08ac458e7899c394f8f06d12585f.png" src="../_images/8ed7812e5d331db7e1da609265a660051d4d08ac458e7899c394f8f06d12585f.png" />
 </div>
 </div>
 <section id="trend-significance">
@@ -926,10 +975,10 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:42] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:37] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:42] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:37] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -947,7 +996,7 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/eac671afe65166838c6c74f3f81a47b796e0ae24e11e77dd70014cec407918b3.png" src="../_images/eac671afe65166838c6c74f3f81a47b796e0ae24e11e77dd70014cec407918b3.png" />
+<img alt="../_images/555c31759e46a341238dbc16ed2c1bc93af4d54ed78713c8e61bdcda5d84d69d.png" src="../_images/555c31759e46a341238dbc16ed2c1bc93af4d54ed78713c8e61bdcda5d84d69d.png" />
 </div>
 </div>
 <p>We build (<code class="docutils literal notranslate"><span class="pre">binaryGrid</span></code>) and apply (<code class="docutils literal notranslate"><span class="pre">gridArithmetics</span></code>) a mask to avoid R misusing NaN data out of the regions of interest when calculating the p-values.</p>
@@ -964,10 +1013,10 @@ It has 2 fields
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:43] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:38] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:43] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:38] - Done.
 </pre></div>
 </div>
 </div>
@@ -980,7 +1029,7 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/52511a353234a98712f0ea8c8c3398d615933edb0278ac9307e5500a9a16f718.png" src="../_images/52511a353234a98712f0ea8c8c3398d615933edb0278ac9307e5500a9a16f718.png" />
+<img alt="../_images/3e4173119b7c1bb0abfe1f204da2b320916ca840d1f328890f4c25d73e063eef.png" src="../_images/3e4173119b7c1bb0abfe1f204da2b320916ca840d1f328890f4c25d73e063eef.png" />
 </div>
 </div>
 <p>We can now use the p-values computed above to add a hatching pattern over the trend maps. To do so, we encapsulate the function <code class="docutils literal notranslate"><span class="pre">map.hatching</span></code> in a 2-way loop that corresponds to each line in a ‘x’ symbol. An ‘x’ would be associated whenever the condition is fullfilled, in our case whenever at least half the gridpoints of the upscaled grid are non-significant (i.e., 0-valued in the binary p-value object, <code class="docutils literal notranslate"><span class="pre">pvalGrid</span></code>). We use the <code class="docutils literal notranslate"><span class="pre">mean</span></code> fuction as the upscaling aggregation function, moving from a spatial resolution of half a degree in the trends field, to 2 degrees in the hatching. The upscaled (hatching) grid resolution is based on the <code class="docutils literal notranslate"><span class="pre">density</span></code> parameter of function <code class="docutils literal notranslate"><span class="pre">map.hatching</span></code>. In our case <code class="docutils literal notranslate"><span class="pre">density</span> <span class="pre">=</span> <span class="pre">4</span></code> and, therefore, the corresponding spatial resolution is 4 x 0.5 degrees = 2 degrees.</p>
@@ -1005,24 +1054,24 @@ It has 2 fields
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:44] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:38] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:44] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
-“Discarded datum Unknown based on WGS84 ellipsoid in CRS definition”
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:38] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
 “Discarded datum Unknown based on WGS84 ellipsoid in CRS definition”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:44] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
+“Discarded datum Unknown based on WGS84 ellipsoid in CRS definition”
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:44] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:39] - Computing climatology...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:39] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message in showSRID(uprojargs, format = &quot;PROJ&quot;, multiline = &quot;NO&quot;):
@@ -1057,7 +1106,7 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b868f853ff1814d74b984a52cc9cc856bcf7fa65a5dd108e1f495a7e29876464.png" src="../_images/b868f853ff1814d74b984a52cc9cc856bcf7fa65a5dd108e1f495a7e29876464.png" />
+<img alt="../_images/f6e6af5a554cdc20e37d77d56edaad955a3191f3af34337f12107ae28c31f667.png" src="../_images/f6e6af5a554cdc20e37d77d56edaad955a3191f3af34337f12107ae28c31f667.png" />
 </div>
 </div>
 </section>
@@ -1114,13 +1163,13 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:41] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:41] - Done.
 </pre></div>
 </div>
-<img alt="../_images/e801ae4887b378b941e340f5ed4d1c0479654703b643c58885de230aa078f2b5.png" src="../_images/e801ae4887b378b941e340f5ed4d1c0479654703b643c58885de230aa078f2b5.png" />
+<img alt="../_images/95d007172d6769e1d6587ca50c15917809859f6d213d5210df1eff088219e8c6.png" src="../_images/95d007172d6769e1d6587ca50c15917809859f6d213d5210df1eff088219e8c6.png" />
 </div>
 </div>
 <p>We compute the anomalies by calling <code class="docutils literal notranslate"><span class="pre">scaleGrid</span></code> of <code class="docutils literal notranslate"><span class="pre">transformeR</span></code> and setting the argument <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">center</span></code> to substract the mean from the temporal series. Previously, we call <code class="docutils literal notranslate"><span class="pre">aggregateGrid</span></code> over the list of IPCC objets to average spatially over each region and, therefore, output the temporal series for every North American IPCC region.</p>
@@ -1132,94 +1181,94 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Scaling ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Scaling ...
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Scaling ...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Aggregating spatially...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Done
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Scaling ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Scaling ...
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Scaling ...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Aggregating spatially...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Done
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:46] - Scaling ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Scaling ...
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Scaling ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Scaling ...
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Aggregating spatially...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Aggregating spatially...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Scaling ...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Aggregating spatially...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Scaling ...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating areal weights...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Aggregating spatially...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done
 </pre></div>
 </div>
 </div>
@@ -1255,23 +1304,10 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
-“Only one grid passed as input. Nothing was done”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Computing climatology...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1281,23 +1317,10 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Done.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
-“Only one grid passed as input. Nothing was done”
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Computing climatology...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1307,10 +1330,10 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1320,10 +1343,36 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:13:47] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“Only one grid passed as input. Nothing was done”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Computing climatology...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“Only one grid passed as input. Nothing was done”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slope of the linear trend is estimated based on the temporal resolution of the data. Please consider using the function aggregateGrid prior to the call of linearTrend to adequate the data to your resolution of interest.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Computing climatology...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 16:59:42] - Done.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
@@ -1375,7 +1424,7 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pad applied on the interval: year
 </pre></div>
 </div>
-<img alt="../_images/ac3f0daf82f0e5b75338e23a1b0034f5eca708feb8e5fd862a693117b83c4405.png" src="../_images/ac3f0daf82f0e5b75338e23a1b0034f5eca708feb8e5fd862a693117b83c4405.png" />
+<img alt="../_images/37ce15ee26665175cfdcf1d18c2155f2fd1762eaaef85d79e98dcdac019f896f.png" src="../_images/37ce15ee26665175cfdcf1d18c2155f2fd1762eaaef85d79e98dcdac019f896f.png" />
 </div>
 </div>
 </section>
@@ -1395,7 +1444,7 @@ It has 2 fields
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Fedora Linux 37 (Workstation Edition)
+Running under: Fedora Linux 38 (Workstation Edition)
 
 Matrix products: default
 BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
@@ -1485,8 +1534,8 @@ loaded via a namespace (and not attached):
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "PhantomAurelia/Atlas",
+            ref: "jb-test",
         },
         codeMirrorConfig: {
             theme: "abcdef",

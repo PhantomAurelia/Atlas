@@ -216,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Using the 4th version of the IPCC WGI reference regions in R</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stripes-plots_R.html">Create stripes of anual temperature and precipitation mean values.</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Anexos</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ERRATA.html">Errata and problem reporting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reproducibility/reproducibility.html">Reproducibility scripts</a></li>
@@ -268,6 +268,55 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/PhantomAurelia/Atlas/jb-test?urlpath=lab/tree/./notebooks/reference-regions_R.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -548,7 +597,7 @@ use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) befo
 </summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OGR data source with driver: ESRI Shapefile 
-Source: &quot;/tmp/Rtmpf1IJIR&quot;, layer: &quot;IPCC-WGI-reference-regions-v4&quot;
+Source: &quot;/tmp/RtmpTcyQ2r&quot;, layer: &quot;IPCC-WGI-reference-regions-v4&quot;
 with 58 features
 It has 4 fields
 </pre></div>
@@ -636,7 +685,7 @@ It has 4 fields
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OGR data source with driver: ESRI Shapefile 
-Source: &quot;/tmp/Rtmpf1IJIR&quot;, layer: &quot;ne_110m_coastline&quot;
+Source: &quot;/tmp/RtmpTcyQ2r&quot;, layer: &quot;ne_110m_coastline&quot;
 with 134 features
 It has 3 fields
 Integer64 fields read as strings:  scalerank 
@@ -683,7 +732,7 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/27f872177be909e8c724627c2f4cb2e54c2eaf4c8c8d5d8dd4ecf6f4963f98fd.png" src="../_images/27f872177be909e8c724627c2f4cb2e54c2eaf4c8c8d5d8dd4ecf6f4963f98fd.png" />
+<img alt="../_images/797b4d7767dd29bbd4455e772f8b6484843a31329b6aa5b7894a0459e595b2e3.png" src="../_images/797b4d7767dd29bbd4455e772f8b6484843a31329b6aa5b7894a0459e595b2e3.png" />
 </div>
 </div>
 <section id="selecting-specific-regions">
@@ -717,7 +766,7 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b117d11022cd73d6e70073be85826e2f8c11065da5fd4ccac4189c0f9fad8ea3.png" src="../_images/b117d11022cd73d6e70073be85826e2f8c11065da5fd4ccac4189c0f9fad8ea3.png" />
+<img alt="../_images/0af850764336d118dd2ad3f87bd8a90753c8d3ab1a0091514ca4ae8fd561b823.png" src="../_images/0af850764336d118dd2ad3f87bd8a90753c8d3ab1a0091514ca4ae8fd561b823.png" />
 </div>
 </div>
 <p>or several regions:</p>
@@ -734,7 +783,7 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ddfff410af76402b515c53fb3fe8deed05a0d7d80797a210f85740afc41257bb.png" src="../_images/ddfff410af76402b515c53fb3fe8deed05a0d7d80797a210f85740afc41257bb.png" />
+<img alt="../_images/2cf5287cab215fa4cbbc1a7ba921058ca52c0b61bcddf62883a0bb03e0392321.png" src="../_images/2cf5287cab215fa4cbbc1a7ba921058ca52c0b61bcddf62883a0bb03e0392321.png" />
 </div>
 </div>
 </section>
@@ -844,13 +893,13 @@ It has 2 fields
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:08] Doing inventory ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:27] Doing inventory ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:08] Retrieving info for &#39;tas&#39; (0 vars remaining)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:27] Retrieving info for &#39;tas&#39; (0 vars remaining)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:08] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:27] Done.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of 1
@@ -898,16 +947,16 @@ It has 2 fields
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:08] Defining geo-location parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:27] Defining geo-location parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:09] Defining time selection parameters
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:27] Defining time selection parameters
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:09] Retrieving data subset ...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:27] Retrieving data subset ...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:13] Done
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:31] Done
 </pre></div>
 </div>
 </div>
@@ -933,7 +982,7 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6c325a1f0c909f8ad65f249c183d914a1b355a2b348db6fe69beedc18f631b4d.png" src="../_images/6c325a1f0c909f8ad65f249c183d914a1b355a2b348db6fe69beedc18f631b4d.png" />
+<img alt="../_images/93f5bf38a9edcdc0effc8c1141757b6c57aa2c9e0ff5bb61544a152e69e23e24.png" src="../_images/93f5bf38a9edcdc0effc8c1141757b6c57aa2c9e0ff5bb61544a152e69e23e24.png" />
 </div>
 </div>
 <p>We could also get the annual values using function <code class="docutils literal notranslate"><span class="pre">aggregateGrid</span></code> and plot the annual climatology:</p>
@@ -949,19 +998,19 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:13] Performing annual aggregation...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:32] Performing annual aggregation...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:16] Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:35] Done.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:16] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:35] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:16] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:35] - Done.
 </pre></div>
 </div>
-<img alt="../_images/30c42bb5758b00aedfe57a0e07c53afb076892e2a40a4d126009649aa462d36f.png" src="../_images/30c42bb5758b00aedfe57a0e07c53afb076892e2a40a4d126009649aa462d36f.png" />
+<img alt="../_images/e2f825abf41ea8c021114fd4e9f9e0953604e7db3da93949de9367aa46648cc2.png" src="../_images/e2f825abf41ea8c021114fd4e9f9e0953604e7db3da93949de9367aa46648cc2.png" />
 </div>
 </div>
 <section id="extracting-data-for-the-region-s-of-interest">
@@ -1018,13 +1067,13 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:17] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:36] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:17] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:36] - Done.
 </pre></div>
 </div>
-<img alt="../_images/26212fbe08984af1def4a201f649d6559bbc970bd8a8247df2db61861fb90cd9.png" src="../_images/26212fbe08984af1def4a201f649d6559bbc970bd8a8247df2db61861fb90cd9.png" />
+<img alt="../_images/c09c76d8ebd862cb6f19044a15e295986832ec219c6884ce7baf08f7e8e76cff.png" src="../_images/c09c76d8ebd862cb6f19044a15e295986832ec219c6884ce7baf08f7e8e76cff.png" />
 </div>
 </div>
 <p>Setting the argument <code class="docutils literal notranslate"><span class="pre">subset</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> the spatial object is cropped to the region extent:</p>
@@ -1051,13 +1100,13 @@ It has 2 fields
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:17] - Computing climatology...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:36] - Computing climatology...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-04-19 11:15:17] - Done.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2023-05-07 17:01:36] - Done.
 </pre></div>
 </div>
-<img alt="../_images/4da719e2153a901cf7feb9c7023df6bef34632e793eb870aaf37bc45bad2ba4a.png" src="../_images/4da719e2153a901cf7feb9c7023df6bef34632e793eb870aaf37bc45bad2ba4a.png" />
+<img alt="../_images/7bc2aad3705ea3f3b01c0a1e87a9826709c237b8073ce4b4736d6b2ee54b0c0b.png" src="../_images/7bc2aad3705ea3f3b01c0a1e87a9826709c237b8073ce4b4736d6b2ee54b0c0b.png" />
 </div>
 </div>
 <p>Let’s calculate the regional average and visualize the yearly time series with <code class="docutils literal notranslate"><span class="pre">temporalPlot</span></code>:</p>
@@ -1071,7 +1120,7 @@ It has 2 fields
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pad applied on the interval: year
 </pre></div>
 </div>
-<img alt="../_images/594dc65bd1bb445e3a8af1f771f658ffc93ce779c969d860aad7228e40472fe4.png" src="../_images/594dc65bd1bb445e3a8af1f771f658ffc93ce779c969d860aad7228e40472fe4.png" />
+<img alt="../_images/7d6de805b86c5d45c4f247cfcd785ca7560d291704531a5c21cbfa1cf57258e1.png" src="../_images/7d6de805b86c5d45c4f247cfcd785ca7560d291704531a5c21cbfa1cf57258e1.png" />
 </div>
 </div>
 </section>
@@ -1092,7 +1141,7 @@ It has 2 fields
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R version 3.6.3 (2020-02-29)
 Platform: x86_64-conda-linux-gnu (64-bit)
-Running under: Fedora Linux 37 (Workstation Edition)
+Running under: Fedora Linux 38 (Workstation Edition)
 
 Matrix products: default
 BLAS/LAPACK: /home/phanaur/mambaforge/envs/tfg/lib/libopenblasp-r0.3.21.so
@@ -1192,8 +1241,8 @@ loaded via a namespace (and not attached):
     {
         requestKernel: true,
         binderOptions: {
-            repo: "binder-examples/jupyter-stacks-datascience",
-            ref: "master",
+            repo: "PhantomAurelia/Atlas",
+            ref: "jb-test",
         },
         codeMirrorConfig: {
             theme: "abcdef",
